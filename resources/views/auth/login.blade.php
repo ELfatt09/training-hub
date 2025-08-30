@@ -1,47 +1,80 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<x-app-layout>
+    <section class="w-full flex h-screen">
+        <!-- Left Side -->
+        <div class="w-1/2 flex flex-col justify-center h-screen space-y-4 px-12">
+            <!-- Upper -->
+            <div class="space-y-4">
+                <!-- logo -->
+                <div>
+                    <img class="w-1/4" src='assets/logo/favicon/logo-trainingHub.svg' alt="">
+                </div>
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+                <div>
+                    <!-- Text-->
+                    <div class="text-7xl text-gray-500 font-bold">
+                        Halo, <br> Silahkan <span class="text-primary">Masuk.</span>
+                    </div>
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                    <h3 class="text-gray-500 font-medium">Silahkan masuk dengan akun yang sudah terdaftar</h3>
+                </div>
+            </div>
+
+            <!-- Middle -->
+            <div>
+                <!-- Form -->
+                <form method="POST" action="{{ route('login') }}" class="flex flex-col space-y-2 w-full">
+                    @csrf
+                    
+                    <!-- Email -->
+                    <x-text-input id="email" class="font-medium w-5/6 px-4 py-2 border-2 border-primary rounded-md 
+                        focus:border-secondary focus:ring-0 focus:ring-transparent"
+                        type="email" name="email" :value="old('email')" placeholder="Email"
+                        required autofocus autocomplete="username" />
+                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+
+                    <!-- Password -->
+                    <x-text-input id="password" class="font-medium w-5/6 px-4 py-2 border-2 border-primary rounded-md 
+                        focus:border-secondary focus:ring-0 focus:ring-transparent"
+                        type="password" name="password" placeholder="Kata Sandi"
+                        required autocomplete="current-password" />
+                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+
+                    <!-- Remember -->
+                    <div class="flex mt-2 w-5/6 justify-between items-center">
+                        <div class="flex gap-2 items-center">
+                            <input id="remember_me" type="checkbox" name="remember"
+                                class="text-primary focus:outline-0 focus:ring-0 rounded-sm">
+                            <label for="remember_me">Ingat Saya</label>
+                        </div>
+
+                        @if (Route::has('password.request'))
+                            <a class="text-sm text-primary underline" href="{{ route('password.request') }}">
+                                Lupa Kata Sandi?
+                            </a>
+                        @endif
+                    </div>
+
+                    <!-- Button -->
+                    <div class="flex flex-col mt-12 space-y-8">
+                        <x-primary-button class="bg-primary px-4 py-2 rounded-md text-white text-2xl font-medium 
+                            border border-primary hover:bg-transparent hover:text-primary transition w-5/6">
+                            {{ __('Masuk') }}
+                        </x-primary-button>
+
+                        <h3 class="font-medium">
+                            Belum punya akun? 
+                            <a href="{{ route('register') }}" class="underline text-primary font-medium">
+                                Daftar sekarang
+                            </a>
+                        </h3>
+                    </div>
+                </form>
+            </div>
         </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        <!-- Right Side -->
+        <div class="w-1/2 h-full p-2">
+            <img class="w-full h-full object-cover rounded-xl" src="{{ asset('assets/image 17.png') }}" alt="">
         </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </section>
+</x-app-layout>

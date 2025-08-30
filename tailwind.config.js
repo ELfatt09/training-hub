@@ -11,8 +11,14 @@ export default {
 
     theme: {
         extend: {
+            colors: {
+                primary: '#03585A',
+                secondary: '#14A4AD',
+            },
+
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                plusJakarta: ['plus jakarta', ...defaultTheme.fontFamily.sans]
             },
         },
     },
