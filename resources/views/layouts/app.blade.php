@@ -16,7 +16,9 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-            @include('layouts.navbar')
+            @include('partials.navbar')
+
+             <!-- Lower Content -->
 
             <!-- Page Heading -->
             @isset($header)

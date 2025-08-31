@@ -17,7 +17,7 @@ class TrainingForm
             ->components([
                 FileUpload::make('banner')
                     ->image()
-                    ->maxSize(1024) // Maksimum ukuran file dalam KB
+                    ->maxSize(10240) // Maksimum ukuran file dalam KB (10MB)
                     ->directory('training-banners') // Direktori penyimpanan file
                     ->visibility('public') // Atur visibilitas file
                     ->columnSpanFull(),

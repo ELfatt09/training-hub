@@ -3,17 +3,35 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
     use HasRoles;
 
+    protected static function booted()
+    {
+        static::created(function ($user) {
+            if (! $user->hasAnyRole()) {
+                $user->assignRole('user'); // ganti dengan nama role default
+            }
+        });
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        // hanya role selain "user" yang bisa masuk Filament
+        return ! $this->hasRole('user') || ! Auth::check();
+    }
     /**
      * The attributes that are mass assignable.
      *

@@ -11,14 +11,29 @@ export default {
 
     theme: {
         extend: {
+             keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' }, // geser separo
+        },
+      },
+      animation: {
+        marquee: 'marquee 20s linear infinite',
+      },
+            boxShadow: {
+                'solid-teal': '6px 6px 0px 0px #03585A',
+            },
+
             colors: {
                 primary: '#03585A',
                 secondary: '#14A4AD',
+
+                milk: '#FFF8F8',
             },
 
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-                plusJakarta: ['plus jakarta', ...defaultTheme.fontFamily.sans]
+                jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
             },
         },
     },

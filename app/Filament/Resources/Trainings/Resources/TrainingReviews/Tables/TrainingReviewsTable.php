@@ -13,7 +13,7 @@ class TrainingReviewsTable
     {
         return $table
             ->columns([
-                //
+                
             ])
             ->filters([
                 //
