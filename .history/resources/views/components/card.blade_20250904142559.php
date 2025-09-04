@@ -10,7 +10,7 @@
         <!-- Top -->
         <div class="space-y-1">
             <!-- Title -->
-            <h1 class="text-sm text-primary font-bold text-start">{{ $title }}</h1>
+            <h1 class="text-sm text-primary font-bold text-center">{{ $title }}</h1>
 
             <!-- Stats -->
             <ul class="flex flex-wrap justify-start gap-2 text-xs text-gray-600">
@@ -28,7 +28,7 @@
         </div>
 
         <!-- Detail Desc -->
-        <p class="text-xs font-normal text-darkoff text-start">
+        <p class="text-xs font-normal text-darkoff text-center">
             {{ $deskripsi }}
         </p>
 

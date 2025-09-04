@@ -86,7 +86,7 @@
             <!-- infinity Carousel -->
         <div class="overflow-hidden relative w-full bg-white py-6">
         <div class="flex animate-marquee space-x-12">
-            @foreach(['logo-telkom.svg', 'logo-denso.svg', 'logo-klik.svg', 'logo-sinarmas.svg',  'logo-wika.svg', 'logo-adf.svg','logo-bnp.svg','logo-citraHusada.svg','logo-kirana.svg'] as $logo)
+            @foreach(['logo-telkom.svg', 'logo-denso.svg', 'logo-klik.svg', 'logo-sinarmas.svg',  'logo-wika.svg' 'logo-adf.svg','logo-bnp.svg','logo-citraHusada.svg','logo-kirana.svg'] as $logo)
                 <img src="{{ asset('assets/logo/'.$logo) }}" 
                     class="h-5 lg:h-16 object-contain" alt="sponsor">
             @endforeach
