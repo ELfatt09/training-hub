@@ -1,13 +1,4 @@
 <x-app-layout class="w-full scroll-smooth">
-
-     <!-- Fontawesome -->
-        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
-        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-thin.css">
-        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-solid.css">
-        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css">
-        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css">
-
-
         <!-- Hero -->
      <section id="beranda" class="flex h-fit md::h-[70vh] w-full font-jakarta bg-milk">     
         <!-- Left Side -->
@@ -153,14 +144,6 @@
         </div>
 
         <div class="flex overflow-x-auto md:overflow-x-hidden snap-x md:snap-none snap-mandatory md:grid grid-cols-3 gap-6">
-            {{-- <x-card
-            image='https://picsum.photos/id/1084/536/354?grayscale'
-            title='Lorem Ipsum'
-            pelajaran='11 Pelajaran'
-            status='Online'
-            harga='Gratis'
-            deskripsi='Lorem ipsum dolor sit amet consesctetur elit, desplicit elit oryza sativa,'
-        />
             <x-card
             image='https://picsum.photos/id/1084/536/354?grayscale'
             title='Lorem Ipsum'
@@ -170,14 +153,22 @@
             deskripsi='Lorem ipsum dolor sit amet consesctetur elit, desplicit elit oryza sativa,'
         />
             <x-card
-            class=""
             image='https://picsum.photos/id/1084/536/354?grayscale'
             title='Lorem Ipsum'
             pelajaran='11 Pelajaran'
             status='Online'
             harga='Gratis'
             deskripsi='Lorem ipsum dolor sit amet consesctetur elit, desplicit elit oryza sativa,'
-        /> --}}
+        />
+            <x-card
+            class="hidden md:block"
+            image='https://picsum.photos/id/1084/536/354?grayscale'
+            title='Lorem Ipsum'
+            pelajaran='11 Pelajaran'
+            status='Online'
+            harga='Gratis'
+            deskripsi='Lorem ipsum dolor sit amet consesctetur elit, desplicit elit oryza sativa,'
+        />
         </div>
 
         <div class="flex justify-center mt-4">
@@ -194,6 +185,7 @@
         <!-- Title -->
          <div class="flex flex-col place-items-center md:block gap-2 px-6 md:px-32">
             <div class="flex place-items-center w-full items-center justify-center gap-4">
+                <h1><i class="fa-solid fa-star-of-life text-secondary text-6xl hidden md:block"></i></h1>
                 <h1 class="text-4xl font-bold hidden md:block"> Apa kata pengguna kami?</h1>
 
                 <h1 class="capitalize font-bold text-md md:text-4xl flex items-center gap-2 md:hidden"><i class="fa-solid fa-star-of-life text-secondary"></i> apa kata pengguna kami? <i class="fa-solid fa-star-of-life text-secondary"></i></h1>
@@ -293,6 +285,7 @@
          <div class="block gap-2 px-0 md:px-32">
             <div class="flex md:grid grid-cols-4 gap-4 justify-center items-center">
                 <div class="flex w-full justify-center items-center gap-4 md:col-span-1">
+                    <h1><i class="hidden md:flex fa-solid fa-star-of-life text-secondary text-md md:text-6xl"></i></h1>
                     <h1 class="hidden md:flex text-md md:text-4xl font-bold"> Artikel Kami</h1>
 
                 <h1 class="capitalize font-bold text-md md:text-4xl flex items-center gap-2 md:hidden"><i class="fa-solid fa-star-of-life text-secondary"></i> artikel kami <i class="fa-solid fa-star-of-life text-secondary"></i></h1>
@@ -302,7 +295,7 @@
          </div>
 
             {{-- Card Slider --}}
-        <div class="flex md:hidden gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4">
+        <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4">
             <x-article
                 image="https://picsum.photos/id/1011/400/250"
                 tag="Teknologi"
@@ -336,34 +329,42 @@
 
          {{-- Card --}}
             <div class="hidden md:grid grid-cols-3 gap-4 mt-6 px-24 place-items-center place-content-center">
-                 <x-article
-                image="https://picsum.photos/id/1011/400/250"
-                tag="Teknologi"
-                time="2 Jam yang lalu"
-                title="Lorem Ipsum Dolor Sit Amet Consectetur desplicit Elit Oryza Sativa"
-                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry..."
-            />
-            <x-article
-                image="https://picsum.photos/id/1015/400/250"
-                tag="Teknologi"
-                time="2 Jam yang lalu"
-                title="Lorem Ipsum Dolor Sit Amet Consectetur desplicit Elit Oryza Sativa"
-                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry..."
-            />
-            <x-article
-                image="https://picsum.photos/id/1016/400/250"
-                tag="Teknologi"
-                time="2 Jam yang lalu"
-                title="Lorem Ipsum Dolor Sit Amet Consectetur desplicit Elit Oryza Sativa"
-                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry..."
-            />
-            <x-article
-                image="https://picsum.photos/id/1016/400/250"
-                tag="Teknologi"
-                time="2 Jam yang lalu"
-                title="Lorem Ipsum Dolor Sit Amet Consectetur desplicit Elit Oryza Sativa"
-                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry..."
-            />
+                <x-article
+                    image="https://picsum.photos/id/1011/400/250"
+                    tag="Teknologi"
+                    title="Lorem Ipsum Dolor Sit Amet Consectetur desplicit Elit Oryza Sativa"
+                    description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+                />
+                <x-article
+                    image="https://picsum.photos/id/1015/400/250"
+                    tag="Teknologi"
+                    title="Lorem Ipsum Dolor Sit Amet Consectetur desplicit Elit Oryza Sativa"
+                    description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+                />
+                <x-article
+                    image="https://picsum.photos/id/1016/400/250"
+                    tag="Teknologi"
+                    title="Lorem Ipsum Dolor Sit Amet Consectetur desplicit Elit Oryza Sativa"
+                    description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+                />
+                <x-article
+                    image="https://picsum.photos/id/1011/400/250"
+                    tag="Teknologi"
+                    title="Lorem Ipsum Dolor Sit Amet Consectetur desplicit Elit Oryza Sativa"
+                    description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+                />
+                <x-article
+                    image="https://picsum.photos/id/1015/400/250"
+                    tag="Teknologi"
+                    title="Lorem Ipsum Dolor Sit Amet Consectetur desplicit Elit Oryza Sativa"
+                    description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+                />
+                <x-article
+                    image="https://picsum.photos/id/1016/400/250"
+                    tag="Teknologi"
+                    title="Lorem Ipsum Dolor Sit Amet Consectetur desplicit Elit Oryza Sativa"
+                    description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+                />
             </div>
          {{-- Card --}}
 
@@ -374,6 +375,145 @@
         </div>
         </section>
     {{-- Article End --}}
+
+    <footer class="w-full flex flex-col md:px-12">
+       {{-- Upper --}}
+       <div class="w-full hidden md:flex gap-12 py-4">
+          {{-- Left --}}
+        <div class="block w-1/3 space-y-4">
+            <div>
+                <img class="w-1/3" src="assets/logo/favicon/logo-trainingHub.svg" alt="">
+            </div>
+            <div class="">
+                <h1 class="line-clamp-4 text-justify text-sm">Gorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat</h1>
+            </div>
+        </div>
+        {{-- Left --}}
+
+        {{-- Middle --}}
+            <div class="w-1/3 grid grid-cols-4 gap-4">
+                {{-- Single Category --}}
+                <div>
+                    <div>
+                        <h1 class="font-bold">Lorem</h1>
+                    </div>
+                    <div>
+                        <h2>
+                            Lorem
+                        </h2>
+                        <h2>
+                            Lorem
+                        </h2>
+                        <h2>
+                            Lorem
+                        </h2>
+                        <h2>
+                            Lorem
+                        </h2>
+                        <h2>
+                            Lorem
+                        </h2>
+                    </div>
+                </div>
+                {{-- Single Category End --}}
+                {{-- Single Category --}}
+                <div>
+                    <div>
+                        <h1 class="font-bold">Lorem</h1>
+                    </div>
+                    <div>
+                        <h2>
+                            Lorem
+                        </h2>
+                        <h2>
+                            Lorem
+                        </h2>
+                        <h2>
+                            Lorem
+                        </h2>
+                        <h2>
+                            Lorem
+                        </h2>
+                        <h2>
+                            Lorem
+                        </h2>
+                    </div>
+                </div>
+                {{-- Single Category End --}}
+                {{-- Single Category --}}
+                <div>
+                    <div>
+                        <h1 class="font-bold">Lorem</h1>
+                    </div>
+                    <div>
+                        <h2>
+                            Lorem
+                        </h2>
+                        <h2>
+                            Lorem
+                        </h2>
+                        <h2>
+                            Lorem
+                        </h2>
+                        <h2>
+                            Lorem
+                        </h2>
+                        <h2>
+                            Lorem
+                        </h2>
+                    </div>
+                </div>
+                {{-- Single Category End --}}
+                {{-- Single Category --}}
+                <div>
+                    <div>
+                        <h1 class="font-bold">Lorem</h1>
+                    </div>
+                    <div>
+                        <h2>
+                            Lorem
+                        </h2>
+                        <h2>
+                            Lorem
+                        </h2>
+                        <h2>
+                            Lorem
+                        </h2>
+                        <h2>
+                            Lorem
+                        </h2>
+                        <h2>
+                            Lorem
+                        </h2>
+                    </div>
+                </div>
+                {{-- Single Category End --}}
+            </div>
+        {{-- Middle --}}
+
+        {{-- Right --}}
+            <div class="w-1/3 rounded-lg overflow-hidden shadow">
+            <iframe
+                class="w-full"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.6062216422367!2d106.816666!3d-6.200000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMDAuMCJTIDEwNsKwNDknMDAuMCJF!5e0!3m2!1sen!2sid!4v1695638350025!5m2!1sen!2sid"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            </div>
+        {{-- Right --}}
+       </div>
+       {{-- Upper End --}}
+
+       <hr>
+
+       {{-- Down --}}
+            <div class="flex bg-primary w-full px-6 md:px-0 text-white md:text-darkoff md:bg-white justify-between py-6 text-xs md:text-md">
+                <a href="#beranda"><i class="fa-solid fa-up-to-line"></i> Kembali Ke Atas</a>
+                <h1>&copy; Lorem Ipsum | All Right Reserved</h1>
+            </div>
+       {{-- Down End --}}
+    </footer>
 
 </x-app-layout>
 

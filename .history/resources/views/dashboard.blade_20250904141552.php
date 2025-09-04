@@ -153,7 +153,7 @@
         </div>
 
         <div class="flex overflow-x-auto md:overflow-x-hidden snap-x md:snap-none snap-mandatory md:grid grid-cols-3 gap-6">
-            {{-- <x-card
+            <x-card
             image='https://picsum.photos/id/1084/536/354?grayscale'
             title='Lorem Ipsum'
             pelajaran='11 Pelajaran'
@@ -177,7 +177,7 @@
             status='Online'
             harga='Gratis'
             deskripsi='Lorem ipsum dolor sit amet consesctetur elit, desplicit elit oryza sativa,'
-        /> --}}
+        />
         </div>
 
         <div class="flex justify-center mt-4">

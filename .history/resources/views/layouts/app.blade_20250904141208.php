@@ -14,7 +14,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-jakarta antialiased">
+    <body class="font-sans antialiased">
         <div class="bg-gray-100">
             @include('partials.navbar')
 

@@ -1,5 +1,5 @@
   <!-- Single Card -->
-<div class=" max-w-[18rem] md:max-w-[20rem] flex-shrink-0 bg-white shadow-md rounded-lg overflow-hidden border border-primary">
+<div class="w[] max-w-[18rem] md:max-w-[20rem] flex-shrink-0 bg-white shadow-md rounded-lg overflow-hidden border border-primary">
     <!-- Image -->
         <div class="w-full flex justify-center items-center py-4">
             <img class="w-10/12  md:w-11/12 h-32 md:h-48 object-cover rounded-md" src="{{ $image }}" alt="">
