@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Homepage;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -8,7 +9,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return Homepage::index();
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/detail-pelatihan', function () {

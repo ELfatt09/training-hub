@@ -153,31 +153,21 @@
         </div>
 
         <div class="flex overflow-x-auto md:overflow-x-hidden snap-x md:snap-none snap-mandatory md:grid grid-cols-3 gap-6">
-            <x-card
-            image='https://picsum.photos/id/1084/536/354?grayscale'
-            title='Lorem Ipsum'
-            pelajaran='11 Pelajaran'
-            status='Online'
-            harga='Gratis'
-            deskripsi='Lorem ipsum dolor sit amet consesctetur elit, desplicit elit oryza sativa,'
-        />
-            <x-card
-            image='https://picsum.photos/id/1084/536/354?grayscale'
-            title='Lorem Ipsum'
-            pelajaran='11 Pelajaran'
-            status='Online'
-            harga='Gratis'
-            deskripsi='Lorem ipsum dolor sit amet consesctetur elit, desplicit elit oryza sativa,'
-        />
-            <x-card
-            class=""
-            image='https://picsum.photos/id/1084/536/354?grayscale'
-            title='Lorem Ipsum'
-            pelajaran='11 Pelajaran'
-            status='Online'
-            harga='Gratis'
-            deskripsi='Lorem ipsum dolor sit amet consesctetur elit, desplicit elit oryza sativa,'
-        />
+@forelse ($topTrainings as $training)
+    <x-card
+        image="{{ asset('storage/' . $training->banner) }}"
+        title="{{ $training->title }}"
+        pelajaran="11 Pelajaran"
+        status="{{ $training->type }}"
+        harga="Gratis"
+        deskripsi="{{ $training->description }}"
+    />
+@empty
+    <p class="text-center text-lg text-red-500">
+        Terjadi kesalahan saat mengambil data pelatihan unggulan. Silahkan coba lagi nanti.
+    </p>
+@endforelse
+            
         </div>
 
         <div class="flex justify-center mt-4">
