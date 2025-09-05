@@ -13,7 +13,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/detail-pelatihan', function () {
-    return view('detailPelatihan');
+    return view('pelatihan/detail_pelatihan');
 })->name('detail.pelatihan');
 
 Route::middleware('auth')->group(function () {
