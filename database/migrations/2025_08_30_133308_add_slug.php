@@ -11,12 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-
+        Schema::table('trainings', function (Blueprint $table) {
+            if (!Schema::hasColumn('trainings', 'slug')) {
+                $table->string('slug')->after('title')->unique()->index()->nullable();
+            }
+        });
         Schema::table('training_sections', function (Blueprint $table) {
-            $table->string('slug')->after('title')->unique()->index();
+            if (!Schema::hasColumn('training_sections', 'slug')) {
+                $table->string('slug')->after('title')->unique()->index()->nullable();
+            }
         });
         Schema::table('training_materials', function (Blueprint $table) {
-            $table->string('slug')->after('title')->unique()->index();
+            if (!Schema::hasColumn('training_materials', 'slug')) {
+                $table->string('slug')->after('title')->unique()->index()->nullable();
+            }
         });
     }
 
@@ -25,11 +33,21 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('trainings', function (Blueprint $table) {
+            if (Schema::hasColumn('trainings', 'slug')) {
+                $table->dropColumn('slug');
+            }
+        });
         Schema::table('training_sections', function (Blueprint $table) {
-            $table->dropColumn('slug');
+            if (Schema::hasColumn('training_sections', 'slug')) {
+                $table->dropColumn('slug');
+            }
         });
         Schema::table('training_materials', function (Blueprint $table) {
-            $table->dropColumn('slug');
+            if (Schema::hasColumn('training_materials', 'slug')) {
+                $table->dropColumn('slug');
+            }
         });
     }
 };
+

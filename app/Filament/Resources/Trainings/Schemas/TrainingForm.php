@@ -16,11 +16,16 @@ class TrainingForm
         return $schema
             ->components([
                 FileUpload::make('banner')
+                
                     ->image()
                     ->maxSize(10240) // Maksimum ukuran file dalam KB (10MB)
                     ->directory('training-banners') // Direktori penyimpanan file
                     ->visibility('public') // Atur visibilitas file
                     ->columnSpanFull(),
+                Select::make('major_id')
+                    ->label('Major')
+                    ->relationship('major', 'title')
+                    ->required(),
                 TextInput::make('title')
                     ->required(),
                 Textarea::make('description')
