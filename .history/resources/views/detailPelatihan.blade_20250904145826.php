@@ -1,0 +1,31 @@
+<x-guest-layout>
+    {{-- Breadcrumb --}}
+
+    {{-- Breadcrumb End--}}
+
+    {{-- Main --}}
+        <div class="grid grid-cols-3 w-full">
+            <div class="col-span-2 w-full">
+                {{-- Image --}}
+                <div class="w-full">
+                    <img class="object-cover" src="https://picsum.photos/536/354" alt="">
+                </div>
+
+                {{-- Title --}}
+                <div>
+                    <h1>Lorem ipsum dolor sit amet.</h1>
+                </div>
+
+                {{-- Info --}}
+                <div>
+                    {{-- Source --}}
+                    <div>
+
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    {{-- Main --}}
+</x-guest-layout>

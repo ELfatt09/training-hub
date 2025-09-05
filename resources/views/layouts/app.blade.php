@@ -21,8 +21,8 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+    <body class="font-jakarta antialiased">
+        <div class="bg-gray-100">
             @include('partials.navbar')
 
              <!-- Lower Content -->
@@ -40,6 +40,8 @@
             <main>
                 {{ $slot }}
             </main>
+
+            @include('partials.footer')
         </div>
     </body>
 </html>

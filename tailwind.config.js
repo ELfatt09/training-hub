@@ -18,22 +18,26 @@ export default {
         },
       },
       animation: {
-        marquee: 'marquee 20s linear infinite',
+        marquee: 'marquee 10s linear infinite',
+        marquee20: 'marquee 20s linear infinite',
       },
             boxShadow: {
-                'solid-teal': '6px 6px 0px 0px #03585A',
+                'solid-teal': '24px 24px 0px 0px #03585A',
             },
 
             colors: {
                 primary: '#03585A',
                 secondary: '#14A4AD',
 
+                lightoff: '#F8F8F8',
+                darkoff:'#7F7C7C',
+
                 milk: '#FFF8F8',
             },
 
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-                jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
+                jakarta: ['Plus Jakarta Sans', 'sans-serif'],
             },
         },
     },
