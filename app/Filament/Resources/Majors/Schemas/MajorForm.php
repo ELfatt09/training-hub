@@ -17,7 +17,6 @@ class MajorForm
                 FileUpload::make('svg_icon')
                     ->image()
                     ->acceptedFileTypes(['image/svg+xml'])
-                    
                     ->required()
                     ->disk('public')
                     ->visibility('public')

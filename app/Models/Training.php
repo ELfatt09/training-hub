@@ -5,11 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\TrainingSection;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Training extends Model
 {
     protected $fillable = [
         'title',
+        'banner',
+        'major_id',
         'slug',
         'description',
         'type',
@@ -23,6 +26,10 @@ class Training extends Model
         static::creating(function ($model) {
             $model->slug = Str::slug($model->title . '-' . $model->id);
         });
+    }
+
+    public function major() {
+        return $this->belongsTo(Major::class);
     }
 
     public function trainingSections() {
