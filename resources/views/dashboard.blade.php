@@ -4,39 +4,41 @@
 
 
         <!-- Hero -->
-     <section id="beranda" class="flex h-fit md:h-[85vh] w-full font-jakarta bg-milk">     
+     <section id="beranda" class="flex lg:flex-row flex-col h-fit w-full font-jakarta bg-milk pb-10">     
         <!-- Left Side -->
-         <div class="h-full py-16 md:py-56 w-full px-6 md:w-1/2 md:px-20 space-y-12">
+         <div class="h-full mt-16 md:mt-56 w-full ps-6 pe-12 lg:w-7/12 lg:ps-20 space-y-7">
             <!-- Hero text -->
-             <div class="space-y-6">
-                <div class="w-full flex flex-col place-items-center md:place-items-start">
-                    <h1 class="text-primary text-2xl font-semibold 
-                    md:text-7xl">
+             <div class="space-y-0">
+                <div class="w-full flex flex-col">
+                    <h1 class="text-primary text-center lg:text-start text-4xl font-semibold 
+                    lg:text-7xl lg:leading-[1.3]">
                     Lorem Ipsum
                 </h1>
-                    <h2 class="text-black text-lg font-semibold line-clamp-2 text-center 
-                    md:text-6xl md:text-start">
+                    <h2 class="text-black text-3xl  font-semibold  text-center 
+                    lg:text-6xl lg:text-start lg:leading-[1.3]">
                     Dolor sit amet Consectetur Elit</h2>
                 </div>
 
-                <div>
-                    <p class="text-sm md:text-md font-jakarta font-medium text-darkoff">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum".</p>
-                </div>
+                
              </div>
             <!-- Hero text -->
 
+            <div class="p-2">
+                    <p class="text-sm md:text-xl font-jakarta font-normal text-darkoff text-center lg:text-start">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum".</p>
+                </div>
+
             <!-- Button -->
-             <div class=" md:grid grid-cols-3 place-items-center">
-                <div>
-                    <a class="col-span-1 bg-primary border-2 font-semibold border-primary hover:bg-transparent hover:text-primary hover:border-primary transition text-white rounded-md py-2 px-6 text-md md:text-2xl" href="">Lorem Ipsum</a>
+             <div class="flex flex-row space-x-6 justify-center items-center md:justify-start w-full h-fit md:space-x-12 lg:space-x-16">
+                <div class="w-auto">
+                    <a class="bg-primary whitespace-nowrap font-bold hover:bg-transparent hover:text-primary hover:border-primary border-2 border-transparent transition text-white rounded-xl py-2 px-3 text-md xl:text-xl xl:leading-[1] leading-none lg:py-4 lg:px-7" href="">Lorem Ipsum</a>
                 </div>
 
                 <div class="hidden md:flex place-items-center">
                     <h1 class="col-span-q text-xl font-medium">Lorem ipsum dolor </br> sit amet.</h1>
                 </div>
 
-                <div>
-                    <a class="hidden md:block col-span-1 bg-primary border border-primary hover:bg-transparent hover:text-primary transition px-5 py-4 text-white rounded-full text-xl font-bold" href="#program"><i class="fa-solid fa-arrow-down-long"></i></a>
+                <div class="hidden md:block col-span-1">
+                    <a class="bg-primary border border-primary hover:bg-transparent hover:text-primary transition px-5 py-4 text-white rounded-full text-xl font-bold" href="#program"><i class="fa-solid fa-arrow-down-long"></i></a>
                 </div>
              </div>
             <!-- Button -->
@@ -44,35 +46,35 @@
         <!-- Left Side -->
 
         <!-- Right Side -->
-         <div class="hidden md:flex flex-col justify-end mt-60 px-20 w-1/2 h-[50vh]">
+         <div class="flex flex-col justify-center items-center mt-16 lg:mt-60 px-5 w-full lg:w-5/12 h-full space-y-16">
             <!-- Image -->
-                <div class="w-full h-full flex">
-                <img class="w-full h-5/6 shadow-solid-teal rounded-md" src="https://picsum.photos/id/0/200/300" alt="">
+                <div class="w-full sm:w-1/2 lg:w-full h-full flex px-15">
+                <img class="w-full h-auto border-r-[15px] border-b-[15px] border-primary rounded-2xl" src="https://picsum.photos/300/200" alt="">
             </div>
-            <div class="bg-white w-fit h-fit px-4 py-2 shadow-lg absolute top-36 right-10 rounded-md">
+            <div class="hidden lg:block bg-white w-fit h-fit px-4 py-2 shadow-lg absolute top-40 right-10 rounded-md">
                     <h1 class="text-xl">Lorem Ipsum</h1>
                     <p>Lorem ipsum dolor sit amet.</p>
             </div>
             <!-- Image End -->
 
             <!-- Stats -->
-             <div class="grid grid-cols-4 font-jakarta">
+             <div class="flex flex-row justify-between w-full space-x-5 px-10 font-jakarta">
                 <!-- Single Stats -->
                     <div class="flex col-span-1 flex-col place-items-center">
                         <h1 class="text-primary font-extrabold text-xl">500+</h1>
-                        <h2 class="font-semibold">Lorem Ipsum</h2>
+                        <h2 class="font-semibold text-xs sm:text-sm md:text-base text-center">Lorem Ipsum</h2>
+                    </div>
+                    <div class="flex col-span-1 flex-col place-items-center">
+                        <h1 class="text-primary font-extrabold text-lg md:text-xl">500+</h1>
+                        <h2 class="font-semibold text-xs sm:text-sm md:text-base text-center">Lorem Ipsum</h2>
                     </div>
                     <div class="flex col-span-1 flex-col place-items-center">
                         <h1 class="text-primary font-extrabold text-xl">500+</h1>
-                        <h2 class="font-semibold">Lorem Ipsum</h2>
+                        <h2 class="font-semibold text-xs sm:text-sm md:text-base text-center">Lorem Ipsum</h2>
                     </div>
                     <div class="flex col-span-1 flex-col place-items-center">
                         <h1 class="text-primary font-extrabold text-xl">500+</h1>
-                        <h2 class="font-semibold">Lorem Ipsum</h2>
-                    </div>
-                    <div class="flex col-span-1 flex-col place-items-center">
-                        <h1 class="text-primary font-extrabold text-xl">500+</h1>
-                        <h2 class="font-semibold">Lorem Ipsum</h2>
+                        <h2 class="font-semibold text-xs sm:text-sm md:text-base text-center">Lorem Ipsum</h2>
                     </div>
                 <!-- Single Stats End -->
              </div>
@@ -85,15 +87,18 @@
 
             <!-- infinity Carousel -->
         <div class="overflow-hidden relative w-full bg-white py-6">
-        <div class="flex animate-marquee space-x-12">
+        <div class="flex animate-marquee space-x-6 justify-center items-center">
             @foreach(['logo-telkom.svg', 'logo-denso.svg', 'logo-klik.svg', 'logo-sinarmas.svg',  'logo-wika.svg', 'logo-adf.svg','logo-bnp.svg','logo-citraHusada.svg','logo-kirana.svg'] as $logo)
                 <img src="{{ asset('assets/logo/'.$logo) }}" 
-                    class="h-5 lg:h-16 object-contain" alt="sponsor">
+                    class="h-16 object-contain" alt="sponsor">
+                <i class="fa-solid fa-star-of-life text-2xl text-primary"></i>
             @endforeach
 
             @foreach(['logo-adf.svg','logo-bnp.svg','logo-citraHusada.svg','logo-denso.svg','logo-kirana.svg', 'logo-klik.svg', 'logo-sinarmas.svg', 'logo-telkom.svg', 'logo-wika.svg'] as $logo)
                 <img src="{{ asset('assets/logo/'.$logo) }}" 
-                    class="h-5 lg:h-16 object-contain" alt="sponsor">
+                    class="h-16 object-contain" alt="sponsor">
+                                    <i class="fa-solid fa-star-of-life text-2xl text-primary"></i>
+
             @endforeach
         </div>
         </div>
@@ -102,9 +107,9 @@
     <!-- Program Kejuruan -->
      <section id="kejuruan" class="h-[90vh] md-h[50vh] w-full flex flex-col space-y-12 justify-center items-center bg-milk">
         <!-- Text -->
-        <div class="flex flex-col px-6 md:px-0 justify-center items-center space-y-3">
-            <h1 class="capitalize gap-4 font-bold text-md md:text-4xl"><i class="fa-solid fa-star-of-life text-secondary"></i> program kejuruan kami <i class="fa-solid fa-star-of-life text-secondary"></i></h1>
-            <p class="text-justify md:text-center text-sm md:text-md font-medium text-gray-500 line-clamp-4 md:line-clamp-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus eu ante nec luctus. <br class="hidden md:block"> Maecenas lacus dui, porta eu ullamcorper eget, dignissim at elit. Ut lorem risus, volutpat a risus ut, lobortis aliquet orci.</p>
+        <div class="flex flex-col px-6 md:px-0 justify-center items-center space-y-1 md:space-y-3">
+            <h1 class="capitalize gap-4 font-bold text-2xl md:text-4xl"><i class="fa-solid fa-star-of-life text-secondary"></i> program kejuruan kami <i class="fa-solid fa-star-of-life text-secondary"></i></h1>
+            <p class="text-center text-xs md:text-base font-semibold text-gray-500 p-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus eu ante nec luctus. <br class="hidden md:block"> Maecenas lacus dui, porta eu ullamcorper eget, dignissim at elit. Ut lorem risus, volutpat a risus ut, lobortis aliquet orci.</p>
         </div>
 
         <!-- Swiper -->
@@ -114,12 +119,12 @@
     <!-- Slider -->
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
-        @foreach(range(1,8) as $item)
+        @foreach($majors as $major)
         <div class="swiper-slide w-fit">
-          <div class="flex justify-center items-center">
-            <i class="fa-solid fa-wrench text-5xl text-primary mb-3"></i>
+          <div class="flex justify-center items-center mb-4">
+            <img class="fill-primary stroke-primary h-20 w-auto " src="{{ asset('storage/'.$major->svg_icon) }}" />
           </div>
-          <p class="text-sm text-center font-medium">Lorem Ipsum Dolor</p>
+          <p class="text-base text-center font-semibold">{{ $major->title }}</p>
         </div>
         @endforeach
       </div>
@@ -145,28 +150,29 @@
     <!-- Program Kejuruan End -->
 
     <!-- Pelatihan Unggulan -->
-     <section id="pelatihan" class="h-fit md:h-[100vh] px-6 md:px-0 w-full flex flex-col space-y-12 justify-center items-center bg-milk">
+     <section id="pelatihan" class="h-fit px-6 md:px-0 w-full flex flex-col space-y-12 justify-center items-center bg-milk">
         <!-- Title -->
         <div class="flex flex-col justify-center items-center space-y-3">
             <h1 class="capitalize font-bold text-md md:text-4xl"><i class="fa-solid fa-star-of-life text-secondary"></i> pelatihan unggulan kami <i class="fa-solid fa-star-of-life text-secondary"></i></h1>
-            <p class="text-justify md:text-center text-sm md:text-lg font-medium text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus eu ante nec luctus. Maecenas lacus dui, porta eu <br> ullamcorper eget, dignissim at elit. Ut lorem risus, volutpat a risus ut, lobortis aliquet orci.</p>
+            <p class="text-justify md:text-center text-sm md:text-base font-semibold text-gray-500 p-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus eu ante nec luctus. Maecenas lacus dui, porta eu <br> ullamcorper eget, dignissim at elit. Ut lorem risus, volutpat a risus ut, lobortis aliquet orci.</p>
         </div>
 
-        <div class="flex overflow-x-auto md:overflow-x-hidden snap-x md:snap-none snap-mandatory md:grid grid-cols-3 gap-6">
-@forelse ($topTrainings as $training)
-    <x-card
-        image="{{ asset('storage/' . $training->banner) }}"
-        title="{{ $training->title }}"
-        pelajaran="11 Pelajaran"
-        status="{{ $training->type }}"
-        harga="Gratis"
-        deskripsi="{{ $training->description }}"
-    />
-@empty
-    <p class="text-center text-lg text-red-500">
-        Terjadi kesalahan saat mengambil data pelatihan unggulan. Silahkan coba lagi nanti.
-    </p>
-@endforelse
+        <div class="flex flex-wrap justify-center items-center gap-5 w-full">
+            {{-- Card --}}
+            @forelse ($topTrainings as $training)
+                <x-card
+                    image="{{ asset('storage/' . $training->banner) }}"
+                    title="{{ $training->title }}"
+                    pelajaran="11 Pelajaran"
+                    status="{{ $training->type }}"
+                    harga="Gratis"
+                    deskripsi="{{ $training->description }}"
+                />
+            @empty
+                <p class="text-center text-lg text-red-500">
+                    Terjadi kesalahan saat mengambil data pelatihan unggulan. Silahkan coba lagi nanti.
+                </p>
+            @endforelse
             
         </div>
 

@@ -1,19 +1,21 @@
 <!-- Single Card -->
-<div class="w-[80%] md:w-full max-w-sm flex-shrink-0 bg-white shadow-md rounded-lg overflow-hidden border border-primary mx-auto">
+<div class="w-full max-w-sm flex-shrink-0 bg-white shadow-md rounded-lg overflow-hidden border border-primary  p-4">
     <!-- Image -->
-    <div class="w-full flex justify-center items-center py-2">
-        <img class="w-10/12 h-24 object-cover rounded-md" src="{{ $image }}" alt="">
+    <div class="w-full h-60 flex justify-center items-center p-2">
+        <img class="w-full h-full object-cover rounded-md" src="{{ $image }}" alt="">
     </div>
 
     <!-- Description -->
-    <div class="p-2 space-y-2">
+    <div>
         <!-- Top -->
-        <div class="space-y-1">
             <!-- Title -->
-            <h1 class="text-sm text-primary font-bold text-start">{{ $title }}</h1>
+            <h1 class="text-xl text-primary font-bold text-start px-1 py-2 space-y-2">{{ $title }}</h1>
 
+        
             <!-- Stats -->
-            <ul class="flex flex-wrap justify-start gap-2 text-xs text-gray-600">
+            <div  class="flex-col space-y-7">
+            <div class="flex-col space-y-2">
+            <ul class="flex flex-wrap justify-start space-x-8 text-sm text-black p-2">
                 <li>
                     <i class="fa-solid fa-book"></i> <span class="font-bold">{{ $pelajaran }}</span>
                 </li>
@@ -21,24 +23,25 @@
                     <i class="fa-solid fa-wifi"></i> <span class="font-bold">{{ $status }}</span>
                 </li>
                 <li>
-                    <i class="fa-solid fa-money-bill-wave"></i> 
                     <span class="text-primary font-bold">{{ $harga }}</span>
                 </li>
             </ul>
-        </div>
+            
 
         <!-- Detail Desc -->
-        <p class="text-xs font-normal text-darkoff text-start">
-            {{ $deskripsi }}
+        <p class="text-sm font-normal text-black text-start p-2 leading-[1.5]">
+            {{ Str::limit($deskripsi, 100) }}
         </p>
+            </div>
 
         <!-- Button -->
         <div class="w-full">
             <a href="#" 
-               class="w-full text-xs flex justify-center items-center bg-primary font-medium border border-primary text-white px-2 py-1 rounded-md hover:text-primary hover:border hover:bg-transparent transition">
+               class="p-2 w-full text-sm flex justify-center items-center bg-transparent   text-primary border-primary border hover:bg-primary hover:text-white font-bold rounded-md hover:border hover:bg-transparent transition">
                Pelajari Sekarang
             </a>
         </div>
+    </div>
     </div>
 </div>
 <!-- Single Card End -->
