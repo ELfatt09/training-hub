@@ -22,7 +22,8 @@ class MajorForm
                     ->visibility('public')
                     ->directory('majors')
                     ->maxSize(1024)
-                    ->label('SVG Icon (Max: 1MB)'),
+                    ->label('SVG Icon (Max: 1MB)')
+                    ->default('majors/default.svg'),
                
             ]);
     }

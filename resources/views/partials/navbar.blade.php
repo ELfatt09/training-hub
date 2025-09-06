@@ -56,7 +56,7 @@
 
                 <!-- Logo -->
                 <div class="hidden lg:flex items-center">
-                    <img class="size-4/6" src="assets/logo/favicon/logo-trainingHub.svg" alt="">
+                    <img class="size-4/6" src={{ asset('assets/logo/favicon/logo-trainingHub.svg') }} alt="Logo TrainingHub" loading="lazy" alt="">
                 </div>
                 <!-- Logo End -->
 

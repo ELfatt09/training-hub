@@ -16,7 +16,7 @@ class TrainingForm
         return $schema
             ->components([
                 FileUpload::make('banner')
-                
+                    ->disk('public') // Disk penyimpanan file
                     ->image()
                     ->maxSize(10240) // Maksimum ukuran file dalam KB (10MB)
                     ->directory('training-banners') // Direktori penyimpanan file
