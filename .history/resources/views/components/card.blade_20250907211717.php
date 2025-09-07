@@ -1,14 +1,14 @@
 <!-- Single Card -->
-<div class="w-full h-full max-h-[65vh] max-w-sm flex-shrink-0 bg-white shadow-md rounded-lg overflow-hidden border border-primary p-4">
+<div class="w-full h-full max-h-[60vh] max-w-sm flex-shrink-0 bg-white shadow-md rounded-lg overflow-hidden border border-primary p-4">
     <!-- Image -->
     <div class="w-full h-60 flex justify-center items-center p-2">
         <img class="w-full h-full object-cover rounded-md" src="{{ asset('storage/' . $training->banner) }}" alt="">
     </div>
 
     <!-- Description -->
-    <div class="space-y-4 mb-8">
-        <h1 class="text-xl font-semibold text-primary">{{ $training->title }}</h1>
-        <ul class="flex gap-4 text-sm">
+    <div class="space-y-2 mb-8">
+        <h1 class="text-lg font-semibold text-primary">{{ $training->title }}</h1>
+        <ul class="flex gap-4">
             <li>
                 <i class="fa-solid fa-book"></i> 
                 <span class="font-bold">{{ $training->getMaterialCountAttribute() }} Pelajaran</span>

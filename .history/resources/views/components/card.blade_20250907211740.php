@@ -1,5 +1,5 @@
 <!-- Single Card -->
-<div class="w-full h-full max-h-[65vh] max-w-sm flex-shrink-0 bg-white shadow-md rounded-lg overflow-hidden border border-primary p-4">
+<div class="w-full h-full max-h-[60vh] max-w-sm flex-shrink-0 bg-white shadow-md rounded-lg overflow-hidden border border-primary p-4">
     <!-- Image -->
     <div class="w-full h-60 flex justify-center items-center p-2">
         <img class="w-full h-full object-cover rounded-md" src="{{ asset('storage/' . $training->banner) }}" alt="">
