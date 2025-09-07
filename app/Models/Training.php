@@ -49,4 +49,9 @@ class Training extends Model
         return $this->hasMany(TrainingReview::class);
     }
 
+    
+    public function subscribers() {
+        return $this->hasMany(trainings_subscriber::class, 'training_id');
+    }
+
 }

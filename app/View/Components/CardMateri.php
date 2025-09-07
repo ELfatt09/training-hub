@@ -9,21 +9,21 @@ use Illuminate\View\Component;
 class CardMateri extends Component
 {
     public $title;
-    public $jenis;
     public $bab;
-    public $durasi;
+    public $materi;
+    public $accordionid;
 
     public function __construct(
         $title,
-        $jenis,
         $bab,
-        $durasi,
+        $materi,
+        $accordionid
     )
     {
         $this->title=$title;
-        $this->jenis=$jenis;
         $this->bab=$bab;
-        $this->durasi=$durasi;
+        $this->materi=$materi;
+        $this->accordionid=$accordionid;
     }
 
     /**

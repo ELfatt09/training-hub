@@ -102,12 +102,15 @@
                         {{-- Title --}}
 
                         {{-- Materinya --}}
+                        @foreach ($training->trainingSections as $section)
                             <x-card-materi
-                                title="Lorem Ipsum"
-                                jenis="Video"
-                                bab="5 Bab"
-                                durasi="5 Jam"
+                                :title="$section->title"
+                                :materi="$section->trainingMaterials"
+                                :bab="$section->trainingMaterials->count() . ' Bab'"
+                                :accordionid="$loop->index + 1"
+                            
                             />
+                        @endforeach
                         {{-- Materinya --}}
                     </div>
                 {{-- Materi --}}
