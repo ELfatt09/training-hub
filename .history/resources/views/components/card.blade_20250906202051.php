@@ -1,0 +1,47 @@
+<!-- Single Card -->
+<div class="w-full max-w-sm flex-shrink-0 bg-white shadow-md rounded-lg overflow-hidden border border-primary  p-4">
+    <!-- Image -->
+    <div class="w-full h-60 flex justify-center items-center p-2">
+        <img class="w-full h-full object-cover rounded-md" src="{{ $image }}" alt="">
+    </div>
+
+    <!-- Description -->
+    <div>
+        <!-- Top -->
+            <!-- Title -->
+            <h1 class="text-xl text-primary font-bold text-start px-1 py-2 space-y-2">{{ $title }}</h1>
+
+        
+            <!-- Stats -->
+            <div  class="flex-col space-y-7">
+            <div class="flex-col space-y-2">
+            <ul class="flex flex-wrap justify-start space-x-8 text-sm text-black p-2">
+                <li>
+                    <i class="fa-solid fa-book"></i> <span class="font-bold">{{ $pelajaran }}</span>
+                </li>
+                <li>
+                    <i class="fa-solid fa-wifi"></i> <span class="font-bold">{{ $status }}</span>
+                </li>
+                <li>
+                    <span class="text-primary font-bold">{{ $harga }}</span>
+                </li>
+            </ul>
+            
+
+        <!-- Detail Desc -->
+        <p class="text-sm font-normal text-black text-start p-2 leading-[1.5]">
+            {{ Str::limit($deskripsi, 100) }}
+        </p>
+            </div>
+
+        <!-- Button -->
+        <div class="w-full">
+            <a href="#" 
+               class="p-2 w-full text-sm flex justify-center items-center bg-transparent   text-primary border-primary border hover:bg-primary hover:text-white font-bold rounded-md hover:border hover:bg-transparent transition">
+               Pelajari Sekarang
+            </a>
+        </div>
+    </div>
+    </div>
+</div>
+<!-- Single Card End -->

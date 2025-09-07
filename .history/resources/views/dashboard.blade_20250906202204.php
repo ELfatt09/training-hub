@@ -79,20 +79,17 @@
      </section>
     <!-- Hero End -->
 
-                        <!-- infinity Carousel -->
+            <!-- infinity Carousel -->
         <div class="overflow-hidden relative w-full bg-white py-6">
-        <div class="flex animate-marquee space-x-6 justify-center items-center">
+        <div class="flex animate-marquee space-x-12">
             @foreach(['logo-telkom.svg', 'logo-denso.svg', 'logo-klik.svg', 'logo-sinarmas.svg',  'logo-wika.svg', 'logo-adf.svg','logo-bnp.svg','logo-citraHusada.svg','logo-kirana.svg'] as $logo)
                 <img src="{{ asset('assets/logo/'.$logo) }}" 
-                    class="h-16 object-contain" alt="sponsor">
-                <i class="fa-solid fa-star-of-life text-2xl text-primary"></i>
+                    class="h-5 lg:h-16 object-contain" alt="sponsor">
             @endforeach
 
             @foreach(['logo-adf.svg','logo-bnp.svg','logo-citraHusada.svg','logo-denso.svg','logo-kirana.svg', 'logo-klik.svg', 'logo-sinarmas.svg', 'logo-telkom.svg', 'logo-wika.svg'] as $logo)
                 <img src="{{ asset('assets/logo/'.$logo) }}" 
-                    class="h-16 object-contain" alt="sponsor">
-                                    <i class="fa-solid fa-star-of-life text-2xl text-primary"></i>
-
+                    class="h-5 lg:h-16 object-contain" alt="sponsor">
             @endforeach
         </div>
         </div>
@@ -101,9 +98,9 @@
     <!-- Program Kejuruan -->
      <section id="kejuruan" class="h-[90vh] md-h[50vh] w-full flex flex-col space-y-12 justify-center items-center bg-milk">
         <!-- Text -->
-        <div class="flex flex-col px-6 md:px-0 justify-center items-center space-y-1 md:space-y-3">
-            <h1 class="capitalize gap-4 font-bold text-2xl md:text-4xl"><i class="fa-solid fa-star-of-life text-secondary"></i> program kejuruan kami <i class="fa-solid fa-star-of-life text-secondary"></i></h1>
-            <p class="text-center text-xs md:text-base font-semibold text-gray-500 p-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus eu ante nec luctus. <br class="hidden md:block"> Maecenas lacus dui, porta eu ullamcorper eget, dignissim at elit. Ut lorem risus, volutpat a risus ut, lobortis aliquet orci.</p>
+        <div class="flex flex-col px-6 md:px-0 justify-center items-center space-y-3">
+            <h1 class="capitalize gap-4 font-bold text-md md:text-4xl"><i class="fa-solid fa-star-of-life text-secondary"></i> program kejuruan kami <i class="fa-solid fa-star-of-life text-secondary"></i></h1>
+            <p class="text-justify md:text-center text-sm md:text-md font-medium text-gray-500 line-clamp-4 md:line-clamp-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus eu ante nec luctus. <br class="hidden md:block"> Maecenas lacus dui, porta eu ullamcorper eget, dignissim at elit. Ut lorem risus, volutpat a risus ut, lobortis aliquet orci.</p>
         </div>
 
         <!-- Swiper -->
@@ -113,12 +110,12 @@
     <!-- Slider -->
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
-        @foreach($majors as $major)
+        @foreach(range(1,8) as $item)
         <div class="swiper-slide w-fit">
-          <div class="flex justify-center items-center mb-4">
-            <img class="fill-primary stroke-primary h-20 w-auto " src="{{ asset('storage/'.$major->svg_icon) }}" />
+          <div class="flex justify-center items-center">
+            <i class="fa-solid fa-wrench text-5xl text-primary mb-3"></i>
           </div>
-          <p class="text-base text-center font-semibold">{{ $major->title }}</p>
+          <p class="text-sm text-center font-medium">Lorem Ipsum Dolor</p>
         </div>
         @endforeach
       </div>
@@ -143,48 +140,68 @@
      </section>
     <!-- Program Kejuruan End -->
 
-    <!-- Pelatihan Unggulan -->
-     <section id="pelatihan" class="h-fit px-6 md:px-0 w-full flex flex-col space-y-12 justify-center items-center bg-milk">
-        <!-- Title -->
-        <div class="flex flex-col justify-center items-center space-y-3">
-            <h1 class="capitalize font-bold text-md md:text-4xl"><i class="fa-solid fa-star-of-life text-secondary"></i> pelatihan unggulan kami <i class="fa-solid fa-star-of-life text-secondary"></i></h1>
-            <p class="text-justify md:text-center text-sm md:text-base font-semibold text-gray-500 p-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus eu ante nec luctus. Maecenas lacus dui, porta eu <br> ullamcorper eget, dignissim at elit. Ut lorem risus, volutpat a risus ut, lobortis aliquet orci.</p>
-        </div>
+   <!-- Pelatihan Unggulan -->
+<section id="pelatihan" class="h-fit md:h-[100vh] w-full bg-milk flex flex-col justify-center items-center">
+  <div class="w-full max-w-6xl md:px-12 flex flex-col space-y-12">
+    
+    <!-- Title -->
+    <div class="flex flex-col px-6 justify-center items-center space-y-3 text-center">
+      <h1 class="capitalize font-bold text-md md:text-4xl">
+        <i class="fa-solid fa-star-of-life text-secondary"></i> 
+        pelatihan unggulan kami 
+        <i class="fa-solid fa-star-of-life text-secondary"></i>
+      </h1>
+      <p class="text-sm md:text-lg font-medium text-gray-500">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus eu ante nec luctus. Maecenas lacus dui, porta eu ullamcorper eget, dignissim at elit. Ut lorem risus, volutpat a risus ut, lobortis aliquet orci.
+      </p>
+    </div>
 
-        <div class="flex flex-wrap justify-center items-center gap-5 w-full">
-            {{-- Card --}}
-            @forelse ($topTrainings as $training)
-                <x-card
-                    image="{{ asset('storage/' . $training->banner) }}"
-                    title="{{ $training->title }}"
-                    pelajaran="11 Pelajaran"
-                    status="{{ $training->type }}"
-                    harga="Gratis"
-                    deskripsi="{{ $training->description }}"
-                />
-            @empty
-                <p class="text-center text-lg text-red-500">
-                    Terjadi kesalahan saat mengambil data pelatihan unggulan. Silahkan coba lagi nanti.
-                </p>
-            @endforelse
-            
-        </div>
+    <!-- Cards -->
+    <div class="flex md:grid overflow-x-auto md:overflow-visible snap-x md:snap-none snap-mandatory md:grid-cols-3 gap-6 px-4 md:px-0">
+      <x-card
+        image='https://picsum.photos/id/1084/536/354?grayscale'
+        title='Lorem Ipsum'
+        pelajaran='11 Pelajaran'
+        status='Online'
+        harga='Gratis'
+        deskripsi='Lorem ipsum dolor sit amet consesctetur elit, desplicit elit oryza sativa,'
+      />
+      <x-card
+        image='https://picsum.photos/id/1084/536/354?grayscale'
+        title='Lorem Ipsum'
+        pelajaran='11 Pelajaran'
+        status='Online'
+        harga='Gratis'
+        deskripsi='Lorem ipsum dolor sit amet consesctetur elit, desplicit elit oryza sativa,'
+      />
+      <x-card
+        image='https://picsum.photos/id/1084/536/354?grayscale'
+        title='Lorem Ipsum'
+        pelajaran='11 Pelajaran'
+        status='Online'
+        harga='Gratis'
+        deskripsi='Lorem ipsum dolor sit amet consesctetur elit, desplicit elit oryza sativa,'
+      />
+    </div>
 
-        <div class="flex justify-center mt-4">
-            <a href="#" class="capitalize flex items-center text-sm md:text-md bg-primary border border-primary px-4 py-2 rounded-md text-white hover:bg-transparent hover:text-primary hover:border transition">
-                Pelajari lebih lanjut <i class="fa-solid fa-arrow-right ml-2"></i>
-            </a>
-        </div>
+    <!-- Button -->
+    <div class="flex justify-center">
+      <a href="#" class="capitalize flex items-center text-sm md:text-md bg-primary border border-primary px-4 py-2 rounded-md text-white hover:bg-transparent hover:text-primary transition">
+        Pelajari lebih lanjut <i class="fa-solid fa-arrow-right ml-2"></i>
+      </a>
+    </div>
+  
+  </div>
+</section>
+<!-- Pelatihan Unggulan End -->
 
-     </section>
-    <!-- Pelatihan Unggulan End -->
 
     {{-- Kata Pengguna --}}
-    <section id="katapengguna" class="md:flex flex-col w-full h-fit md:h-[100vh] py-12 md:px-10 md:mb-12 bg-milk">
+    <section id="katapengguna" class="md:flex flex-col w-full h-fit md:h-[80vh] py-12 md:px-10 bg-milk">
         <!-- Title -->
          <div class="flex flex-col place-items-center md:block gap-2 px-6 md:px-32">
             <div class="flex place-items-center w-full items-center justify-center gap-4">
-                <h1 class="text-4xl font-bold hidden md:block"> Apa kata pengguna kami?</h1>
+                <h1 class="text-4xl font-bold hidden md:block"><i class="fa-solid fa-star-of-life text-secondary"></i> Apa kata pengguna kami? <i class="fa-solid fa-star-of-life text-secondary"></i></h1>
 
                 <h1 class="capitalize font-bold text-md md:text-4xl flex items-center gap-2 md:hidden"><i class="fa-solid fa-star-of-life text-secondary"></i> apa kata pengguna kami? <i class="fa-solid fa-star-of-life text-secondary"></i></h1>
             </div>
@@ -242,7 +259,7 @@
     {{-- Kata Pengguna End --}}
 
     {{-- CTA --}}
-    <section class="w-full h-[50vh] my-12 px-12 hidden md:flex justify-center items-center">
+    <section class="w-full h-[70vh] py-12 px-12 hidden md:flex justify-center items-center bg-milk">
         <div class="w-full h-full rounded-2xl px-24 space-y-8 flex flex-col justify-center" style="background-image: url('assets/backgroundCTA.png'); background-size: cover; object-fit: cover;">
             {{-- Title --}}
             <div>
@@ -278,12 +295,12 @@
     {{-- CTA End--}}
 
     {{-- Article --}}
-        <section class="flex flex-col w-full h-fit md:h-[100vh] pb-12 md:pb-0 space-y-6 md:space-y-0 md:my-36 md:px-12 bg-milk">
+        <section class="flex flex-col w-full h-fit md:h-[120vh] pb-12 md:pb-0 space-y-6 md:space-y-0 md:px-12 bg-milk py-12">
              <!-- Title -->
-         <div class="block gap-2 px-0 md:px-32">
+         <div class="block gap-2 px-0 md:px-32 mb-0 md:mb-12">
             <div class="flex md:grid grid-cols-4 gap-4 justify-center items-center">
                 <div class="flex w-full justify-center items-center gap-4 md:col-span-1">
-                    <h1 class="hidden md:flex text-md md:text-4xl font-bold"> Artikel Kami</h1>
+                    <h1 class="hidden md:flex text-md md:text-4xl font-bold"><i class="fa-solid fa-star-of-life text-secondary mr-2 items-center"></i> Artikel Kami </h1>
 
                 <h1 class="capitalize font-bold text-md md:text-4xl flex items-center gap-2 md:hidden"><i class="fa-solid fa-star-of-life text-secondary"></i> artikel kami <i class="fa-solid fa-star-of-life text-secondary"></i></h1>
                 </div>
@@ -366,3 +383,4 @@
     {{-- Article End --}}
 
 </x-app-layout>
+
