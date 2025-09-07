@@ -186,7 +186,7 @@
     <!-- Pelatihan Unggulan End -->
 
     {{-- Kata Pengguna --}}
-    <section id="katapengguna" class="md:flex flex-col w-full h-fit md:h-[100vh] py-12 md:px-10 md:mb-12 bg-milk">
+    <section id="katapengguna" class="md:flex flex-col w-full h-auto py-12 md:px-10 md:mb-12 bg-milk">
         <!-- Title -->
          <div class="flex flex-col place-items-center md:block gap-2 px-6 md:px-32">
             <div class="flex place-items-center w-full items-center justify-center gap-4">
@@ -200,12 +200,12 @@
     <!-- Mobile: Auto-Slide Carousel -->
         <!-- Card Carousel Infinity -->
             <div class="overflow-hidden md:hidden relative w-full bg-transparent py-6">
-            <div class="flex animate-marquee20 space-x-6 w-max">
+            <div class="flex flex-row animate-marquee20 space-x-3 w-max">
                 @foreach([1,2,3,4] as $i)
                 <x-comment-card
                     username="User {{ $i }}"
                     status="Designer at Google"
-                    comment="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse maxime dolorem blanditiis. Nisi debitis culpa quidem?"
+                    comment="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec vestibulum risus. Ut bibendum congue lacus sed ultrices. Aenean ut risus nulla. In fermentum, eros non euismod dignissim, eros velit posuere ligula, non finibus nulla nisl eget orci. Vestibulum vitae auctor elit, in sagittis felis."
                 />
                 @endforeach
 
@@ -214,7 +214,7 @@
                 <x-comment-card
                     username="User {{ $i }}"
                     status="Designer at Google"
-                    comment="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse maxime dolorem blanditiis. Nisi debitis culpa quidem?"
+                    comment="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec vestibulum risus. Ut bibendum congue lacus sed ultrices. Aenean ut risus nulla. In fermentum, eros non euismod dignissim, eros velit posuere ligula, non finibus nulla nisl eget orci. Vestibulum vitae auctor elit, in sagittis felis."
                 />
                 @endforeach
             </div>
@@ -223,26 +223,13 @@
 
         <!-- Desktop: Grid -->
         <div class="hidden md:grid grid-cols-2 px-32 gap-4 mt-6 place-items-center place-content-center">
-            <x-comment-card
-                username="Johan Liebert"
-                status="Designer at Google"
-                comment="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse maxime dolorem blanditiis..."
-            />
-            <x-comment-card
-                username="Johan Liebert"
-                status="Designer at Google"
-                comment="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse maxime dolorem blanditiis..."
-            />
-            <x-comment-card
-                username="Johan Liebert"
-                status="Designer at Google"
-                comment="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse maxime dolorem blanditiis..."
-            />
-            <x-comment-card
-                username="Johan Liebert"
-                status="Designer at Google"
-                comment="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse maxime dolorem blanditiis..."
-            />
+            @foreach([1,2,3,4] as $i)
+                <x-comment-card
+                    username="User {{ $i }}"
+                    status="Designer at Google"
+                    comment="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec vestibulum risus. Ut bibendum congue lacus sed ultrices. Aenean ut risus nulla. In fermentum, eros non euismod dignissim, eros velit posuere ligula, non finibus nulla nisl eget orci. Vestibulum vitae auctor elit, in sagittis felis."
+                />
+                @endforeach
         </div>
     </section>
     {{-- Kata Pengguna End --}}
