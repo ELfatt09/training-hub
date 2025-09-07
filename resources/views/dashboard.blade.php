@@ -163,7 +163,7 @@
                 <x-card
                     image="{{ asset('storage/' . $training->banner) }}"
                     title="{{ $training->title }}"
-                    pelajaran="11 Pelajaran"
+                    pelajaran="{{ $training->getMaterialCountAttribute() }} Pelajaran"
                     status="{{ $training->type }}"
                     harga="Gratis"
                     deskripsi="{{ $training->description }}"
