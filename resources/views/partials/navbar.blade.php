@@ -73,7 +73,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="hover:border-b-2 pb-1 text-sm lg:text-[1rem] hover:border-primary transition-all ease-in-out font-medium md:flex mt-1 items-center justify-center" href="{{ route('detail.pelatihan') }}">
+                        <a class="hover:border-b-2 pb-1 text-sm lg:text-[1rem] hover:border-primary transition-all ease-in-out font-medium md:flex mt-1 items-center justify-center" href="">
                             Pelatihan
                             <span class="ml-2 text-sm lg:text-[1rem]"><i class="fa-solid fa-caret-down"></i></span>
                         </a>

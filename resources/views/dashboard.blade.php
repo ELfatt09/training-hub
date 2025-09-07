@@ -161,12 +161,7 @@
             {{-- Card --}}
             @forelse ($topTrainings as $training)
                 <x-card
-                    image="{{ asset('storage/' . $training->banner) }}"
-                    title="{{ $training->title }}"
-                    pelajaran="{{ $training->getMaterialCountAttribute() }} Pelajaran"
-                    status="{{ $training->type }}"
-                    harga="Gratis"
-                    deskripsi="{{ $training->description }}"
+                    :training="$training"
                 />
             @empty
                 <p class="text-center text-lg text-red-500">

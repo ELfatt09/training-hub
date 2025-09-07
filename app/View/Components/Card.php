@@ -6,21 +6,11 @@ use Illuminate\View\Component;
 
 class Card extends Component
 {
-    public $image;
-    public $title;
-    public $pelajaran;
-    public $status;
-    public $harga;
-    public $deskripsi;
+    public $training;
 
-    public function __construct($title, $image, $pelajaran, $status, $harga, $deskripsi)
+    public function __construct($training)
     {
-        $this->title = $title;
-        $this->image = $image;
-        $this->pelajaran = $pelajaran;
-        $this->status = $status;
-        $this->harga = $harga;
-        $this->deskripsi = $deskripsi;
+        $this->training = $training;
     }
 
     public function render()

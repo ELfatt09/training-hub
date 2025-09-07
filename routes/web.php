@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Homepage;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TrainingController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,9 +13,7 @@ Route::get('/dashboard', function () {
     return Homepage::index();
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/detail-pelatihan', function () {
-    return view('pelatihan/detail_pelatihan');
-})->name('detail.pelatihan');
+Route::get('/detail-pelatihan/{slug}', [TrainingController::class, 'show'])->name('detail-pelatihan');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
