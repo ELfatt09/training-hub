@@ -1,6 +1,6 @@
 <x-guest-layout>
     {{-- Section 1 --}}
-        <div class="w-full h-[50vh]" style="background-image: url('assets/topbg-svg')">
+        <div class="">
 
         </div>
     {{-- Section 1 --}}
@@ -24,7 +24,7 @@
                     </div>
                </div>
 
-               <div class="underline text-primary capitalize mr-6">
+               <div class="underline text-primary">
                     <a href="">lihat lebih banyak</a>
                </div>
             </div>

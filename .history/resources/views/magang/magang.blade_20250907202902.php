@@ -1,6 +1,6 @@
 <x-guest-layout>
     {{-- Section 1 --}}
-        <div class="w-full h-[50vh]" style="background-image: url('assets/topbg-svg')">
+        <div class="">
 
         </div>
     {{-- Section 1 --}}
@@ -8,24 +8,24 @@
     {{-- Section 2 --}}
         <div class="w-full flex flex-col justify-center items-center">
             <div class="flex justify-between items-end w-4/5">
-               <div class="space-y-2">
+               <div>
                     <div class="text-primary capitalize font-bold text-3xl">
                         <h1>magang dalam negeri</h1>
                     </div>
 
-                    <div class="text-black font-semibold text-xl">
+                    <div>
                         <h2>
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                         </h2>
                     </div>
 
-                    <div class="text-darkoff font-medium max-w-2xl">
+                    <div>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque consectetur nihil nobis quibusdam tempora voluptates. Praesentium totam debitis quaerat optio.</p>
                     </div>
                </div>
 
-               <div class="underline text-primary capitalize mr-6">
-                    <a href="">lihat lebih banyak</a>
+               <div class="underline text-primary">
+                    <a>lihat lebih banyak</a>
                </div>
             </div>
 

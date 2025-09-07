@@ -1,7 +1,7 @@
 <x-guest-layout>
     {{-- Section 1 --}}
-        <div class="w-full h-[50vh]" style="background-image: url('assets/topbg-svg')">
-
+        <div class="">
+            
         </div>
     {{-- Section 1 --}}
 
