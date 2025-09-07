@@ -1,5 +1,5 @@
 <div id="accordion-open" data-accordion="open" class="w-full mx-auto mt-6">
-    <div id="accordion-open-heading-1">
+    <div id="accordion-open-heading-{{ $accordionid }} ">
         <button type="button" 
             class="flex items-center justify-between w-full p-4 font-medium text-left text-gray-700 bg-white border-y-darkoff border"
             data-accordion-target="#accordion-open-body-1" 
@@ -18,9 +18,7 @@
                     </div>
                     {{-- Description --}}
                     <div class="text-xs flex gap-4">
-                        <h4><i class="fa-solid fa-film"></i> {{ $jenis }}</h4>
                         <h4><i class="fa-solid fa-bookmark"></i> {{ $bab }}</h4>
-                        <h4><i class="fa-solid fa-hourglass"></i> {{ $durasi }}</h4>
                     </div>
                 </div>
             </div>
@@ -30,16 +28,16 @@
             </svg>
         </button>
     </div>
+        @foreach ($materi as $item)
+    <a href="" id="accordion-open-body-1" class="hidden" aria-labelledby="accordion-open-heading-{{ $accordionid }}">
 
-    <a href="" id="accordion-open-body-1" class="hidden" aria-labelledby="accordion-open-heading-1">
-        <div class="p-4 border border-t-0 rounded-b-lg bg-milk text-sm text-gray-600 flex justify-between">
+             <div class="p-4 border border-t-0 rounded-b-lg bg-milk text-sm text-gray-600 flex justify-between">
             <div class="space-y-2">
-                <h1><i class="fa-solid fa-books mr-1"></i> Pengantar Kursus</h1>
+                <h1><i class="fa-solid fa-books mr-1"></i> {{ $item->title }}</h1>
                 <h1><i class="fa-regular fa-messages"></i> Pembahasan Dasar</h1>
             </div>
-            <div>
-                <h1><i class="fa-solid fa-stopwatch"></i> Estimasi 7 Menit</h1>
-            </div>
         </div>
+
     </a>
+            @endforeach
 </div>
