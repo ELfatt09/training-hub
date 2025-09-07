@@ -15,6 +15,18 @@ Route::get('/dashboard', function () {
 
 Route::get('/detail-pelatihan/{slug}', [TrainingController::class, 'show'])->name('detail-pelatihan');
 
+Route::get('/pelatihan', function(){
+    return view('pelatihan/pelatihan');
+})->name('pelatihan');
+
+Route::get('/materi', function(){
+    return view('pelatihan/materi');
+})->name('materi');
+
+Route::get('/magang', function(){
+    return view('magang/magang');
+})->name('magang');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

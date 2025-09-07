@@ -1,0 +1,110 @@
+<x-app-layout>
+    {{-- Top Section --}}
+        <div class="pt-32 w-full place-items-center py-8 px-12 space-y-4">
+            {{-- Title --}}
+                <div class="text-4xl text-primary capitalize font-bold">
+                    <h1>temukan pelatihan</h1>
+                </div>
+            {{-- Title --}}
+
+            {{-- Desc --}}
+                <div class="text-center max-w-4xl">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil dignissimos inventore nisi corporis quos sunt assumenda expedita consequuntur enim, reprehenderit, sit alias ipsam sed, excepturi voluptatem repellat sint nesciunt? Ipsa odio quod eos fugiat, fuga natus harum tenetur maiores velit!</p>
+                </div>
+            {{-- Desc --}}
+
+            {{-- Search --}}
+                <div class="w-full flex justify-center">
+                    <form 
+                    action=""
+                    class="w-1/2"
+                    >
+                        <i class="fa-regular fa-magnifying-glass absolute right-[28%] bottom-[61.3%] text-primary"></i>
+                        <input placeholder="Cari Pelatihan..." class="w-full rounded-full border-2 border-primary bg-transparent focus:outline-none focus:ring-0 focus:border-secondary" type="text">
+                    </form>
+                </div>
+            {{-- Search --}}
+        </div>
+    {{-- Top Section End --}}
+
+    {{-- Bottom Section --}}
+        <div class="grid grid-cols-5 bg-milk">
+            <div class="col-span-1 my-6 ml-6 px-6 py-4 bg-white rounded-lg border border-primary">
+            {{-- Section 1 --}}
+                <div>
+                <div class="text-xl border-b-2 border-darkoff pb-2 mb-4">
+                    <h1>Filter Pelatihan</h1>
+                </div>
+                <div class="border-b border-darkoff pb-2 mb-4">
+                    <h1 class="text-xl">Kategori</h1>
+                    <div class="px-6">
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" name="kategori" id="kategori1">
+                        Teknologi
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" name="kategori" id="kategori2">
+                        Bisnis
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" name="kategori" id="kategori3">
+                        Desain
+                    </div>
+                    </div>
+                </div>
+                <div class="border-b border-darkoff pb-2 mb-4">
+                    <h1 class="text-xl">Tingkat</h1>
+                    <div class="px-6">
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" name="tingkat" id="tingkat1">
+                        Pemula
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" name="tingkat" id="tingkat2">
+                        Menengah
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" name="tingkat" id="tingkat3">
+                        Lanjutan
+                    </div>
+                    </div>
+                </div>
+                <div class="border-b border-darkoff pb-2 mb-4">
+                    <h1 class="text-xl">Harga</h1>
+                    <div class="px-6">
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" name="harga" id="harga1">
+                        Gratis
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" name="harga" id="harga2">
+                        Berbayar
+                    </div>
+                    </div>
+                </div>
+                <div class="border-b border-darkoff pb-2 mb-4">
+                    <h1 class="text-xl">Durasi</h1>
+                    <div class="px-6">
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" name="durasi" id="durasi1">
+                        < 1 Jam
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" name="durasi" id="durasi2">
+                        1-3 Jam
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" name="durasi" id="durasi3">
+                        > 3 Jam
+                    </div>
+                    </div>
+                </div>
+                <div class="border-b border-darkoff pb-2 mb-4">
+                    <h1 class="text-xl">Rating</h1>
+                    <div class="px-6">
+                        <input type="range" min="1" max="5" step="1" class="w-full accent-primary">
+                    </div>
+                </div>
+                </div>
+            {{-- Section 1 --}}
+</x-app-layout>

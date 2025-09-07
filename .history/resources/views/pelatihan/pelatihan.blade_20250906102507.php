@@ -1,0 +1,15 @@
+<x-guest-layout>
+    {{-- Top Section --}}
+        <div>
+
+        </div>
+    {{-- Top Section End --}}
+
+    {{-- Bottom Section --}}
+        <div class="grid grid-cols-4">
+            <div class="col-span-1">
+                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut exercitationem voluptates nulla expedita nesciunt deserunt adipisci voluptatibus aliquid velit repudiandae?</h1>
+            </div>
+        </div>
+    {{-- Bottom Section End--}}
+</x-guest-layout>

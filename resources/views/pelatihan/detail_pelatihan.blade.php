@@ -200,7 +200,7 @@
                             <h1 class="capitalize">Proses pelatihan</h1>
                         </div>
                         <div class="w-full bg-gray-300 rounded-full h-4 overflow-hidden">
-                            <div class="bg-teal-500 h-4 rounded-full" style="width: 30%;"></div>
+                            <div class="bg-secondary h-4 rounded-full" style="width: 30%;"></div>
                         </div>
                         <div class="text-xs">
                             <p>Lorem Ipsum <span>10</span> dari <span>30</span></p>
