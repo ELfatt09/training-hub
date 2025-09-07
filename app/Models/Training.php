@@ -19,6 +19,15 @@ class Training extends Model
         'have_certificate',
     ];
 
+    // Accessor for material count
+    public function getMaterialCountAttribute()
+    {
+        // Assuming each TrainingSection has a traningMaterials() relationship
+        return $this->trainingSections->sum(function ($section) {
+            return $section->trainingMaterials ? $section->trainingMaterials->count() : 0;
+        });
+    }
+
     protected static function boot()
     {
         parent::boot();
@@ -39,4 +48,5 @@ class Training extends Model
         public function trainingReviews() {
         return $this->hasMany(TrainingReview::class);
     }
+
 }

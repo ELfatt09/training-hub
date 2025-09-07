@@ -3,9 +3,7 @@
 <div class="w-[70%] h-[30%] md:w-full md:h-[52vh] max-w-xs flex-shrink-0 bg-white shadow-lg rounded-2xl flex flex-col justify-evenly border border-primary mx-auto">
     <!-- Image -->
     <div class="w-full h-60 flex justify-center items-center p-2">
-        <img class="w-full h-full object-cover rounded-md" src="{{ $image }}" alt="">
-    <div class="w-full flex justify-center py-4 px-4">
-        <img class="w-full h-full object-cover rounded-md" src="{{ $image }}" alt="">
+        <img class="w-full h-full object-cover rounded-md" src="{{ asset('storage/' . $training->banner) }}" alt="">
     </div>
 
     <!-- Description -->
@@ -13,7 +11,7 @@
     <div class="p-2 space-y-2 md:space-y-4 px-4">
         <!-- Top -->
             <!-- Title -->
-            <h1 class="text-xl text-primary font-bold text-start px-1 py-2 space-y-2">{{ $title }}</h1>
+            <h1 class="text-xl text-primary font-bold text-start px-1 py-2 space-y-2">{{ $training->title }}</h1>
 
         
             <h1 class="text-md md:text-xl text-primary font-bold text-start">{{ $title }}</h1>
@@ -24,28 +22,26 @@
             <ul class="flex flex-wrap justify-start space-x-8 text-sm text-black p-2">
             <ul class="flex flex-wrap justify-start gap-2 text-[.50rem] md:text-xs text-gray-600">
                 <li>
-                    <i class="fa-solid fa-book"></i> <span class="font-bold">{{ $pelajaran }}</span>
+                    <i class="fa-solid fa-book"></i> <span class="font-bold">{{ $training->getMaterialCountAttribute() }} Pelajaran</span>
                 </li>
                 <li>
-                    <i class="fa-solid fa-wifi"></i> <span class="font-bold">{{ $status }}</span>
+                    <i class="fa-solid fa-wifi"></i> <span class="font-bold">{{ $training->type }}</span>
                 </li>
                 <li>
-                    <span class="text-primary font-bold">{{ $harga }}</span>
+                    <span class="text-primary font-bold">Gratis</span>
                 </li>
             </ul>
             
 
         <!-- Detail Desc -->
         <p class="text-sm font-normal text-black text-start p-2 leading-[1.5]">
-            {{ Str::limit($deskripsi, 100) }}
-        <p class="text-[.70rem] md:text-[.9rem] font-normal text-darkoff text-start">
-            {{ $deskripsi }}
+            {{ Str::limit($training->description, 100) }}
         </p>
             </div>
 
         <!-- Button -->
         <div class="w-full">
-            <a href="#" 
+            <a href="{{ route('detail-pelatihan', ['slug' => $training->slug]) }}"
                class="p-2 w-full text-sm flex justify-center items-center bg-transparent   text-primary border-primary border hover:bg-primary hover:text-white font-bold rounded-md hover:border hover:bg-transparent transition">
                class="w-full text-[.6rem] md:text-[.9rem] flex justify-center items-center bg-primary font-medium border border-primary text-white md:px-4 py-1 md:py-2 rounded-md hover:text-primary hover:border hover:bg-transparent transition">
                Pelajari Sekarang
@@ -55,3 +51,4 @@
     </div>
 </div>
 <!-- Single Card End -->
+

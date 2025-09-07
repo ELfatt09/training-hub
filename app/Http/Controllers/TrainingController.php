@@ -34,9 +34,10 @@ class TrainingController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Training $training)
+    public static function show(string $slug)
     {
-        //
+        $training = Training::where('slug', $slug)->with('trainingSections.trainingMaterials', 'trainingReviews')->firstOrFail();
+        return view('pelatihan.detail_pelatihan', compact('training'));
     }
 
     /**

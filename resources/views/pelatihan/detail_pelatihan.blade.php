@@ -20,14 +20,14 @@
                 <div class="w-full h-[40vh]">
                     <img 
                         class="object-cover w-full h-full rounded-lg" 
-                        src="{{ asset('assets/dummyimage.png') }}" 
+                        src="{{ asset('storage/' . $training->banner) }}" 
                         alt="Gambar"
                     >
                 </div>
 
                 {{-- Title --}}
                 <div class="text-4xl font-bold capitalize">
-                    <h1>Lorem ipsum dolor sit amet.</h1>
+                    <h1>{{ $training->title }}</h1>
                 </div>
 
                 {{-- Info --}}
@@ -88,12 +88,7 @@
 
                         {{-- Desc --}}
                         <div class="space-y-4 text-justify">
-                            <p class="text-darkoff">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac elit eu nisi porttitor pulvinar a id ligula. Donec sit amet risus semper, interdum odio ut, tincidunt leo. Nulla laoreet eros ornare, rhoncus nulla nec, dapibus massa. Aenean malesuada urna quis purus elementum, ut sollicitudin metus consectetur. Etiam laoreet nulla sed ipsum consectetur, id elementum lectus placerat. Proin quis feugiat ligula. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas ac nunc in dolor tempus rutrum nec lobortis ex
-                            </p>
-                            <p class="text-darkoff">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac elit eu nisi porttitor pulvinar a id ligula. Donec sit amet risus semper, interdum odio ut, tincidunt leo. Nulla laoreet eros ornare, rhoncus nulla nec, dapibus massa. Aenean malesuada urna quis purus elementum, ut sollicitudin metus consectetur. Etiam laoreet nulla sed ipsum consectetur, id elementum lectus placerat. Proin quis feugiat ligula. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas ac nunc in dolor tempus rutrum nec lobortis ex
-                            </p>
+                            {{ $training->description }}
                         </div>
                     </div>
                 {{-- Deskripsi --}}
