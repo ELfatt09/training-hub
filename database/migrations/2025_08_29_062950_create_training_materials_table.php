@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('training_materials', function (Blueprint $table) {
             $table->id();
             $table->foreignId('section_id')->constrained('training_sections')->onDelete('cascade');
+            $table->string('slug')->unique()->index()->nullable();
             $table->integer('order')->default(0);
             $table->string('title');
             $table->longText('content');

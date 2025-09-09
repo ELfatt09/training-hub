@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('trainings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('major_id')->nullable()->constrained('majors')->nullOnDelete();
+            $table->string('slug')->unique()->index()->nullable();
             $table->string('title');
+            $table->string('banner')->nullable();
             $table->text('description');
             $table->enum('type', ['online', 'hybrid', 'offline'])->default('online');
             $table->boolean('have_certificate');
