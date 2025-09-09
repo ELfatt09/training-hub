@@ -189,10 +189,10 @@
                 {{-- Section 1 --}}
 
                 {{-- Section 2 --}}
-                    <div class="text-3xl flex flex-col justify-center items-center font-bold text-secondary space-y-2 px-6 py-4 rounded-lg bg-white">
+                    <div class="text-3xl font-bold text-secondary px-6 py-4 rounded-lg bg-white">
                         <h1>Gratis</h1>
 
-                        <div class="text-white bg-secondary border border-secondary hover:bg-transparent hover:text-secondary transition-all text-xl capitalize justify-center items-center flex py-2 rounded-[5px] w-full">
+                        <div class="text-white bg-primary text-xl">
                             <h1>pelajari Kelas</h1>
                         </div>
                     </div>
