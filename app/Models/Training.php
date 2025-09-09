@@ -11,6 +11,9 @@ class Training extends Model
 {
     protected $fillable = [
         'title',
+        'author',
+        'contact',
+        'location',
         'banner',
         'major_id',
         'slug',

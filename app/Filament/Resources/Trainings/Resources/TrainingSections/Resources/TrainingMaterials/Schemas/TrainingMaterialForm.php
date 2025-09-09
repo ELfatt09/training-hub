@@ -18,7 +18,6 @@ class TrainingMaterialForm
                     ->required(),
                 TextInput::make('embed_youtube_video')
                     ->label('Embed Video YouTube')
-                    ->url()
                     ->columnSpanFull()
                     ->default(null),
                 RichEditor::make('content')

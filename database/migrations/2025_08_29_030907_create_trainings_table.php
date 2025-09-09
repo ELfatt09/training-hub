@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('major_id')->nullable()->constrained('majors')->nullOnDelete();
             $table->string('slug')->unique()->index()->nullable();
+            $table->string('author')->nullable();
+            $table->string('contact')->nullable();
+            $table->string('location')->nullable();
             $table->string('title');
             $table->string('banner')->nullable();
             $table->text('description');

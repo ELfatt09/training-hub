@@ -28,6 +28,12 @@ class TrainingForm
                     ->required(),
                 TextInput::make('title')
                     ->required(),
+                TextInput::make('author')
+                    ->required(),
+                TextInput::make('contact')
+                    ->required(),
+                TextInput::make('location')
+                    ->required(),
                 Textarea::make('description')
                     ->required()
                     ->columnSpanFull(),

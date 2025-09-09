@@ -21,7 +21,10 @@ class User extends Authenticatable implements FilamentUser
     protected static function booted()
     {
         static::created(function ($user) {
-            if (! $user->hasAnyRole()) {
+            if (
+                ! $user->hasAnyRole() &&
+                \Spatie\Permission\Models\Role::where('name', 'user')->exists()
+            ) {
                 $user->assignRole('user'); // ganti dengan nama role default
             }
         });
