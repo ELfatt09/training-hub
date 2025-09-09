@@ -106,7 +106,7 @@
                             <x-card-materi
                                 :title="$section->title"
                                 :materi="$section->trainingMaterials"
-                                :bab="$section->trainingMaterials->count() . ' Bab'"
+                                :bab="$section->trainingMaterials->count() . '  Bab'"
                                 :accordionid="$loop->index + 1"
                             
                             />
