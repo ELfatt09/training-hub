@@ -3,6 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Training;
+use App\Models\TrainingSection;
+use App\Models\TrainingMaterial;
 
 class trainings_subscriber extends Model
 {
@@ -28,6 +31,18 @@ class trainings_subscriber extends Model
         return $this->belongsTo(TrainingMaterial::class, 'last_material_id');
     }
 
+    public function completedTrainingSections() {
+        return TrainingSection::where('training_id', $this->training_id)
+            ->where('order', '<=', TrainingSection::where('training_id', $this->training_id)->max('order'))
+            ->get();
+    }
+
+    public function completedTrainingMaterials() {
+        return TrainingMaterial::where('training_id', $this->training_id)
+            ->where('order', '<=', TrainingMaterial::where('training_id', $this->training_id)->max('order'))
+            ->get();
+    }
+
     public function progress() {
         $totalMaterials = $this->training->material_count;
         if ($totalMaterials == 0) {
@@ -36,7 +51,7 @@ class trainings_subscriber extends Model
 
         // Assuming last_material_id indicates the last completed material
         $completedMaterials = TrainingMaterial::where('training_id', $this->training_id)
-            ->where('id', '<=', $this->last_material_id)
+            ->where('order', '<=', TrainingMaterial::where('training_id', $this->training_id)->max('order'))
             ->count();
 
         return ($completedMaterials / $totalMaterials) * 100;
