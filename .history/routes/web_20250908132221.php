@@ -26,10 +26,9 @@ Route::get('/materi', function(){
 Route::get('/magang', function(){
     return view('magang/magang');
 })->name('magang');
-
-Route::get('/detail-magang', function(){
-    return view('magang/detail-magang');
-})->name('detail-magang');
+Route::get('/magang', function(){
+    return view('magang/magang');
+})->name('magang');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

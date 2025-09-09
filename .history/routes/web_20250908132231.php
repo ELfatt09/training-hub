@@ -28,8 +28,8 @@ Route::get('/magang', function(){
 })->name('magang');
 
 Route::get('/detail-magang', function(){
-    return view('magang/detail-magang');
-})->name('detail-magang');
+    return view('magang/magang');
+})->name('magang');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

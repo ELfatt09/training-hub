@@ -112,17 +112,15 @@
     {{-- Section 3 --}}
 
     {{-- Section 4 --}}
-        <div class="w-full py-12">
-            <div class="flex w-full px-40"> 
-                <div class="space-y-2 w-4/5 max-w-2xl">
-                <div class="text-primary text-4xl capitalize font-bold">
+        <div>
+            <div>
+                <div class="text-primary text-2xl">
                     <h1>Testimoni alumni magang</h1>
                 </div>
 
-                <div class="text-md">
+                <div class="">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente consectetur, autem iusto ducimus expedita dicta omnis velit tenetur dolore maiores.</p>
                 </div>
-            </div>
             </div>
 
              <div class="overflow-hidden relative w-full bg-transparent py-6">

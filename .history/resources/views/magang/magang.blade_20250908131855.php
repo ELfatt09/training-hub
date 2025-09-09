@@ -112,9 +112,9 @@
     {{-- Section 3 --}}
 
     {{-- Section 4 --}}
-        <div class="w-full py-12">
-            <div class="flex w-full px-40"> 
-                <div class="space-y-2 w-4/5 max-w-2xl">
+        <div class="w-full">
+            <div class="flex w-full"> 
+                <div class="space-y-2 w-full max-w-2xl">
                 <div class="text-primary text-4xl capitalize font-bold">
                     <h1>Testimoni alumni magang</h1>
                 </div>
