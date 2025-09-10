@@ -71,24 +71,11 @@
                     </div>
                 {{-- Section 1 --}}
 
-                {{-- Section 2 --}}
-                    <div class="w-full">
-                        <div>
-                            <h1>Lorem Ipsum</h1>
-                            <h2>Level <span>1</span></h2>
+                        <div class="px-6 py-4">
+                            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded-full">
+                                Cari
+                            </button>
                         </div>
-                        <form class="w-full" action="">
-                            <label for=""></label>
-                            <input 
-                            class="w-full accent-primary bg-primary appearance-auto" 
-                            type="range"
-                            min="0"
-                            max="5"
-                            value="1"
-                            >
-                        </form>
-                    </div>
-                {{-- Section 2 --}}
             </div>
 
             <div class="col-span-4 my-6 mx-6">

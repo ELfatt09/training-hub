@@ -27,7 +27,7 @@ class TrainingController extends Controller
             }
 
         if (!empty($selectedMajor)) {
-            $trainings->whereHas('majors', function ($query) use ($selectedMajor) {
+            $trainings->whereHas('major', function ($query) use ($selectedMajor) {
                 $query->where('major_id', $selectedMajor);
             });
         }
