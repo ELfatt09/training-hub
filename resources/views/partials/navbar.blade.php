@@ -62,37 +62,20 @@
 
                 <!-- Links -->
                 <ul class="flex gap-5 items-center">
-                    <li>
-                        <a class="border-b-2 pb-1 text-sm lg:text-[1rem] border-primary font-bold" href="">
-                            Beranda
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:border-b-2 pb-1 text-sm lg:text-[1rem] hover:border-primary transition-all ease-in-out font-medium" href="#kejuruan">
-                            Kejuruan
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:border-b-2 pb-1 text-sm lg:text-[1rem] hover:border-primary transition-all ease-in-out font-medium md:flex mt-1 items-center justify-center" href="">
-                            Pelatihan
-                            <span class="ml-2 text-sm lg:text-[1rem]"><i class="fa-solid fa-caret-down"></i></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:border-b-2 pb-1 text-sm lg:text-[1rem] hover:border-primary transition-all ease-in-out font-medium" href="">
-                            Magang
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:border-b-2 pb-1 text-sm lg:text-[1rem] hover:border-primary transition-all ease-in-out font-medium" href="">
-                            Akreditasi
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:border-b-2 pb-1 text-sm lg:text-[1rem] hover:border-primary transition-all ease-in-out font-medium" href="">
-                            Mitra
-                        </a>
-                    </li>
+                    @foreach ([
+                        ['Beranda', 'dashboard'],
+                        ['Kejuruan', 'kejuruan'],
+                        ['Pelatihan', 'pelatihan'],
+                        ['Magang', 'magang'],
+                        ['Akreditasi', 'akreditasi'],
+                        ['Mitra', 'mitra'],
+                    ] as [$name, $route])
+                        <li>
+                            <a class="hover:border-b-2 {{ Route::is($route) ? 'border-b-2' : '' }} pb-1 text-sm lg:text-[1rem] border-primary transition-all ease-in-out font-medium" href="{{ Route::has($route) ? route($route) : '#' }}">
+                                {{ $name }}
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
                 <!-- Links End -->
 

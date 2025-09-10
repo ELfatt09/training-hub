@@ -6,7 +6,7 @@ use App\Http\Controllers\TrainingController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return Homepage::index();
+    return redirect()->route('dashboard');
 });
 
 Route::get('/dashboard', function () {
@@ -15,9 +15,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/detail-pelatihan/{slug}', [TrainingController::class, 'show'])->name('detail-pelatihan');
 
-Route::get('/pelatihan', function(){
-    return view('pelatihan/pelatihan');
-})->name('pelatihan');
+Route::get('/pelatihan', [TrainingController::class, 'index'])->name('pelatihan');
 
 Route::get('/materi', function(){
     return view('pelatihan/materi');
