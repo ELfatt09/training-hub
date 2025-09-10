@@ -379,7 +379,7 @@
                                         <h1 class="text-lg font-medium text-secondary">
                                             Lorem Ipsum
                                         </h1>
-                                         <div class="text-xs text-primary">
+                                        <div class="text-xs text-primary">
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
