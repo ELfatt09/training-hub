@@ -34,9 +34,10 @@ class TrainingMaterialController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(TrainingMaterial $trainingMaterial)
+    public function show(String $slug)
     {
-        //
+        $material = TrainingMaterial::where('slug', $slug)->firstOrFail();
+        return view('pelatihan.materi', compact('material'));
     }
 
     /**
