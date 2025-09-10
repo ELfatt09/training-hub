@@ -121,7 +121,8 @@
                         </x-dropdown-link>
 
                         <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
+                        @auth
+                            <form method="POST" action="{{ route('logout') }}">
                             @csrf
                                 <x-dropdown-link class="text-red-700 gap-4" :href="route('logout')" 
                                     onclick="event.preventDefault(); this.closest('form').submit();">
@@ -129,6 +130,8 @@
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
+                        @endauth
+                        
                     </x-slot>
                 </x-dropdown>
             </div>
@@ -175,7 +178,7 @@
     @guest
     <li><a href="" class="bg-secondary text-white px-2 py-2 rounded-md">Masuk</a></li>
     @endguest
-
+    @auth
     <form method="POST" action="{{ route('logout') }}">
       @csrf   
       <x-nav-link class="text-red-700 gap-2" :href="route('logout')" 
@@ -184,6 +187,7 @@
         {{ __('Log Out') }}
       </x-nav-link>
     </form>
+    @endauth
   </ul>
 </div>
 
