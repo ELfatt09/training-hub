@@ -17,7 +17,7 @@
         <div class="grid grid-cols-3 w-full pt-36 pb-8 bg-milk">
             <div class="col-span-2 w-full space-y-4 px-12">
                 {{-- Image --}}
-                <div class="w-full h-[40vh]">
+                <div class="w-full h-[40vh] ">
                     <img 
                         class="object-cover w-full h-full rounded-lg" 
                         src="{{ asset('storage/' . $training->banner) }}" 
