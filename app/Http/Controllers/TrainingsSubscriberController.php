@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Training;
+use App\Models\TrainingMaterial;
 use App\Models\trainings_subscriber;
+use App\Models\TrainingSection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TrainingsSubscriberController extends Controller
 {
@@ -18,9 +22,9 @@ class TrainingsSubscriberController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -28,7 +32,24 @@ class TrainingsSubscriberController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $trainingId = $request->input('training_id');
+        $userId = Auth::user()->id;
+
+        $subscriber = trainings_subscriber::where('training_id', $trainingId)
+            ->where('user_id', $userId)
+            ->first();
+
+        if (!$subscriber) {
+            $lastSectionId = TrainingSection::where('training_id', $trainingId)->orderBy('order')->first()->id;
+            trainings_subscriber::create([
+                'training_id' => $trainingId,
+                'user_id' => $userId,
+                'last_section_id' => $lastSectionId,
+                'last_material_id' => TrainingMaterial::where('training_id', $trainingId)->orderBy('order')->first()->id,
+            ]);
+        }
+
+        return redirect()->route('training.show', ['slug' => Training::find($trainingId)->slug]);
     }
 
     /**
