@@ -17,7 +17,7 @@
         <div class="grid grid-cols-3 w-full pt-36 pb-8 bg-milk">
             <div class="col-span-2 w-full space-y-4 px-12">
                 {{-- Image --}}
-                <div class="w-full h-[40vh]">
+                <div class="w-full h-[40vh] ">
                     <img 
                         class="object-cover w-full h-full rounded-lg" 
                         src="{{ asset('storage/' . $training->banner) }}" 
@@ -104,11 +104,9 @@
                         {{-- Materinya --}}
                         @foreach ($training->trainingSections as $section)
                             <x-card-materi
-                                :title="$section->title"
-                                :materi="$section->trainingMaterials"
-                                :bab="$section->trainingMaterials->count() . ' Bab'"
+                                :section="$section"
                                 :accordionid="$loop->index + 1"
-                            
+                                :index="$loop->index"
                             />
                         @endforeach
                         {{-- Materinya --}}
@@ -381,7 +379,7 @@
                                         <h1 class="text-lg font-medium text-secondary">
                                             Lorem Ipsum
                                         </h1>
-                                         <div class="text-xs text-primary">
+                                        <div class="text-xs text-primary">
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>

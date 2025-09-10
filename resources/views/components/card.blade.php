@@ -21,9 +21,6 @@
                 <span class="text-primary font-bold">Gratis</span>
             </li>
         </ul>
-        <p class="text-sm font-normal text-black text-start leading-[1.5]">
-            {{ Str::limit($training->description, 100) }}
-        </p>
     </div>
 
     <!-- Button -->
