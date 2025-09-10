@@ -31,18 +31,24 @@ class TrainingForm
                 TextInput::make('author')
                     ->required(),
                 TextInput::make('contact')
-                    ->required(),
+                    ->reactive()
+                    ->required(fn ($get): bool => $get('type') !== 'online'),
+
                 TextInput::make('location')
-                    ->required(),
+                    ->reactive()
+                    ->required(fn ($get): bool => $get('type') !== 'online'),
+
                 Textarea::make('description')
                     ->required()
                     ->columnSpanFull(),
                 Select::make('type')
                     ->options(['online' => 'Online', 'hybrid' => 'Hybrid', 'offline' => 'Offline'])
                     ->default('online')
+                    ->reactive()
                     ->required(),
                 Toggle::make('have_certificate')
                     ->required(),
             ]);
     }
 }
+

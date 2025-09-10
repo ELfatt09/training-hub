@@ -104,11 +104,9 @@
                         {{-- Materinya --}}
                         @foreach ($training->trainingSections as $section)
                             <x-card-materi
-                                :title="$section->title"
-                                :materi="$section->trainingMaterials"
-                                :bab="$section->trainingMaterials->count() . ' Bab'"
+                                :section="$section"
                                 :accordionid="$loop->index + 1"
-                            
+                                :index="$loop->index"
                             />
                         @endforeach
                         {{-- Materinya --}}

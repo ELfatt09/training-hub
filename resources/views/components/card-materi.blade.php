@@ -1,5 +1,4 @@
 <div id="accordion-open-{{ $accordionid }}" data-accordion="open" class="w-full mx-auto mt-6">
-    @foreach ($materi as $index => $item)
         <div id="accordion-open-heading-{{ $accordionid }}-{{ $index }}">
             <button type="button" 
                 class="flex items-center justify-between w-full p-4 font-medium text-left text-gray-700 bg-white border-y-darkoff border"
@@ -14,10 +13,10 @@
                     </div>
                     <div>
                         <div class="text-xl">
-                            <h1>{{ $title }}</h1>
+                            <h1>{{ $section->title }}</h1>
                         </div>
                         <div class="text-xs flex gap-4">
-                            <h4><i class="fa-solid fa-bookmark"></i> {{ $bab }}</h4>
+                            <h4><i class="fa-solid fa-bookmark"></i> {{ $section->trainingMaterials->count()}}</h4>
                         </div>
                     </div>
                 </div>
@@ -30,10 +29,11 @@
 
         <div id="accordion-open-body-{{ $accordionid }}-{{ $index }}" class="hidden" aria-labelledby="accordion-open-heading-{{ $accordionid }}-{{ $index }}">
             <div class="p-4 border border-t-0 rounded-b-lg bg-milk text-sm text-gray-600 flex justify-between">
-                @foreach ($ as $item)
-                    
+                @foreach ($section->trainingMaterials as $material )
+                    <div class="space-y-2">
+                    <h1><i class="fa-solid fa-books mr-1"></i> {{ $material->title }}</h1>
+                </div>
                 @endforeach
             </div>
         </div>
-    @endforeach
 </div>

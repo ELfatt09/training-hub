@@ -8,21 +8,18 @@ use Illuminate\View\Component;
 
 class CardMateri extends Component
 {
-    public $title;
-    public $bab;
-    public $materi;
+    public $section;
+    public $index;
     public $accordionid;
 
     public function __construct(
-        $title,
-        $bab,
-        $materi,
+        $section,
+        $index,
         $accordionid
     )
     {
-        $this->title=$title;
-        $this->bab=$bab;
-        $this->materi=$materi;
+        $this->section=$section;
+        $this->index=$index;
         $this->accordionid=$accordionid;
     }
 
