@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Major;
 use App\Models\Training;
 use Illuminate\Http\Request;
 
@@ -10,11 +11,42 @@ class TrainingController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public static function index(Request $request)
     {
-        $trainings = Training::with('trainingSections.trainingMaterials')->get();
-        return view('pelatihan.pelatihan', compact('trainings'));
+        $search = $request->query('search');
+        $selectedMajor = $request->query('major');
+        $type = $request->query('type');
+
+        $trainings = Training::query();
+
+        if (!empty($search)) {
+            $trainings->where(function ($query) use ($search) {
+                $query->where('title', 'LIKE', "%{$search}%")
+                    ->orWhere('description', 'LIKE', "%{$search}%");
+                });
+            }
+
+        if (!empty($selectedMajor)) {
+            $trainings->whereHas('majors', function ($query) use ($selectedMajor) {
+                $query->where('major_id', $selectedMajor);
+            });
+        }
+
+        if (!empty($type)) {
+            $trainings->where('type', $type);
+        }
+
+        $majors = Major::all();
+
+        $trainings = $trainings->get();
+
+        if ($trainings->isEmpty()) {
+            $trainings = collect();
+        }
+
+        return view('pelatihan.pelatihan', compact('trainings', 'majors'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -65,3 +97,4 @@ class TrainingController extends Controller
         //
     }
 }
+
