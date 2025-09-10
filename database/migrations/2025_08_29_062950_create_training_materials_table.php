@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('order')->default(0);
             $table->string('title');
             $table->longText('content');
-            $table->string('embed_youtube_video')->nullable();
+            $table->text('embed_youtube_video')->nullable();
             $table->timestamps();
         });
     }

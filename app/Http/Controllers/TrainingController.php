@@ -12,7 +12,8 @@ class TrainingController extends Controller
      */
     public function index()
     {
-        //
+        $trainings = Training::with('trainingSections.trainingMaterials')->get();
+        return view('pelatihan.pelatihan', compact('trainings'));
     }
 
     /**
