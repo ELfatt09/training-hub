@@ -5,13 +5,13 @@
          <div class="h-full py-16 md:py-56 w-full px-6 md:w-1/2 md:px-20 space-y-12">
             <!-- Hero text -->
              <div class="space-y-6">
-                <div class="w-full flex flex-col place-items-center md:place-items-start">
-                    <h1 class="text-primary text-2xl font-semibold 
-                    md:text-7xl">
+                <div class="w-full flex flex-col  place-items-center md:place-items-start">
+                    <h1 class="text-primary text-xl font-bold 
+                    md:text-7xl md:leading-[1.3]">
                     Lorem Ipsum
                 </h1>
                     <h2 class="text-black text-lg font-semibold line-clamp-2 text-center 
-                    md:text-6xl md:text-start">
+                    md:text-6xl md:text-start md:leading-[1.3]">
                     Dolor sit amet Consectetur Elit</h2>
                 </div>
 
@@ -22,17 +22,17 @@
             <!-- Hero text -->
 
             <!-- Button -->
-             <div class=" md:grid grid-cols-3 place-items-center">
+             <div class="flex md:flex-row flex-col items-center justify-start space-x-6">
                 <div>
-                    <a class="col-span-1 bg-primary border-2 font-semibold border-primary hover:bg-transparent hover:text-primary hover:border-primary transition text-white rounded-md py-2 px-6 text-md md:text-xl" href="">Lorem Ipsum</a>
+                    <a class="bg-primary border-2 font-semibold border-primary hover:bg-transparent hover:text-primary hover:border-primary transition text-white rounded-md py-2 px-6 text-md md:text-xl" href="">Lorem Ipsum</a>
                 </div>
 
-                <div class="hidden md:flex place-items-center">
-                    <h1 class="col-span-q text-xl font-medium">Lorem ipsum dolor </br> sit amet.</h1>
+                <div class="hidden md:flex">
+                    <h1 class="text-xl font-medium">Lorem ipsum dolor </br> sit amet.</h1>
                 </div>
 
                 <div>
-                    <a class="hidden md:block col-span-1 bg-primary border border-primary hover:bg-transparent hover:text-primary transition px-5 py-4 text-white rounded-full text-xl font-bold" href="#program"><i class="fa-solid fa-arrow-down-long"></i></a>
+                    <a class="hidden md:flex bg-primary border border-primary hover:bg-transparent hover:text-primary transition px-5 py-4 text-white rounded-full text-xl font-bold" href="#program"><i class="fa-solid fa-arrow-down-long"></i></a>
                 </div>
              </div>
             <!-- Button -->
