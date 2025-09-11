@@ -1,10 +1,5 @@
 <x-app-layout>
-    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
-    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-thin.css">
-    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-solid.css">
-    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css">
-    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    
 
     <section class="w-full md:pt-32 pb-8 bg-milk font-jakarta">
         {{-- Breadcrumb (Visible on both Mobile and Desktop) --}}
@@ -43,11 +38,9 @@
 
                 {{-- Info --}}
                <div class="space-y-4">
-                  <div class="flex items-center gap-4 ml-2">
-                      <div class="w-9 h-9">
-                          <img class="rounded-full" src="{{ asset('assets/dummyimage.png') }}" alt="Profile picture">
-                      </div>
-                      <h1 class="text-xl font-medium text-secondary">Lorem Ipsum</h1>
+                  <div class="flex items-center gap-4">
+
+                      <h1 class="text-xl font-medium text-secondary">{{ $training->author }}</h1>
                   </div>
 
                   <div class="grid grid-cols-2 text-sm gap-y-2 md:flex w-full md:justify-between md:text-base">
@@ -59,8 +52,7 @@
                               <i class="fa-solid fa-star" aria-hidden="true"></i>
                               <i class="fa-solid fa-star" aria-hidden="true"></i>
                               <i class="fa-solid fa-star-half-stroke" aria-hidden="true"></i>
-                             </div>
-                              <p class="text-xs md:text-base ml-2">(1945 Ulasan)</p>
+                              <p class="text-xs md:text-base ml-2">({{ $training->trainingReviews->count() }} Ulasan)</p>
                           </div>
                           <div class="flex items-center md:ml-8">
                               <i class="fa-solid fa-globe" aria-hidden="true"></i>
@@ -71,11 +63,11 @@
                       <div class="flex flex-col md:flex-row md:w-1/2 md:justify-between md:pl-12 col-span-1 gap-2 text-darkoff">
                           <div class="flex items-center md:mr-8">
                               <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                              <p class="ml-2"><span>2950</span> Pelajar</p>
+                              <p class="ml-2"><span>{{ $training->subscribers->count() }}</span> Pelajar</p>
                           </div>
                           <div class="flex items-center">
                               <i class="fa-solid fa-pen" aria-hidden="true"></i>
-                              <p class="ml-2"><span>15/15/25</span> Diperbaharui</p>
+                              <p class="ml-2"><span>{{ $training->updated_at->format('d M Y') }}</span> Diperbaharui</p>
                           </div>
                       </div>
                   </div>
@@ -110,13 +102,15 @@
                     <div class="font-semibold capitalize mb-4 text-md lg:text-xl">
                         <h1>Pelatihan ini menyediakan:</h1>
                     </div>
-                    <div class="space-y-2 text-[10px] lg:text-md font-semibold">
-                        @for ($i = 0; $i < 10; $i++)
+                    <div class="space-y-2 font-semibold">
                             <div class="flex justify-between">
-                                <h1 class="text-darkoff"><i class="fa-solid fa-book"></i> Lorem Ipsum</h1>
-                                <h1 class="text-secondary">Dolor Sit</h1>
+                                <h1 class="text-darkoff"><i class="fa-solid fa-book"></i>BAB</h1>
+                                <h1 class="text-secondary">{{ $training->trainingSections->count() }}</h1>
                             </div>
-                        @endfor
+                            <div class="flex justify-between">
+                                <h1 class="text-darkoff"><i class="fa-solid fa-book"></i>Materi</h1>
+                                <h1 class="text-secondary">{{ $training->trainingSections()->trainingMaterials()->count() }}</h1>
+                            </div>
                     </div>
                 </div>
 
