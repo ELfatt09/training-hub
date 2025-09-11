@@ -108,7 +108,7 @@
                             </div>
                             <div class="flex justify-between">
                                 <h1 class="text-darkoff"><i class="fa-solid fa-book"></i>Materi</h1>
-                                <h1 class="text-secondary">{{ $training->trainingSections()->trainingMaterials()->count() }}</h1>
+                                <h1 class="text-secondary"> {{ $training->trainingSections->sum(fn($section) => $section->trainingMaterials->count()) }}</h1>
                             </div>
                     </div>
                 </div>

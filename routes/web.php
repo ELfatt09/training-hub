@@ -3,6 +3,7 @@
 use App\Http\Controllers\Homepage;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\TrainingMaterialController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -17,9 +18,7 @@ Route::get('/detail-pelatihan/{slug}', [TrainingController::class, 'show'])->nam
 
 Route::get('/pelatihan', [TrainingController::class, 'index'])->name('pelatihan');
 
-Route::get('/materi', function(){
-    return view('pelatihan/materi');
-})->name('materi');
+Route::get('pelatihan/{slug}', [TrainingMaterialController::class, 'show'])->name('pelatihan.materi');
 
 Route::get('/magang', function(){
     return view('magang/magang');
