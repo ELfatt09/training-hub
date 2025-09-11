@@ -113,7 +113,7 @@
 
     {{-- Top Section --}}
     <form action="" class="w-full" method="get">
-        <div class="md:pt-32 w-full place-items-center pb-8 md:px-12 space-y-4">
+        <div class="pt-4 md:pt-32 w-full place-items-center pb-8 md:px-12 space-y-4">
             {{-- Title --}}
                 <div class="text-2xl md:text-4xl text-primary capitalize px-6 font-bold">
                     <h1>temukan pelatihan</h1>
@@ -143,8 +143,8 @@
     {{-- Top Section End --}}
 
     {{-- Bottom Section --}}
-        <div class="flex flex-col md:grid grid-cols-5 bg-milk">
-            <div class="hidden md:block md:col-span-1 my-6 ml-6 px-6 py-4 bg-white rounded-lg border border-primary">
+        <div class="flex flex-col md:grid md:grid-cols-8 lg:grid-cols-5 bg-milk">
+            <div class="hidden md:block md:col-span-2 lg:col-span-1 my-6 ml-6 px-6 py-4 bg-white rounded-lg border border-primary">
                 {{-- Section 1 --}}
                     <div>
                         <div class="text-xl flex items-center justify-center font-semibold border-b-2 border-gray-500 pb-2 mb-4">
@@ -185,15 +185,15 @@
                     </div>
                 {{-- Section 1 --}}
 
-                        <div class="py-4">
+                        <div class="text-xs lg:text-md py-4 px-0 md:px-2 lg:px-0">
                             <button type="submit" class="w-full bg-primary border border-primary hover:bg-transparent hover:text-primary transition-all hover:bg-primary-dark text-white font-bold py-2 rounded-lg">
                                 Filter Pelatihan
                             </button>
                         </div>
             </div>
 
-            <div class="flex flex-col md:col-span-4 my-6 mx-6">
-                <div class="flex flex-col md:grid grid-cols-3 gap-6 px--4 md:px-16">
+            <div class="flex flex-col px-12 md:px-0 md:col-span-6 lg:col-span-4 my-6 lg:mx-6">
+                <div class="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-6 lg::px-16">
                     @foreach ($trainings as $training)
                     <x-card
                         :training="$training"
