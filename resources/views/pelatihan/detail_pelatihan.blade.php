@@ -165,9 +165,151 @@
                 </div>
 
                 {{-- Section 5 --}}
-                <div class="px-6 py-4 rounded-lg bg-white space-y-4">
-                    <div class="w-full text-xl font-semibold">
-                        <h1>Ulasan Pengguna:</h1>
+                    <div class="px-6 py-4 rounded-lg bg-white space-y-4">
+                        {{-- Single Comment --}}
+                            <div>
+                                <div class="flex ml-2 gap-4 items-center mb-1">
+                                    {{-- Pfp --}}
+                                    <div class="w-9 h-9 rounded-full">
+                                        <img class="rounded-full" src="{{ asset('assets/dummyimage.png') }}" alt="">
+                                    </div>
+                                    
+                                    <div>
+                                        <h1 class="text-lg font-medium text-secondary">
+                                            Lorem Ipsum
+                                        </h1>
+                                         <div class="text-xs text-primary">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star-half-stroke"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-sm px-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, atque!</p>
+                            </div>
+                        {{-- Single Comment --}}
+                        {{-- Single Comment --}}
+                            <div>
+                                <div class="flex ml-2 gap-4 items-center mb-1">
+                                    {{-- Pfp --}}
+                                    <div class="w-9 h-9 rounded-full">
+                                        <img class="rounded-full" src="{{ asset('assets/dummyimage.png') }}" alt="">
+                                    </div>
+                                    
+                                    <div>
+                                        <h1 class="text-lg font-medium text-secondary">
+                                            Lorem Ipsum
+                                        </h1>
+                                         <div class="text-xs text-primary">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star-half-stroke"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-sm px-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, atque!</p>
+                            </div>
+                        {{-- Single Comment --}}
+                        {{-- Single Comment --}}
+                            <div>
+                                <div class="flex ml-2 gap-4 items-center mb-1">
+                                    {{-- Pfp --}}
+                                    <div class="w-9 h-9 rounded-full">
+                                        <img class="rounded-full" src="{{ asset('assets/dummyimage.png') }}" alt="">
+                                    </div>
+                                    
+                                    <div>
+                                        <h1 class="text-lg font-medium text-secondary">
+                                            Lorem Ipsum
+                                        </h1>
+                                         <div class="text-xs text-primary">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star-half-stroke"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-sm px-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, atque!</p>
+                            </div>
+                        {{-- Single Comment --}}
+                        {{-- Single Comment --}}
+                            <div>
+                                <div class="flex ml-2 gap-4 items-center mb-1">
+                                    {{-- Pfp --}}
+                                    <div class="w-9 h-9 rounded-full">
+                                        <img class="rounded-full" src="{{ asset('assets/dummyimage.png') }}" alt="">
+                                    </div>
+                                    
+                                    <div>
+                                        <h1 class="text-lg font-medium text-secondary">
+                                            Lorem Ipsum
+                                        </h1>
+                                        <div class="text-xs text-primary">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star-half-stroke"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-sm px-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, atque!</p>
+                            </div>
+                        {{-- Single Comment --}}
+                        {{-- Single Comment --}}
+                            <div>
+                                <div class="flex ml-2 gap-4 items-center mb-1">
+                                    {{-- Pfp --}}
+                                    <div class="w-9 h-9 rounded-full">
+                                        <img class="rounded-full" src="{{ asset('assets/dummyimage.png') }}" alt="">
+                                    </div>
+                                    
+                                    <div>
+                                        <h1 class="text-lg font-medium text-secondary">
+                                            Lorem Ipsum
+                                        </h1>
+                                         <div class="text-xs text-primary">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star-half-stroke"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-sm px-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, atque!</p>
+                            </div>
+                        {{-- Single Comment --}}
+                        {{-- Single Comment --}}
+                            <div>
+                                <div class="flex ml-2 gap-4 items-center mb-1">
+                                    {{-- Pfp --}}
+                                    <div class="w-9 h-9 rounded-full">
+                                        <img class="rounded-full" src="{{ asset('assets/dummyimage.png') }}" alt="">
+                                    </div>
+                                    
+                                    <div>
+                                        <h1 class="text-lg font-medium text-secondary">
+                                            Lorem Ipsum
+                                        </h1>
+                                         <div class="text-xs text-primary">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star-half-stroke"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-sm px-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, atque!</p>
+                            </div>
+                        {{-- Single Comment --}}
                     </div>
                     @for ($i = 0; $i < 5; $i++)
                         <div>

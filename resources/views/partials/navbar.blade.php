@@ -62,37 +62,20 @@
 
                 <!-- Links -->
                 <ul class="flex gap-5 items-center">
-                    <li>
-                        <a class="border-b-2 pb-1 text-sm lg:text-[1rem] border-primary font-bold" href="">
-                            Beranda
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:border-b-2 pb-1 text-sm lg:text-[1rem] hover:border-primary transition-all ease-in-out font-medium" href="#kejuruan">
-                            Kejuruan
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:border-b-2 pb-1 text-sm lg:text-[1rem] hover:border-primary transition-all ease-in-out font-medium md:flex mt-1 items-center justify-center" href="">
-                            Pelatihan
-                            <span class="ml-2 text-sm lg:text-[1rem]"><i class="fa-solid fa-caret-down"></i></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:border-b-2 pb-1 text-sm lg:text-[1rem] hover:border-primary transition-all ease-in-out font-medium" href="">
-                            Magang
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:border-b-2 pb-1 text-sm lg:text-[1rem] hover:border-primary transition-all ease-in-out font-medium" href="">
-                            Akreditasi
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:border-b-2 pb-1 text-sm lg:text-[1rem] hover:border-primary transition-all ease-in-out font-medium" href="">
-                            Mitra
-                        </a>
-                    </li>
+                    @foreach ([
+                        ['Beranda', 'dashboard'],
+                        ['Kejuruan', 'kejuruan'],
+                        ['Pelatihan', 'pelatihan'],
+                        ['Magang', 'magang'],
+                        ['Akreditasi', 'akreditasi'],
+                        ['Mitra', 'mitra'],
+                    ] as [$name, $route])
+                        <li>
+                            <a class="hover:border-b-2 {{ Route::is($route) ? 'border-b-2' : '' }} pb-1 text-sm lg:text-[1rem] border-primary transition-all ease-in-out font-medium" href="{{ Route::has($route) ? route($route) : '#' }}">
+                                {{ $name }}
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
                 <!-- Links End -->
 
@@ -121,7 +104,8 @@
                         </x-dropdown-link>
 
                         <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
+                        @auth
+                            <form method="POST" action="{{ route('logout') }}">
                             @csrf
                                 <x-dropdown-link class="text-red-700 gap-4" :href="route('logout')" 
                                     onclick="event.preventDefault(); this.closest('form').submit();">
@@ -129,6 +113,8 @@
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
+                        @endauth
+                        
                     </x-slot>
                 </x-dropdown>
             </div>
@@ -175,7 +161,7 @@
     @guest
     <li><a href="" class="bg-secondary text-white px-2 py-2 rounded-md">Masuk</a></li>
     @endguest
-
+    @auth
     <form method="POST" action="{{ route('logout') }}">
       @csrf   
       <x-nav-link class="text-red-700 gap-2" :href="route('logout')" 
@@ -184,6 +170,7 @@
         {{ __('Log Out') }}
       </x-nav-link>
     </form>
+    @endauth
   </ul>
 </div>
 
