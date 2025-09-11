@@ -1,22 +1,24 @@
 <x-app-layout class="w-full scroll-smooth">
     <!-- Hero -->
-    <section id="beranda" class="flex h-fit md:h-[85vh] w-full font-jakarta bg-milk">
+    <section id="beranda" class="flex items-center h-fit md:h-[85vh] w-full font-jakarta bg-milk">
         <!-- Left Side -->
-        <div class="h-full flex flex-col justify-center align-items-center w-full px-4 py-12 md:w-1/2 md:pt-20 md:px-6 space-y-12">
+        <div
+            class="h-full flex flex-col justify-center items-center md:items-start lg:items-start w-full px-4 py-12 md:w-1/2 md:pt-26 md:px-6 space-y-12">
             <!-- Hero text -->
-             <div class="space-y-6">
-                <div class="w-full flex flex-col place-items-center md:place-items-start">
-                    <h1 class="text-primary text-2xl font-semibold 
-                    md:text-7xl">
-                    Lorem Ipsum
-                </h1>
-                    <h2 class="text-black text-lg font-semibold line-clamp-2 text-center 
-                    md:text-6xl md:text-start">
-                    Dolor sit amet Consectetur Elit</h2>
+            <div class="space-y-6 mt-0 md:mt-40">
+                <div class="w-full flex flex-col place-items-center md:place-items-start md:space-y-2">
+                    <h1 class="text-primary text-2xl font-bold text-center md:text-start md:text-5xl lg:text-7xl">
+                        Lorem Ipsum
+                    </h1>
+                    <h2
+                        class="text-black text-lg font-semibold line-clamp-2 text-center 
+                    md:text-start md:text-4xl lg:text-6xl">
+                        Dolor sit amet Consectetur Elit</h2>
                 </div>
 
                 <div>
-                    <p class="text-sm md:text-md text-center md:text-start font-jakarta font-medium text-darkoff">The standard chunk of Lorem Ipsum
+                    <p class="text-sm md:text-md text-center md:text-start font-jakarta font-medium text-darkoff">The
+                        standard chunk of Lorem Ipsum
                         used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from
                         "de Finibus Bonorum et Malorum".</p>
                 </div>
@@ -24,17 +26,19 @@
             <!-- Hero text -->
 
             <!-- Button -->
-             <div class=" md:grid grid-cols-3 place-items-center">
-                <div>
-                    <a class="col-span-1 bg-primary border-2 font-semibold border-primary hover:bg-transparent hover:text-primary hover:border-primary transition text-white rounded-md py-2 px-6 text-md md:text-xl" href="">Lorem Ipsum</a>
+            <div class=" md:flex justify-between items-center place-items-center gap-6">
+                <div class="md:flex flex-row gap-3">
+                    <a class="w-fit col-span-1 bg-primary border-2 font-semibold border-primary hover:bg-transparent hover:text-primary hover:border-primary transition text-white rounded-md py-2 px-6 text-md md:text-md lg:text-xl"
+                        href="">Lorem Ipsum</a>
+
+                    <div class="hidden md:flex place-items-center">
+                        <h1 class="w-full col-span-1 text-sm md:text-xs lg:text-base font-medium">Lorem ipsum dolor </br> sit amet.</h1>
+                    </div>
                 </div>
 
-                <div class="hidden md:flex place-items-center">
-                    <h1 class="col-span-q text-xl font-medium">Lorem ipsum dolor </br> sit amet.</h1>
-                </div>
-
                 <div>
-                    <a class="hidden md:block col-span-1 bg-primary border border-primary hover:bg-transparent hover:text-primary transition px-5 py-4 text-white rounded-full text-xl font-bold" href="#program"><i class="fa-solid fa-arrow-down-long"></i></a>
+                    <a class="hidden md:block col-span-1 bg-primary border border-primary hover:bg-transparent hover:text-primary transition px-3 py-2 text-white rounded-full text-xl font-bold"
+                        href="#program"><i class="fa-solid fa-arrow-down-long"></i></a>
                 </div>
             </div>
             <!-- Button -->
@@ -179,7 +183,8 @@
         </div>
 
         <div class="flex justify-center mt-4">
-            <a href="#" class="capitalize flex items-center text-sm md:text-md bg-primary border border-primary px-4 py-2 rounded-md text-white hover:bg-transparent hover:text-primary hover:border transition">
+            <a href="#"
+                class="capitalize flex items-center text-sm md:text-md bg-primary border border-primary px-4 py-2 rounded-md text-white hover:bg-transparent hover:text-primary hover:border transition">
                 Pelajari lebih lanjut <i class="fa-solid fa-arrow-right ml-2"></i>
             </a>
         </div>
