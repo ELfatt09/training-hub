@@ -25,6 +25,17 @@ class TrainingMaterial extends Model
         });
     }
 
+    public function getEmbedUrlAttribute()
+{
+    // Example: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+    // Convert to: https://www.youtube.com/embed/dQw4w9WgXcQ
+    return preg_replace(
+        "/watch\?v=([^\&\?\/]+)/",
+        "embed/$1",
+        $this->embed_youtube_video
+    );
+}
+
     public function trainingSection() {
         return $this->belongsTo(TrainingSection::class, 'section_id');
 }

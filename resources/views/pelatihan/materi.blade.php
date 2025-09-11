@@ -260,16 +260,23 @@
                     </div>
 
                     {{-- Vid --}}
-                    <div class="border-2 border-primary rounded-md">
-                        <video controls src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"></video>
+                    @if($material->getEmbedUrlAttribute() != null)
+                    <div class="aspect-video w-full">
+                        <iframe class="h-full w-full" src="{{ $material->getEmbedUrlAttribute() }}" frameborder="0" allowfullscreen></iframe>
                     </div>
+                    @endif
 
                     {{-- Desc --}}
-                    <div class="space-y-4 font-medium text-darkoff text-justify">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget tempus orci facilisis id.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.</p>
-                        <p>Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget tempus orci facilisis id.</p>
-                        <p>Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget tempus orci facilisis id.</p>
-                        <p>Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget tempus orci facilisis id.</p>
+                    <div class="space-y-4 px-5 font-medium text-lg font-jakarta text-justify  
+                    text-black
+                    [&>h2]:text-3xl [&>h2]:font-bold
+                    [&>h3]:text-2xl [&>h3]:font-semibold [&>h3]:tracking-wide
+                    [&>p]:text-xl [&>p]:leading-relaxed [&>p]:tracking-wide
+                    [&>ol]:list-decimal [&>ol]:pl-8 [&>ol]:space-y-2
+                    [&>ul]:list-disc [&>ul]:pl-8 [&>ul]:space-y-2
+                    [&>li]:text-base [&>li]:tracking-wide
+                    ">
+                        {!! $material->content !!}
                     </div>
                 </div>
             {{-- Materi --}}
