@@ -104,7 +104,8 @@
                         </x-dropdown-link>
 
                         <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
+                        @auth
+                            <form method="POST" action="{{ route('logout') }}">
                             @csrf
                                 <x-dropdown-link class="text-red-700 gap-4" :href="route('logout')" 
                                     onclick="event.preventDefault(); this.closest('form').submit();">
@@ -112,6 +113,8 @@
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
+                        @endauth
+                        
                     </x-slot>
                 </x-dropdown>
             </div>
@@ -128,7 +131,7 @@
         <!-- Lower Content End -->
 
        <!-- Tombol hamburger di luar -->
-<div class="md:hidden fixed w-full px-4 py-2 flex items-end justify-end">
+<div class="md:hidden fixed w-fit right-0 px-4 pt-4 flex items-end justify-end">
   <button id="hamburger" class="text-2xl text-gray-700 focus:outline-none">
     <i class="fa-solid fa-bars"></i>
   </button>
@@ -158,7 +161,7 @@
     @guest
     <li><a href="" class="bg-secondary text-white px-2 py-2 rounded-md">Masuk</a></li>
     @endguest
-
+    @auth
     <form method="POST" action="{{ route('logout') }}">
       @csrf   
       <x-nav-link class="text-red-700 gap-2" :href="route('logout')" 
@@ -167,6 +170,7 @@
         {{ __('Log Out') }}
       </x-nav-link>
     </form>
+    @endauth
   </ul>
 </div>
 

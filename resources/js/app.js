@@ -17,6 +17,45 @@ import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 
 window.onload = () => {
+    const sortButton = document.getElementById("sortButton");
+  const sortMenu = document.getElementById("sort-menu");
+  const closeSort = document.getElementById("close-sort");
+
+  // buka
+  sortButton.addEventListener("click", () => {
+    sortMenu.classList.remove("translate-x-full");
+    sortMenu.classList.add("translate-x-0");
+  });
+
+  // tutup
+  closeSort.addEventListener("click", () => {
+    sortMenu.classList.remove("translate-x-0");
+    sortMenu.classList.add("translate-x-full");
+  });
+
+  const tabsElement = document.getElementById('myTab'); // The UL element with id="myTab"
+        const tabContentElement = document.getElementById('myTabContent'); // The container div with id="myTabContent"
+
+        // Check if both elements exist before proceeding
+        if (tabsElement && tabContentElement) {
+            // Initialize the Tabs component from Flowbite
+            // The 'Tabs' constructor is available after Flowbite JS is loaded
+            const tabs = new Tabs(tabsElement, tabContentElement, {
+                defaultTabId: 'main-content', // Optional: Specify which tab to show by default
+                activeClasses: 'text-primary-600 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-400 border-primary-600 dark:border-primary-500',
+                inactiveClasses: 'text-gray-500 hover:text-gray-600 dark:text-gray-400 border-gray-100 hover:border-gray-300 dark:border-gray-700 dark:hover:border-gray-600',
+                onShow: () => {
+                    // Optional: You can add callbacks here if you need to do something when a tab is shown
+                    console.log('A tab was shown!');
+                }
+            });
+
+            // You can also programmatically switch tabs if needed:
+            // tabs.show('sidebar-content'); // To show the 'Proses' tab
+        } else {
+            console.error('Flowbite Tabs: Could not find the required tab elements.');
+        }
+
 const swiper = new Swiper('.mySwiper', {
   modules: [Navigation],
   slidesPerView: 5,

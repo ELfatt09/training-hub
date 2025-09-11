@@ -4,15 +4,15 @@
         <!-- Left Side -->
         <div class="h-full flex flex-col justify-center align-items-center w-full px-4 py-12 md:w-1/2 md:pt-20 md:px-6 space-y-12">
             <!-- Hero text -->
-            <div class="space-y-4 mt-0 md:mt-24 lg:mt-12">
-                <div class="w-full flex flex-col place-items-center md:place-items-start space-y-2">
-                    <h1 class="text-primary text-2xl font-bold md:text-5xl md:text-start lg:text-7xl lg:text-start">
-                        Lorem Ipsum
-                    </h1>
-                    <h2
-                        class="text-black text-lg font-semibold line-clamp-2 text-center 
-                    md:text-4xl md:text-start lg:text-6xl lg:text-start">
-                        Dolor sit amet Consectetur Elit</h2>
+             <div class="space-y-6">
+                <div class="w-full flex flex-col place-items-center md:place-items-start">
+                    <h1 class="text-primary text-2xl font-semibold 
+                    md:text-7xl">
+                    Lorem Ipsum
+                </h1>
+                    <h2 class="text-black text-lg font-semibold line-clamp-2 text-center 
+                    md:text-6xl md:text-start">
+                    Dolor sit amet Consectetur Elit</h2>
                 </div>
 
                 <div>
@@ -24,18 +24,17 @@
             <!-- Hero text -->
 
             <!-- Button -->
-            <div class=" md:flex flex-row justify-center align-items-center md:justify-between place-items-center border border-red-600">
-                <div class="w-full md:flex flex-row justify-evenly place-items-center gap-2 border border-red-600">
-                    <a class="w-fit col-span-1 bg-primary border-2 font-semibold border-primary hover:bg-transparent hover:text-primary hover:border-primary transition text-white rounded-md py-2 px-6 text-md md:text-xl"
-                    href="">Lorem Ipsum</a>
-                    <div class="hidden md:flex place-items-center">
-                        <h1 class="col-span-q text-xl font-medium w-full">Lorem ipsum dolor </br> sit amet.</h1>
+             <div class=" md:grid grid-cols-3 place-items-center">
+                <div>
+                    <a class="col-span-1 bg-primary border-2 font-semibold border-primary hover:bg-transparent hover:text-primary hover:border-primary transition text-white rounded-md py-2 px-6 text-md md:text-xl" href="">Lorem Ipsum</a>
                 </div>
+
+                <div class="hidden md:flex place-items-center">
+                    <h1 class="col-span-q text-xl font-medium">Lorem ipsum dolor </br> sit amet.</h1>
                 </div>
 
                 <div>
-                    <a class="hidden md:block col-span-1 bg-primary border border-primary hover:bg-transparent hover:text-primary transition px-5 py-4 text-white rounded-full text-xl font-bold"
-                        href="#program"><i class="fa-solid fa-arrow-down-long"></i></a>
+                    <a class="hidden md:block col-span-1 bg-primary border border-primary hover:bg-transparent hover:text-primary transition px-5 py-4 text-white rounded-full text-xl font-bold" href="#program"><i class="fa-solid fa-arrow-down-long"></i></a>
                 </div>
             </div>
             <!-- Button -->
@@ -180,8 +179,7 @@
         </div>
 
         <div class="flex justify-center mt-4">
-            <a href="#"
-                class="capitalize flex items-center text-sm md:text-md bg-primary border border-primary px-4 py-2 rounded-md text-white hover:bg-transparent hover:text-primary hover:border transition">
+            <a href="#" class="capitalize flex items-center text-sm md:text-md bg-primary border border-primary px-4 py-2 rounded-md text-white hover:bg-transparent hover:text-primary hover:border transition">
                 Pelajari lebih lanjut <i class="fa-solid fa-arrow-right ml-2"></i>
             </a>
         </div>

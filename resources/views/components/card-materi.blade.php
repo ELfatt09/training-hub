@@ -1,4 +1,4 @@
-<div id="accordion-open-{{ $accordionid }}" data-accordion="open" class="w-full mx-auto mt-6">
+<div id="accordion-open-{{ $accordionid }}" data-accordion="open" class="w-full mx-auto">
         <div id="accordion-open-heading-{{ $accordionid }}-{{ $index }}">
             <button type="button" 
                 class="flex items-center justify-between w-full p-4 font-medium text-left text-gray-700 bg-white border-y-darkoff border"
@@ -12,7 +12,7 @@
                         ✓
                     </div>
                     <div>
-                        <div class="text-xl">
+                        <div class="text-md md:text-xl font-bold">
                             <h1>{{ $section->title }}</h1>
                         </div>
                         <div class="text-xs flex gap-4">
@@ -28,11 +28,17 @@
         </div>
 
         <div id="accordion-open-body-{{ $accordionid }}-{{ $index }}" class="hidden" aria-labelledby="accordion-open-heading-{{ $accordionid }}-{{ $index }}">
-            <div class="p-4 border border-t-0 rounded-b-lg bg-milk text-sm text-gray-600 flex justify-between">
+            <div class="p-4 bg-milk text-md text-gray-600 flex flex-col space-y-6 border-b border-darkoff justify-between">
                 @foreach ($section->trainingMaterials as $material )
-                    <div class="space-y-2">
-                    <h1><i class="fa-solid fa-books mr-1"></i> {{ $material->title }}</h1>
-                </div>
+                <a class="flex justify-between" href={{ route('pelatihan.materi', ['slug' => $material->slug]) }}>
+                    <div class="space-y-2 text-primary font-medium text-md">
+                        <h1 class="gap-2"><i class="fa-solid fa-books mr-1 text-darkoff"></i> {{ $material->title }}</h1>
+                    </div>
+
+                    <div class="text-darkoff flex items-center justify-center font-medium">
+                        <h1 class="flex items-center gap-1"><i class="fa-solid fa-hourglass-start text-sm"></i> <span class="text-primary">15 Menit</span></h1>
+                    </div>
+                </a>
                 @endforeach
             </div>
         </div>

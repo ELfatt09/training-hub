@@ -8,3 +8,8 @@
   font-weight: 400;
   font-style: normal;
 }
+
+button[aria-selected="true"] {
+  color: #14A4AD !important; /* teal-600 */
+  border-color: #14A4AD !important;
+}
