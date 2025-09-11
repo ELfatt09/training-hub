@@ -131,7 +131,7 @@
         <!-- Lower Content End -->
 
        <!-- Tombol hamburger di luar -->
-<div class="md:hidden fixed w-fit right-0 px-4 pt-4 flex items-end justify-end">
+<div class="md:hidden fixed w-fit right-0 px-4 pt-4 flex items-end justify-end bg-white">
   <button id="hamburger" class="text-2xl text-gray-700 focus:outline-none">
     <i class="fa-solid fa-bars"></i>
   </button>
@@ -142,7 +142,7 @@
   class="fixed top-0 right-0 h-full w-3/4 bg-white shadow-lg space-y-4 transform translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden">
   
   <!-- Header dalam menu + tombol close -->
-  <div class="flex items-center justify-between w-full py-2 px-4">
+  <div class="flex items-center justify-between w-full py-2 px-4 bg-white">
     <img class="h-8" src="assets/logo/favicon/logo-trainingHub.svg" alt="">
     <button id="close-menu" class="text-2xl text-gray-700 focus:outline-none">
       <i class="fa-solid fa-xmark"></i>
