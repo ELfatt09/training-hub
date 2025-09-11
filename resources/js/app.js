@@ -17,6 +17,22 @@ import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 
 window.onload = () => {
+    const sortButton = document.getElementById("sortButton");
+  const sortMenu = document.getElementById("sort-menu");
+  const closeSort = document.getElementById("close-sort");
+
+  // buka
+  sortButton.addEventListener("click", () => {
+    sortMenu.classList.remove("translate-x-full");
+    sortMenu.classList.add("translate-x-0");
+  });
+
+  // tutup
+  closeSort.addEventListener("click", () => {
+    sortMenu.classList.remove("translate-x-0");
+    sortMenu.classList.add("translate-x-full");
+  });
+
   const tabsElement = document.getElementById('myTab'); // The UL element with id="myTab"
         const tabContentElement = document.getElementById('myTabContent'); // The container div with id="myTabContent"
 
