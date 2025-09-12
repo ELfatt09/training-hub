@@ -330,7 +330,9 @@
                   <a href="{{ route('pelatihan.materi', $trainingMaterial->slug) }}"
                     class="flex font-semibold w-full justify-between items-center text-darkoff hover:text-primary">
                     <span>{{ $trainingMaterial->title }}</span>
+                    @if(in_array($trainingMaterial->id, $completedTrainingMaterialsIds))
                     <i class="fa-solid fa-check text-primary"></i>
+                    @endif
                   </a>
                 @endforeach
               </div>
