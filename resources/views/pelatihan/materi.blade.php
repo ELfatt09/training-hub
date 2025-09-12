@@ -283,65 +283,75 @@
         </div>
 
         <div class="hidden md:block col-span-1 relative mx-4">
-        <div class="sticky top-4">
-            <div class="space-y-4 bg-white px-6 h-fit py-8 rounded-md">
-                 {{-- Title --}}
-                <div class="text-4xl font-bold text-primary">
-                    <h1>List Materi</h1>
-                </div>
+  <div class="sticky top-4">
+    <div class="flex flex-col bg-white px-6 h-[80vh] py-8 rounded-md">
+      
+      {{-- Title --}}
+      <div class="text-4xl font-bold text-primary mb-4">
+        <h1>List Materi</h1>
+      </div>
 
-                {{-- Search --}}
-                <form class="w-full" action="">
-                    <input
-                        class="w-full rounded-md border-2 border-primary focus:border-primary focus:outline-secondary focus:ring-secondary"
-                        placeholder="Cari Materi..." type="text">
-                </form>
+      {{-- Search --}}
+      <form class="w-full mb-4" action="">
+        <input
+          class="w-full rounded-md border-2 border-primary focus:border-primary focus:outline-secondary focus:ring-secondary"
+          placeholder="Cari Materi..." type="text">
+      </form>
 
-                {{-- Section 1 --}}
-                        @foreach ($trainingSubscriber->training->trainingSections as $trainingSection)
-                             <div class="border border-primary rounded-md">
+      {{-- Accordion List --}}
+      <div class="flex-1 overflow-y-auto space-y-4 pr-2">
+        @foreach ($trainingSubscriber->training->trainingSections as $trainingSection)
+          <div class="border border-primary rounded-md">
+            <div id="accordion-example-desktop-{{ $trainingSection->id }}" data-accordion="open"
+              class="w-full mx-auto py-4 px-4">
+              <div id="accordion-heading-desktop-{{ $trainingSection->id }}">
+                <button type="button"
+                  class="flex items-center justify-between w-full px-4 py-2 font-medium text-left text-gray-700 bg-white border-primary border rounded-md"
+                  data-accordion-target="#accordion-body-desktop-{{ $trainingSection->id }}" aria-expanded="true"
+                  aria-controls="accordion-body-desktop-{{ $trainingSection->id }}">
 
-                        <div id="accordion-example-desktop-{{ $trainingSection->id }}" data-accordion="open"
-                            class="w-full mx-auto py-4 px-4">
-                            <div id="accordion-heading-desktop-{{ $trainingSection->id }}">
-                                <button type="button"
-                                    class="flex items-center justify-between w-full px-4 py-2 font-medium text-left text-gray-700 bg-white border-primary border rounded-md"
-                                    data-accordion-target="#accordion-body-desktop-{{ $trainingSection->id }}" aria-expanded="true"
-                                    aria-controls="accordion-body-desktop-{{ $trainingSection->id }}">
-
-                                    <div class="flex items-center gap-3 text-primary">
-                                        <div class="text-xl font-semibold">
-                                            <h1>{{ $trainingSection->title }}</h1>
-                                        </div>
-                                    </div>
-
-                                    <svg data-accordion-icon class="w-5 h-5 shrink-0 transition-transform"
-                                        fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <div id="accordion-body-desktop-{{ $trainingSection->id }}" class="hidden px-4 py-2 space-y-2"
-                                aria-labelledby="accordion-heading-desktop-{{ $trainingSection->id }}">
-                                @foreach ($trainingSection->trainingMaterials as $trainingMaterial)
-                                    <a href="{{ route('pelatihan.materi', $trainingMaterial->slug) }}"
-                                    class="flex font-semibold w-full justify-between items-center text-darkoff hover:text-primary">
-                                    <span>{{ $trainingMaterial->title }}</span>
-                                    <i class="fa-solid fa-check text-primary"></i>
-                                </a>
-                                @endforeach
-                                
-                               
-                                <!-- dst -->
-                            </div>
-                        </div>
+                  <div class="flex items-center gap-3 text-primary">
+                    <div class="text-xl font-semibold">
+                      <h1>{{ $trainingSection->title }}</h1>
                     </div>
-                        @endforeach
+                  </div>
 
+                  <svg data-accordion-icon class="w-5 h-5 shrink-0 transition-transform"
+                    fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </div>
+
+              <div id="accordion-body-desktop-{{ $trainingSection->id }}" class="hidden px-4 py-2 space-y-2"
+                aria-labelledby="accordion-heading-desktop-{{ $trainingSection->id }}">
+                @foreach ($trainingSection->trainingMaterials as $trainingMaterial)
+                  <a href="{{ route('pelatihan.materi', $trainingMaterial->slug) }}"
+                    class="flex font-semibold w-full justify-between items-center text-darkoff hover:text-primary">
+                    <span>{{ $trainingMaterial->title }}</span>
+                    <i class="fa-solid fa-check text-primary"></i>
+                  </a>
+                @endforeach
+              </div>
             </div>
-        </div>
+          </div>
+        @endforeach
+      </div>
+
+      {{-- Prev / Next Buttons --}}
+      <div class="flex justify-between items-center mt-4">
+        <button class="flex items-center gap-2 bg-primary border border-primary hover:bg-transparent hover:text-primary transition-all text-white px-4 py-2 rounded-md">
+          <i class="fa-solid fa-chevron-left"></i> Sebelumnya
+        </button>
+        <button class="flex items-center gap-2 bg-primary border border-primary hover:bg-transparent hover:text-primary transition-all text-white px-4 py-2 rounded-md">
+          Selanjutnya <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
     </div>
+  </div>
+</div>
+
     </div>
 </x-app-layout>
