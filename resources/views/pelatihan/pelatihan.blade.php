@@ -132,7 +132,7 @@
                     action=""
                     class="w-full bg-white max-w-lg overflow-hidden flex items-center rounded-full border-2 border-primary bg-transparent focus:outline-none focus:ring-0 focus:border-secondary"
                     >
-                        <input placeholder="Cari Pelatihan..." name="search" class=" border-none w-full" type="text">
+                        <input placeholder="Cari Pelatihan..." name="search" class=" border-none w-full text-xs md:text-md" type="text">
                         <button type="submit" class=" px-4 py-2 rounded-full bg-white">                        
                             <i class="fa-regular fa-magnifying-glass  text-primary"></i>
                         </button>
