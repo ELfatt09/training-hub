@@ -24,6 +24,10 @@ Route::get('/magang', function(){
     return view('magang/magang');
 })->name('magang');
 
+Route::get('/sertifikasi', function(){
+    return view('pelatihan/sertifikasi');
+})->name('sertifikasi');
+
 Route::get('/detail-magang', function(){
     return view('magang/detail-magang');
 })->name('detail-magang');

@@ -192,8 +192,8 @@
                         </div>
             </div>
 
-            <div class="flex flex-col px-12 md:px-0 md:col-span-6 lg:col-span-4 my-6 lg:mx-6">
-                <div class="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-6 lg::px-16">
+            <div class="flex flex-col px-10 md:px-0 md:col-span-6 lg:col-span-4 my-6 lg:mx-6">
+                <div class="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:px-6 lg::px-16">
                     @foreach ($trainings as $training)
                     <x-card
                         :training="$training"

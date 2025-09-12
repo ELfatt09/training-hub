@@ -255,7 +255,7 @@
             {{-- Materi --}}
                 <div class="space-y-4">
                     {{-- Title --}}
-                    <div class="text-4xl font-bold">
+                    <div class="text-xl md:text-4xl font-bold">
                         <h1>1.1 Sinopsis</h1>
                     </div>
 
