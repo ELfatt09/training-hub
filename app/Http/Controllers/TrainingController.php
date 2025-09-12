@@ -70,10 +70,14 @@ class TrainingController extends Controller
      */
     public static function show(string $slug)
     {
+        $completedTrainingMaterialsIds = [];
+        $completedTrainingSectionsIds = [];
         $training = Training::where('slug', $slug)->with('trainingSections.trainingMaterials', 'trainingReviews')->firstOrFail();
-
-        $completedTrainingSectionsIds = Auth::user()->subscribedTrainings->findOrFail($training->id)->first()->completedTrainingSections()->pluck('id')->toArray();
+        if (Auth::user()->subscribedTrainings()->where('training_id', $training->id)->exists()) {
+             $completedTrainingSectionsIds = Auth::user()->subscribedTrainings->findOrFail($training->id)->first()->completedTrainingSections()->pluck('id')->toArray();
         $completedTrainingMaterialsIds = Auth::user()->subscribedTrainings->findOrFail($training->id)->first()->completedTrainingMaterials()->pluck('id')->toArray();
+        }
+       
 
 
         
