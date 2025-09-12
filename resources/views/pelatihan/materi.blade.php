@@ -326,7 +326,7 @@
                             <div id="accordion-body-desktop-{{ $trainingSection->id }}" class="hidden px-4 py-2 space-y-2"
                                 aria-labelledby="accordion-heading-desktop-{{ $trainingSection->id }}">
                                 @foreach ($trainingSection->trainingMaterials as $trainingMaterial)
-                                    <a href="#"
+                                    <a href="{{ route('pelatihan.materi', $trainingMaterial->slug) }}"
                                     class="flex font-semibold w-full justify-between items-center text-darkoff hover:text-primary">
                                     <span>{{ $trainingMaterial->title }}</span>
                                     <i class="fa-solid fa-check text-primary"></i>

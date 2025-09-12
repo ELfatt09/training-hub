@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Training;
 use App\Models\TrainingMaterial;
 use App\Models\TrainingSection;
 use Illuminate\Http\Request;
@@ -36,52 +37,81 @@ class TrainingMaterialController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(String $slug)
-    {
-        $material = TrainingMaterial::where('slug', $slug)->firstOrFail();
-        $training = $material->trainingSection->training;
-        $trainingSubscriber = Auth::user()->subscribedTrainings->findOrFail($material->trainingSection->training->id)->first();
+   public function show(String $slug)
+{
+    $material = TrainingMaterial::where('slug', $slug)->firstOrFail();
+    $training = $material->trainingSection->training;
 
-        $completedTrainingMaterialsIds = Auth::user()->subscribedTrainings->findOrFail($training->id)->first()->completedTrainingMaterials()->pluck('id')->toArray();
+    // ambil data subscriber training ini
+    $trainingSubscriber = Auth::user()
+        ->subscribedTrainings()
+        ->where('training_id', $training->id)
+        ->firstOrFail();
 
-        if (!in_array($material->id, $completedTrainingMaterialsIds)) {
-            $this->nextMaterial($material->id, $trainingSubscriber->last_material_id);
-        }
+    $completedTrainingMaterialsIds = $trainingSubscriber->completedTrainingMaterials()->pluck('id')->toArray();
 
-        return view('pelatihan.materi', compact('material', 'trainingSubscriber'));
+    // ambil materi terakhir yg udah selesai
+    $lastMaterialId = $trainingSubscriber->last_material_id;
+
+    // kalau user mau akses material di luar urutan
+    if (!$this->isNextMaterial($material, $lastMaterialId) && !in_array($material->id, $completedTrainingMaterialsIds)) {
+        $lastMaterial = TrainingMaterial::find($lastMaterialId);
+
+        return redirect()
+            ->route('pelatihan.materi', $lastMaterial->slug)
+            ->with('error', 'Selesaikan materi sebelumnya terlebih dahulu.');
     }
 
-    public function nextMaterial(int $materialId, int $lastMaterialId) {
-        #check if there is a next material
-        $material = TrainingMaterial::findOrFail($materialId);
-        $lastMaterial = TrainingMaterial::findOrFail($lastMaterialId);
+    // update progres kalau emang ini materi berikutnya
+    $trainingSubscriber->last_material_id = $material->id;
+    $trainingSubscriber->last_section_id = $material->trainingSection->id;
+    $trainingSubscriber->save();
 
-                $trainingSubscriber = Auth::user()->subscribedTrainings->findOrFail($material->trainingSection->training->id)->first();
+    return view('pelatihan.materi', compact('material', 'trainingSubscriber'));
+}
 
+private function isNextMaterial(TrainingMaterial $currentMaterial, ?int $lastMaterialId): bool
+{
+    if (!$lastMaterialId) {
+        // kalau belum ada progres sama sekali, berarti material pertama
+        $firstMaterial = $currentMaterial->trainingSection
+            ->training
+            ->trainingSections()
+            ->orderBy('order')
+            ->first()
+            ->trainingMaterials()
+            ->orderBy('order')
+            ->first();
 
-        #check if this material is one material ahead 1 order from last material and in the same section 
-        if (!$material->order == $lastMaterial->order + 1 && $material->section_id == $lastMaterial->section_id) {
-            #check in the next section if its first material are the next material of the last material
-            if($materialId == $lastMaterial->section->trainingSections()->where('order', '>', $lastMaterial->section->order)->orderBy('order')->first()->trainingMaterials()->orderBy('order')->first()->id) {
-                $nextMaterial = $material;
-
-                $trainingSubscriber->last_section_id = $lastMaterial->section_id;
-
-            } else {
-                return back()->with('error', 'Anda belum menyelesaikan materi sebelumnya');
-            
-            }
-        }
-
-        $nextMaterial = $material;
-
-        $trainingSubscriber->last_material_id = $material->id;
-
-        $trainingSubscriber->save();
-
-        return view('pelatihan.materi', compact('nextMaterial', 'trainingSubscriber'))->with('success', 'Anda berhasil menyelesaikan materi sebelumnya');
-
+        return $currentMaterial->id === $firstMaterial->id;
     }
+
+    $lastMaterial = TrainingMaterial::findOrFail($lastMaterialId);
+
+    // ambil materi selanjutnya dalam section yang sama
+    $nextInSameSection = TrainingMaterial::where('section_id', $lastMaterial->section_id)
+        ->where('order', '>', $lastMaterial->order)
+        ->orderBy('order')
+        ->first();
+
+    if ($nextInSameSection) {
+        return $currentMaterial->id === $nextInSameSection->id;
+    }
+
+    // kalau udah habis, cek ke section berikutnya
+    $nextSection = TrainingSection::where('training_id', $lastMaterial->trainingSection->training_id)
+        ->where('order', '>', $lastMaterial->trainingSection->order)
+        ->orderBy('order')
+        ->first();
+
+    if ($nextSection) {
+        $firstMaterialInNextSection = $nextSection->trainingMaterials()->orderBy('order')->first();
+        return $currentMaterial->id === $firstMaterialInNextSection->id;
+    }
+
+    return false; // kalau ga ada lanjutannya
+}
+
 
     /**
      * Show the form for editing the specified resource.
