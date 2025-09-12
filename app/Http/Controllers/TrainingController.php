@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Major;
 use App\Models\Training;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TrainingController extends Controller
 {
@@ -70,7 +71,9 @@ class TrainingController extends Controller
     public static function show(string $slug)
     {
         $training = Training::where('slug', $slug)->with('trainingSections.trainingMaterials', 'trainingReviews')->firstOrFail();
-        return view('pelatihan.detail_pelatihan', compact('training'));
+        $completedTrainingSectionsIds = Auth::user()->subscribedTrainings->first()->completedTrainingSections()->pluck('id')->toArray();
+        $completedTrainingMaterialsIds = Auth::user()->subscribedTrainings->first()->completedTrainingMaterials()->pluck('id')->toArray();
+        return view('pelatihan.detail_pelatihan', compact('training', 'completedTrainingSectionsIds', 'completedTrainingMaterialsIds'));
     }
 
     /**

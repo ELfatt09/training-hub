@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Training;
 use App\Models\TrainingMaterial;
-use App\Models\trainings_subscriber;
+use App\Models\trainingSubscriber;
 use App\Models\TrainingSection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,22 +32,38 @@ class TrainingsSubscriberController extends Controller
      */
     public function store(Request $request)
     {
-        $trainingId = $request->input('training_id');
+        $trainingId = $request->training_id;
         $userId = Auth::user()->id;
 
-        $subscriber = trainings_subscriber::where('training_id', $trainingId)
+        try{
+        $subscriber = trainingSubscriber::where('training_id', $trainingId)
             ->where('user_id', $userId)
             ->first();
+        }
+        catch(\Exception $e) {
+            $subscriber = null;
+        }
 
-        if (!$subscriber) {
-            $lastSectionId = TrainingSection::where('training_id', $trainingId)->orderBy('order')->first()->id;
-            trainings_subscriber::create([
+        if ($subscriber == null) {
+            $lastSection = TrainingSection::where('training_id', $trainingId)
+    ->orderBy('order')
+    ->first();
+
+$lastMaterial = $lastSection 
+    ? TrainingMaterial::where('section_id', $lastSection->id)
+        ->orderBy('order')
+        ->first()
+    : null;
+
+
+            $subscriber = trainingSubscriber::create([
                 'training_id' => $trainingId,
                 'user_id' => $userId,
-                'last_section_id' => $lastSectionId,
-                'last_material_id' => TrainingMaterial::where('training_id', $trainingId)->orderBy('order')->first()->id,
+                'last_section_id' => $lastSection->id,
+                'last_material_id' => $lastMaterial->id,
             ]);
         }
+
 
         return redirect()->route('training.show', ['slug' => Training::find($trainingId)->slug]);
     }
@@ -55,7 +71,7 @@ class TrainingsSubscriberController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(trainings_subscriber $trainings_subscriber)
+    public function show(trainingSubscriber $trainingSubscriber)
     {
         //
     }
@@ -63,7 +79,7 @@ class TrainingsSubscriberController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(trainings_subscriber $trainings_subscriber)
+    public function edit(trainingSubscriber $trainingSubscriber)
     {
         //
     }
@@ -71,7 +87,7 @@ class TrainingsSubscriberController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, trainings_subscriber $trainings_subscriber)
+    public function update(Request $request, trainingSubscriber $trainingSubscriber)
     {
         //
     }
@@ -79,7 +95,7 @@ class TrainingsSubscriberController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(trainings_subscriber $trainings_subscriber)
+    public function destroy(trainingSubscriber $trainingSubscriber)
     {
         //
     }

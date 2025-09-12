@@ -9,6 +9,8 @@ use App\Models\TrainingMaterial;
 
 class trainingSubscriber extends Model
 {
+    protected $table = 'trainings_subscribers';
+
     protected $fillable = [
         'user_id',
         'training_id',
@@ -33,13 +35,14 @@ class trainingSubscriber extends Model
 
     public function completedTrainingSections() {
         return TrainingSection::where('training_id', $this->training_id)
-            ->where('order', '<=', TrainingSection::where('training_id', $this->training_id)->max('order'))
+            ->where('order', '<=', $this->lastSection->order)
             ->get();
     }
 
     public function completedTrainingMaterials() {
-        return TrainingMaterial::where('training_id', $this->training_id)
-            ->where('order', '<=', TrainingMaterial::where('training_id', $this->training_id)->max('order'))
+        return TrainingMaterial::where('section_id', $this->lastSection->id)
+            ->where('order', '<=', $this->lastMaterial->order)
+            ->orWhereIn('section_id', $this->completedTrainingSections()->pluck('id'))
             ->get();
     }
 

@@ -8,9 +8,22 @@
                 
                 {{-- Title & Description --}}
                 <div class="flex items-center gap-3">
+                    
+                                        @if($open == true)
+                    @if ($completed)
                     <div class="w-8 h-8 flex items-center justify-center rounded-full bg-teal-500 text-white font-bold">
                         ✓
                     </div>
+                    @else
+                    <div class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-500 text-white font-bold">
+                        {{ $accordionid }}
+                    </div>
+                    @endif
+                    @else
+                    <div class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-500 text-white font-bold">
+                        X
+                    </div>
+                    @endif
                     <div>
                         <div class="text-md md:text-xl font-bold">
                             <h1>{{ $section->title }}</h1>

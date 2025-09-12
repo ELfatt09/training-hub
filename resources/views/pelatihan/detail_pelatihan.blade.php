@@ -1,11 +1,11 @@
 <x-app-layout>
     {{-- Fontawesome & Flowbite --}}
-    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
+    {{-- <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-thin.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-solid.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" /> --}}
 
     <section class="w-full md:pt-32 pb-8 bg-milk font-jakarta">
         {{-- Breadcrumb --}}
@@ -95,9 +95,16 @@
                     <div class="text-2xl md:text-3xl font-semibold mb-4">
                         <h1>Materi Kursus</h1>
                     </div>
+                    @if (auth()->user()->subscribedTrainings()->where('training_id', $training->id)->exists())
                     @foreach ($training->trainingSections as $section)
-                        <x-card-materi :section="$section" :accordionid="$loop->index + 1" :index="$loop->index" />
+                        <x-card-materi :section="$section" :accordionid="$loop->index + 1" :index="$loop->index" :open="true" :completed="in_array($section->id, $completedTrainingSectionsIds) ? true : false" />
                     @endforeach
+                    @else
+                        @foreach ($training->trainingSections as $section)
+                        <x-card-materi :section="$section" :accordionid="$loop->index + 1" :index="$loop->index" :open="false" :completed="false" />
+                    @endforeach
+                    @endif
+
                 </div>
             </div>
 
@@ -123,9 +130,15 @@
                 {{-- Section 2 --}}
                 <div class="text-3xl flex flex-col justify-center font-bold text-secondary space-y-2 px-6 py-4 rounded-lg bg-white">
                     <h1>Gratis</h1>
-                    <div class="text-white bg-secondary border border-secondary hover:bg-transparent hover:text-secondary transition-all text-xl capitalize justify-center items-center flex py-2 rounded-[5px] w-full">
-                        <h1>pelajari Kelas</h1>
-                    </div>
+                    @if(!auth()->user()->subscribedTrainings()->where('training_id', $training->id)->exists())
+                    <form action={{ route('pelatihan.daftar') }} method="POST">
+                        @csrf
+                        <input type="hidden" name="training_id" value="{{ $training->id }}">
+                        <button type="submit" class="!bg-secondary font-semibold py-2 px-4 w-full rounded-lg text-white hover:!bg-white hover:text-secondary border-2 hover:border-secondary transition-all duration-300">
+                            Pelajari Kelas
+                        </button>
+                    </form>
+                    @endif
                 </div>
 
                 {{-- Section 3 --}}
