@@ -131,7 +131,7 @@
         <!-- Lower Content End -->
 
        <!-- Tombol hamburger di luar -->
-<div class="md:hidden fixed w-fit right-0 px-4 pt-4 flex items-end justify-end bg-white">
+<div class="md:hidden fixed w-fit right-0 px-4 pt-4 flex items-end justify-end bg-transparent">
   <button id="hamburger" class="text-2xl text-gray-700 focus:outline-none">
     <i class="fa-solid fa-bars"></i>
   </button>

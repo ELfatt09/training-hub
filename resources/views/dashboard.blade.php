@@ -183,7 +183,7 @@
         </div>
 
         <div class="flex justify-center mt-4">
-            <a href="#"
+            <a href="{{ route('pelatihan') }}"
                 class="capitalize flex items-center text-sm md:text-md bg-primary border border-primary px-4 py-2 rounded-md text-white hover:bg-transparent hover:text-primary hover:border transition">
                 Pelajari lebih lanjut <i class="fa-solid fa-arrow-right ml-2"></i>
             </a>
