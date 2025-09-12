@@ -65,7 +65,7 @@ $lastMaterial = $lastSection
         }
 
 
-        return redirect()->route('training.show', ['slug' => Training::find($trainingId)->slug]);
+        return redirect()->route('detail-pelatihan', ['slug' => Training::find($trainingId)->slug]);
     }
 
     /**
