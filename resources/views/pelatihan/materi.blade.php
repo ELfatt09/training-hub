@@ -256,7 +256,7 @@
                 <div class="space-y-4">
                     {{-- Title --}}
                     <div class="text-4xl font-bold">
-                        <h1>1.1 Sinopsis</h1>
+                        <h1>{{ $material->title }}</h1>
                     </div>
 
                     {{-- Vid --}}

@@ -25,7 +25,7 @@
                     </div>
                     @endif
                     <div>
-                        <div class="text-md md:text-xl font-bold">
+                        <div class="text-md md:text-xl font-bold {{ $open == true ? 'text-black' : 'text-gray-600'}}">
                             <h1>{{ $section->title }}</h1>
                         </div>
                         <div class="text-xs flex gap-4">
