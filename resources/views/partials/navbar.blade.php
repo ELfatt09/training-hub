@@ -49,19 +49,19 @@
         <!-- Upper Content End -->
 
        <!-- Lower Content -->
-        <div id="lower-bar" class="hidden lg:py-0 bg-white md:flex md:py-4 justify-between w-full shadow-md px-10 transition-all duration-300"">
+        <div id="lower-bar" class=" hidden bg-white md:flex md:py-4 justify-between w-full shadow-md px-10 transition-all duration-300"">
 
             <!-- Left Side -->
-             <div class="flex justify-start w-2/3">
+             <div class="flex justify-between w-2/3 space-x-10">
 
                 <!-- Logo -->
-                <div class="hidden lg:flex items-center">
-                    <img class="size-4/6" src={{ asset('assets/logo/favicon/logo-trainingHub.svg') }} alt="Logo TrainingHub" loading="lazy" alt="">
+                <div class="hidden lg:flex flex-row justify-between items-center">
+                    <img class="h-10" src={{ asset('assets/logo/favicon/logo-trainingHub.svg') }} alt="Logo TrainingHub" loading="lazy" alt="">
                 </div>
                 <!-- Logo End -->
 
                 <!-- Links -->
-                <ul class="flex gap-5 items-center">
+                <ul class="flex gap-8 items-center w-full">
                     @foreach ([
                         ['Beranda', 'dashboard'],
                         ['Kejuruan', 'kejuruan'],
@@ -71,7 +71,7 @@
                         ['Mitra', 'mitra'],
                     ] as [$name, $route])
                         <li>
-                            <a class="hover:border-b-2 {{ Route::is($route) ? 'border-b-2' : '' }} pb-1 text-sm lg:text-[1rem] border-primary transition-all ease-in-out font-medium" href="{{ Route::has($route) ? route($route) : '#' }}">
+                            <a class="hover:text-primary {{ Route::is($route) ? 'text-primary font-semibold' : '' }} pb-1 lg:text-lg border-primary transition-all ease-in-out font-medium" href="{{ Route::has($route) ? route($route) : '#' }}">
                                 {{ $name }}
                             </a>
                         </li>
@@ -142,7 +142,7 @@
   class="fixed top-0 right-0 h-full w-3/4 bg-white shadow-lg space-y-4 transform translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden">
   
   <!-- Header dalam menu + tombol close -->
-  <div class="flex items-center justify-between w-full py-2 px-4 bg-white">
+  <div class="flex items-center justify-between w-full py-4 px-6 bg-white border-b border-gray-200">
     <img class="h-8" src="assets/logo/favicon/logo-trainingHub.svg" alt="">
     <button id="close-menu" class="text-2xl text-gray-700 focus:outline-none">
       <i class="fa-solid fa-xmark"></i>
@@ -150,14 +150,22 @@
   </div>
 
   <!-- Menu list -->
-  <ul class="flex flex-col gap-6 px-6 py-8">
-    <li><a href="" class="font-medium"><i class="fa-solid fa-house text-primary"></i> Beranda</a></li>
-    <li><a href="#kejuruan" class="font-medium"><i class="fa-solid fa-wrench text-primary"></i> Kejuruan</a></li>
-    <li><a href="" class="font-medium"><i class="fa-solid fa-book text-primary"></i> Pelatihan</a></li>
-    <li><a href="" class="font-medium"><i class="fa-solid fa-briefcase text-primary"></i> Magang</a></li>
-    <li><a href="" class="font-medium"><i class="fa-regular fa-star text-primary"></i> Akreditasi</a></li>
-    <li><a href="" class="font-medium"><i class="fa-solid fa-store text-primary"></i> Mitra</a></li>
-    
+  <ul class="flex flex-col px-6 py-8 space-y-2">
+    @foreach ([
+        ['Beranda', 'dashboard', 'fa-solid fa-house'],
+        ['Kejuruan', 'kejuruan', 'fa-solid fa-wrench'],
+        ['Pelatihan', 'pelatihan', 'fa-solid fa-book'],
+        ['Magang', 'magang', 'fa-solid fa-briefcase'],
+        ['Akreditasi', 'akreditasi', 'fa-regular fa-star'],
+        ['Mitra', 'mitra', 'fa-solid fa-store'],
+    ] as [$name, $route, $icon])
+        <li class="flex items-center space-x-3 px-4 py-2 rounded-md {{ Route::is($route) ? 'bg-primary text-white' : 'bg-white text-black hover:bg-gray-200' }}">
+            <a class="font-lg" href="{{ Route::has($route) ? route($route) : '#' }}">
+                <i class="{{ $icon }} {{ Route::is($route) ? 'text-white' : 'text-primary' }}"></i>
+                {{ $name }}
+            </a>
+        </li>
+    @endforeach
     @guest
     <li><a href="" class="bg-secondary text-white px-2 py-2 rounded-md">Masuk</a></li>
     @endguest

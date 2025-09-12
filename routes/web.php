@@ -14,11 +14,12 @@ Route::get('/dashboard', function () {
     return Homepage::index();
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/detail-pelatihan/{slug}', [TrainingController::class, 'show'])->name('detail-pelatihan');
+Route::prefix('pelatihan')->group(function () {
+    Route::get('/{slug}', [TrainingController::class, 'show'])->name('detail-pelatihan');
+    Route::get('/', [TrainingController::class, 'index'])->name('pelatihan');
+    Route::get('/materi/{slug}', [TrainingMaterialController::class, 'show'])->name('pelatihan.materi');
+});
 
-Route::get('/pelatihan', [TrainingController::class, 'index'])->name('pelatihan');
-
-Route::get('pelatihan/{slug}', [TrainingMaterialController::class, 'show'])->name('pelatihan.materi');
 
 Route::get('/magang', function(){
     return view('magang/magang');

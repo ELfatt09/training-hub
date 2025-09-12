@@ -7,7 +7,7 @@ use App\Models\Training;
 use App\Models\TrainingSection;
 use App\Models\TrainingMaterial;
 
-class trainings_subscriber extends Model
+class trainingSubscriber extends Model
 {
     protected $fillable = [
         'user_id',

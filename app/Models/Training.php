@@ -54,7 +54,7 @@ class Training extends Model
 
     
     public function subscribers() {
-        return $this->hasMany(trainings_subscriber::class, 'training_id');
+        return $this->hasMany(trainingSubscriber::class, 'training_id');
     }
 
 }
