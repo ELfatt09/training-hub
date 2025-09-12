@@ -73,9 +73,9 @@ class TrainingController extends Controller
         $completedTrainingMaterialsIds = [];
         $completedTrainingSectionsIds = [];
         $training = Training::where('slug', $slug)->with('trainingSections.trainingMaterials', 'trainingReviews')->firstOrFail();
-        if (Auth::user()->subscribedTrainings()->where('training_id', $training->id)->exists()) {
-             $completedTrainingSectionsIds = Auth::user()->subscribedTrainings->findOrFail($training->id)->first()->completedTrainingSections()->pluck('id')->toArray();
-        $completedTrainingMaterialsIds = Auth::user()->subscribedTrainings->findOrFail($training->id)->first()->completedTrainingMaterials()->pluck('id')->toArray();
+        if (Auth::user()->subscribedTrainings->where('training_id', $training->id)) {
+        $completedTrainingSectionsIds = Auth::user()->subscribedTrainings->where('training_id', $training->id)->first()->completedTrainingSections()->pluck('id')->toArray();
+        $completedTrainingMaterialsIds = Auth::user()->subscribedTrainings->where('training_id', $training->id)->first()->completedTrainingMaterials()->pluck('id')->toArray();
         }
        
 
