@@ -229,13 +229,13 @@
             {{-- Top --}}
                 <div class="flex w-full items-center justify-between border-2 border-primary p-2 md:py-6 md:px-4 rounded-md shadow-md my-6">
                     <div class="flex gap-2 md:gap-6 text-primary">
-                        <h1 class="font-semibold text-xs md:text-xl">{{ $trainingSubscriber->training->title }}</h1>
-                        <div class="text-white text-xs flex items-center md:text-md bg-primary px-2 rounded-md">
+                        <h1 class="font-semibold text-md md:text-xl">{{ $trainingSubscriber->training->title }}</h1>
+                        <div class="text-white text-md flex items-center md:text-lg bg-primary px-2 rounded-md">
                             <h1><span>{{ $trainingSubscriber->training->trainingSections->flatMap->trainingMaterials->count() }}</span> Materi</h1>
                         </div>
                     </div>
 
-                    <div class="text-xs md:text-md flex w-1/3 gap-2 justify-center">
+                    <div class="text-md md:text-lg flex w-1/3 gap-2 justify-center">
                         <h1 class="flex gap-1">
                             <span>{{ $trainingSubscriber->completedTrainingMaterialsCount() }}</span>
                              dari 
@@ -253,7 +253,7 @@
             {{-- Top --}}
 
             {{-- Materi --}}
-                <div class="flex flex-col  px-5">
+                <div class="flex flex-col  px-5 py-16">
                     {{-- Title --}}
                     <div class="text-5xl font-bold md:text-6xl lg:text-7xl mb-10">
                         <h1>{{ $material->title }}</h1>
@@ -261,7 +261,7 @@
 
                     {{-- Vid --}}
                     @if($material->getEmbedUrlAttribute() != null)
-                    <div class="aspect-video w-full">
+                    <div class="aspect-video w-full mb-10">
                         <iframe class="h-full w-full" src="{{ $material->getEmbedUrlAttribute() }}" frameborder="0" allowfullscreen></iframe>
                     </div>
                     @endif
@@ -298,18 +298,20 @@
                 </form>
 
                 {{-- Section 1 --}}
-                    <div class="border border-primary rounded-md">
-                        <div id="accordion-example-desktop-1" data-accordion="open"
+                        @foreach ($trainingSubscriber->training->trainingSections as $trainingSection)
+                             <div class="border border-primary rounded-md">
+
+                        <div id="accordion-example-desktop-{{ $trainingSection->id }}" data-accordion="open"
                             class="w-full mx-auto py-4 px-4">
-                            <div id="accordion-heading-desktop-1">
+                            <div id="accordion-heading-desktop-{{ $trainingSection->id }}">
                                 <button type="button"
                                     class="flex items-center justify-between w-full px-4 py-2 font-medium text-left text-gray-700 bg-white border-primary border rounded-md"
-                                    data-accordion-target="#accordion-body-desktop-1" aria-expanded="true"
-                                    aria-controls="accordion-body-desktop-1">
+                                    data-accordion-target="#accordion-body-desktop-{{ $trainingSection->id }}" aria-expanded="true"
+                                    aria-controls="accordion-body-desktop-{{ $trainingSection->id }}">
 
                                     <div class="flex items-center gap-3 text-primary">
                                         <div class="text-xl font-semibold">
-                                            <h1>Sinopsis & Bonus</h1>
+                                            <h1>{{ $trainingSection->title }}</h1>
                                         </div>
                                     </div>
 
@@ -321,108 +323,23 @@
                                 </button>
                             </div>
 
-                            <div id="accordion-body-desktop-1" class="hidden px-4 py-2 space-y-2"
-                                aria-labelledby="accordion-heading-desktop-1">
-                                <a href="#"
+                            <div id="accordion-body-desktop-{{ $trainingSection->id }}" class="hidden px-4 py-2 space-y-2"
+                                aria-labelledby="accordion-heading-desktop-{{ $trainingSection->id }}">
+                                @foreach ($trainingSection->trainingMaterials as $trainingMaterial)
+                                    <a href="#"
                                     class="flex font-semibold w-full justify-between items-center text-darkoff hover:text-primary">
-                                    <span>1.1 Sinopsis</span>
+                                    <span>{{ $trainingMaterial->title }}</span>
                                     <i class="fa-solid fa-check text-primary"></i>
                                 </a>
-                                <a href="#"
-                                    class="flex font-semibold w-full justify-between items-center text-darkoff hover:text-primary">
-                                    <span>1.1 Sinopsis</span>
-                                    <i class="fa-solid fa-check text-primary"></i>
-                                </a>
-                                <a href="#"
-                                    class="flex font-semibold w-full justify-between items-center text-darkoff hover:text-primary">
-                                    <span>1.1 Sinopsis</span>
-                                    <i class="fa-solid fa-check text-primary"></i>
-                                </a>
-                                <a href="#"
-                                    class="flex font-semibold w-full justify-between items-center text-darkoff hover:text-primary">
-                                    <span>1.1 Sinopsis</span>
-                                    <i class="fa-solid fa-check text-primary"></i>
-                                </a>
+                                @endforeach
+                                
+                               
                                 <!-- dst -->
                             </div>
                         </div>
                     </div>
+                        @endforeach
 
-                    {{-- Section 2 --}}
-                    <div class="border border-primary rounded-md">
-                        <div id="accordion-example-desktop-2" data-accordion="open"
-                            class="w-full mx-auto py-4 px-4">
-                            <div id="accordion-heading-desktop-2">
-                                <button type="button"
-                                    class="flex items-center justify-between w-full px-4 py-2 font-medium text-left text-gray-700 bg-white border-primary border rounded-md"
-                                    data-accordion-target="#accordion-body-desktop-2" aria-expanded="true"
-                                    aria-controls="accordion-body-desktop-2">
-
-                                    <div class="flex items-center gap-3 text-primary">
-                                        <div class="text-xl font-semibold">
-                                            <h1>Lorem Ipsum</h1>
-                                        </div>
-                                    </div>
-
-                                    <svg data-accordion-icon class="w-5 h-5 shrink-0 transition-transform"
-                                        fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <div id="accordion-body-desktop-2" class="hidden px-4 py-2 space-y-2"
-                                aria-labelledby="accordion-heading-desktop-2">
-                                <a href="#"
-                                    class="flex font-semibold w-full justify-between items-center text-darkoff hover:text-primary">
-                                    <span>2.1 Sinopsis</span>
-                                    <i class="fa-solid fa-check text-primary"></i>
-                                </a>
-                                <a href="#"
-                                    class="flex font-semibold w-full justify-between items-center text-darkoff hover:text-primary">
-                                    <span>2.1 Sinopsis</span>
-                                    <i class="fa-solid fa-check text-primary"></i>
-                                </a>
-                                <a href="#"
-                                    class="flex font-semibold w-full justify-between items-center text-darkoff hover:text-primary">
-                                    <span>2.1 Sinopsis</span>
-                                    <i class="fa-solid fa-check text-primary"></i>
-                                </a>
-                                <a href="#"
-                                    class="flex font-semibold w-full justify-between items-center text-darkoff hover:text-primary">
-                                    <span>2.1 Sinopsis</span>
-                                    <i class="fa-solid fa-check text-primary"></i>
-                                </a>
-                                <a href="#"
-                                    class="flex font-semibold w-full justify-between items-center text-darkoff hover:text-primary">
-                                    <span>2.1 Sinopsis</span>
-                                    <i class="fa-solid fa-check text-primary"></i>
-                                </a>
-                                <a href="#"
-                                    class="flex font-semibold w-full justify-between items-center text-darkoff hover:text-primary">
-                                    <span>2.1 Sinopsis</span>
-                                    <i class="fa-solid fa-check text-primary"></i>
-                                </a>
-                                <a href="#"
-                                    class="flex font-semibold w-full justify-between items-center text-darkoff hover:text-primary">
-                                    <span>2.1 Sinopsis</span>
-                                    <i class="fa-solid fa-check text-primary"></i>
-                                </a>
-                                <a href="#"
-                                    class="flex font-semibold w-full justify-between items-center text-darkoff hover:text-primary">
-                                    <span>2.1 Sinopsis</span>
-                                    <i class="fa-solid fa-check text-primary"></i>
-                                </a>
-                                <a href="#"
-                                    class="flex font-semibold w-full justify-between items-center text-darkoff hover:text-primary">
-                                    <span>2.1 Sinopsis</span>
-                                    <i class="fa-solid fa-check text-primary"></i>
-                                </a>
-                                <!-- dst -->
-                            </div>
-                        </div>
-                    </div>
             </div>
         </div>
     </div>

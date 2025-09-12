@@ -71,11 +71,18 @@ class TrainingController extends Controller
     public static function show(string $slug)
     {
         $training = Training::where('slug', $slug)->with('trainingSections.trainingMaterials', 'trainingReviews')->firstOrFail();
+
         $completedTrainingSectionsIds = Auth::user()->subscribedTrainings->findOrFail($training->id)->first()->completedTrainingSections()->pluck('id')->toArray();
         $completedTrainingMaterialsIds = Auth::user()->subscribedTrainings->findOrFail($training->id)->first()->completedTrainingMaterials()->pluck('id')->toArray();
+
+
+        
         return view('pelatihan.detail_pelatihan', compact('training', 'completedTrainingSectionsIds', 'completedTrainingMaterialsIds'));
     }
 
+    public function nextMaterial(int $slug) {
+        
+    }
     /**
      * Show the form for editing the specified resource.
      */

@@ -22,6 +22,7 @@ class TrainingMaterial extends Model
 
         static::creating(function ($model) {
             $model->slug = Str::slug($model->title . '-' . $model->id);
+            $model->order = TrainingMaterial::where('section_id', $model->section_id)->max('order') + 1;
         });
     }
 
