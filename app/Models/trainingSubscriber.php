@@ -35,7 +35,7 @@ class trainingSubscriber extends Model
 
     public function completedTrainingSections() {
         return TrainingSection::where('training_id', $this->training_id)
-            ->where('order', '<=', $this->lastSection->order)
+            ->where('order', '<', $this->lastSection->order)
             ->get();
     }
 
@@ -46,16 +46,18 @@ class trainingSubscriber extends Model
             ->get();
     }
 
+    public function completedTrainingMaterialsCount() {
+        return $this->completedTrainingMaterials()->count();
+    }
+
     public function progress() {
-        $totalMaterials = $this->training->material_count;
+        $totalMaterials = $this->training->getMaterialCountAttribute();
         if ($totalMaterials == 0) {
             return 0;
         }
 
         // Assuming last_material_id indicates the last completed material
-        $completedMaterials = TrainingMaterial::where('training_id', $this->training_id)
-            ->where('order', '<=', TrainingMaterial::where('training_id', $this->training_id)->max('order'))
-            ->count();
+        $completedMaterials = $this->completedTrainingMaterialsCount();
 
         return ($completedMaterials / $totalMaterials) * 100;
     }

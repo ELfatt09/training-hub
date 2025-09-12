@@ -229,23 +229,23 @@
             {{-- Top --}}
                 <div class="flex w-full items-center justify-between border-2 border-primary p-2 md:py-6 md:px-4 rounded-md shadow-md my-6">
                     <div class="flex gap-2 md:gap-6 text-primary">
-                        <h1 class="font-semibold text-xs md:text-xl">Lorem Ipsum</h1>
+                        <h1 class="font-semibold text-xs md:text-xl">{{ $trainingSubscriber->training->title }}</h1>
                         <div class="text-white text-xs flex items-center md:text-md bg-primary px-2 rounded-md">
-                            <h1><span>50</span> Materi</h1>
+                            <h1><span>{{ $trainingSubscriber->training->trainingSections->flatMap->trainingMaterials->count() }}</span> Materi</h1>
                         </div>
                     </div>
 
                     <div class="text-xs md:text-md flex w-1/3 gap-2 justify-center">
                         <h1 class="flex gap-1">
-                            <span>1</span>
+                            <span>{{ $trainingSubscriber->completedTrainingMaterialsCount() }}</span>
                              dari 
-                             <span>50</span> 
+                             <span>{{ $trainingSubscriber->training->trainingSections->flatMap->trainingMaterials->count() }}</span> 
                              Materi
                         </h1>
 
                         <div class="hidden md:flex w-full items-center">
                             <div class="w-full bg-teal-200 rounded-full h-3 overflow-hidden flex items-center">
-                                <div class="bg-primary h-4 rounded-full w-[30%]"></div>
+                                <div class="bg-primary h-4 rounded-full " style="width: {{ $trainingSubscriber->progress() }}%"></div>
                             </div>
                         </div>
                     </div>
@@ -253,9 +253,9 @@
             {{-- Top --}}
 
             {{-- Materi --}}
-                <div class="space-y-4">
+                <div class="flex flex-col  px-5">
                     {{-- Title --}}
-                    <div class="text-4xl font-bold">
+                    <div class="text-5xl font-bold md:text-6xl lg:text-7xl mb-10">
                         <h1>{{ $material->title }}</h1>
                     </div>
 
@@ -267,7 +267,7 @@
                     @endif
 
                     {{-- Desc --}}
-                    <div class="space-y-4 px-5 font-medium text-lg font-jakarta text-justify  
+                    <div class="space-y-4 font-jakarta text-justify  
                     text-black
                     [&>h2]:text-3xl [&>h2]:font-bold
                     [&>h3]:text-2xl [&>h3]:font-semibold [&>h3]:tracking-wide
@@ -275,7 +275,7 @@
                     [&>ol]:list-decimal [&>ol]:pl-8 [&>ol]:space-y-2
                     [&>ul]:list-disc [&>ul]:pl-8 [&>ul]:space-y-2
                     [&>li]:text-base [&>li]:tracking-wide
-                    ">
+                    [&>pre]:text-sm [&>pre]:font-semibold [&>pre]:bg-gray-800 [&>pre>code]:text-secondary [&>pre]:p-3 [&>pre]:rounded-md                     ">
                         {!! $material->content !!}
                     </div>
                 </div>

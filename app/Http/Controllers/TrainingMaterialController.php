@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TrainingMaterial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TrainingMaterialController extends Controller
 {
@@ -37,7 +38,8 @@ class TrainingMaterialController extends Controller
     public function show(String $slug)
     {
         $material = TrainingMaterial::where('slug', $slug)->firstOrFail();
-        return view('pelatihan.materi', compact('material'));
+        $trainingSubscriber = Auth::user()->subscribedTrainings->findOrFail($material->trainingSection->training->id)->first();
+        return view('pelatihan.materi', compact('material', 'trainingSubscriber'));
     }
 
     /**
