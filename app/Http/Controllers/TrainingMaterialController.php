@@ -44,7 +44,7 @@ class TrainingMaterialController extends Controller
 
     // ambil data subscriber training ini
     $trainingSubscriber = Auth::user()
-        ->subscribedTrainings()
+        ->subscribedTrainings
         ->where('training_id', $training->id)
         ->firstOrFail();
 
@@ -66,6 +66,8 @@ class TrainingMaterialController extends Controller
     $trainingSubscriber->last_material_id = $material->id;
     $trainingSubscriber->last_section_id = $material->trainingSection->id;
     $trainingSubscriber->save();
+
+    $trainingSubscriber->refresh();
 
     return view('pelatihan.materi', compact('material', 'trainingSubscriber'));
 }
