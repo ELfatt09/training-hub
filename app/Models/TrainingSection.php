@@ -22,6 +22,7 @@ class TrainingSection extends Model
 
         static::creating(function ($model) {
             $model->slug = Str::slug($model->title . '-' . $model->id);
+            $model->order = TrainingSection::where('training_id', $model->training_id)->max('order') + 1;
         });
     }
 
