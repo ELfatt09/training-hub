@@ -63,11 +63,13 @@ class TrainingMaterialController extends Controller
     }
 
     // update progres kalau emang ini materi berikutnya
-    $trainingSubscriber->last_material_id = $material->id;
-    $trainingSubscriber->last_section_id = $material->trainingSection->id;
-    $trainingSubscriber->save();
+    if (!in_array($material->id, $completedTrainingMaterialsIds)) {
+        $trainingSubscriber->last_material_id = $material->id;
+        $trainingSubscriber->last_section_id = $material->trainingSection->id;
+        $trainingSubscriber->save();
 
-    $trainingSubscriber->refresh();
+        $trainingSubscriber->refresh();
+    }
 
     $completedTrainingSectionsIds = $trainingSubscriber->completedTrainingSections()->pluck('id')->toArray();
     $completedTrainingMaterialsIds = $trainingSubscriber->completedTrainingMaterials()->pluck('id')->toArray();
