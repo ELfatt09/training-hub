@@ -72,7 +72,17 @@ class TrainingMaterialController extends Controller
     $completedTrainingSectionsIds = $trainingSubscriber->completedTrainingSections()->pluck('id')->toArray();
     $completedTrainingMaterialsIds = $trainingSubscriber->completedTrainingMaterials()->pluck('id')->toArray();
 
-    return view('pelatihan.materi', compact('material', 'trainingSubscriber', 'training', 'completedTrainingSectionsIds', 'completedTrainingMaterialsIds'));
+    $previousTrainingMaterial = TrainingMaterial::where('section_id', $material->section_id)
+        ->where('order', '<', $material->order)
+        ->orderBy('order', 'desc')
+        ->first();
+
+    $nextTrainingMaterial = TrainingMaterial::where('section_id', $material->section_id)
+        ->where('order', '>', $material->order)
+        ->orderBy('order')
+        ->first();
+
+    return view('pelatihan.materi', compact('material', 'trainingSubscriber', 'training', 'completedTrainingSectionsIds', 'completedTrainingMaterialsIds', 'previousTrainingMaterial', 'nextTrainingMaterial'));
 }
 
 private function isNextMaterial(TrainingMaterial $currentMaterial, ?int $lastMaterialId): bool
