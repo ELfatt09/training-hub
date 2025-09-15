@@ -330,7 +330,9 @@
                   <a href="{{ route('pelatihan.materi', $trainingMaterial->slug) }}"
                     class="flex font-semibold w-full justify-between items-center text-darkoff hover:text-primary">
                     <span>{{ $trainingMaterial->title }}</span>
+                    @if(in_array($trainingMaterial->id, $completedTrainingMaterialsIds))
                     <i class="fa-solid fa-check text-primary"></i>
+                    @endif
                   </a>
                 @endforeach
               </div>
@@ -341,12 +343,17 @@
 
       {{-- Prev / Next Buttons --}}
       <div class="flex justify-between items-center mt-4">
-        <button class="flex items-center gap-2 bg-primary border border-primary hover:bg-transparent hover:text-primary transition-all text-white px-4 py-2 rounded-md">
+        @if ($previousTrainingMaterial != null)
+        <a href="{{ route('pelatihan.materi', $previousTrainingMaterial->slug) }}" class="flex items-center gap-2 bg-primary border border-primary hover:bg-transparent hover:text-primary transition-all text-white px-4 py-2 rounded-md">
           <i class="fa-solid fa-chevron-left"></i> Sebelumnya
-        </button>
-        <button class="flex items-center gap-2 bg-primary border border-primary hover:bg-transparent hover:text-primary transition-all text-white px-4 py-2 rounded-md">
+        </a>
+        @endif
+        @if ($nextTrainingMaterial != null)
+                    <a  href="{{ route('pelatihan.materi', $nextTrainingMaterial->slug) }}" class="flex items-center gap-2 bg-primary border border-primary hover:bg-transparent hover:text-primary transition-all text-white px-4 py-2 rounded-md">
           Selanjutnya <i class="fa-solid fa-chevron-right"></i>
-        </button>
+        </a>
+        @endif
+
       </div>
 
     </div>

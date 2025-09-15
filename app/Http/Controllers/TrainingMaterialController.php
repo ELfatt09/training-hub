@@ -63,13 +63,28 @@ class TrainingMaterialController extends Controller
     }
 
     // update progres kalau emang ini materi berikutnya
-    $trainingSubscriber->last_material_id = $material->id;
-    $trainingSubscriber->last_section_id = $material->trainingSection->id;
-    $trainingSubscriber->save();
+    if (!in_array($material->id, $completedTrainingMaterialsIds)) {
+        $trainingSubscriber->last_material_id = $material->id;
+        $trainingSubscriber->last_section_id = $material->trainingSection->id;
+        $trainingSubscriber->save();
 
-    $trainingSubscriber->refresh();
+        $trainingSubscriber->refresh();
+    }
 
-    return view('pelatihan.materi', compact('material', 'trainingSubscriber'));
+    $completedTrainingSectionsIds = $trainingSubscriber->completedTrainingSections()->pluck('id')->toArray();
+    $completedTrainingMaterialsIds = $trainingSubscriber->completedTrainingMaterials()->pluck('id')->toArray();
+
+    $previousTrainingMaterial = TrainingMaterial::where('section_id', $material->section_id)
+        ->where('order', '<', $material->order)
+        ->orderBy('order', 'desc')
+        ->first();
+
+    $nextTrainingMaterial = TrainingMaterial::where('section_id', $material->section_id)
+        ->where('order', '>', $material->order)
+        ->orderBy('order')
+        ->first();
+
+    return view('pelatihan.materi', compact('material', 'trainingSubscriber', 'training', 'completedTrainingSectionsIds', 'completedTrainingMaterialsIds', 'previousTrainingMaterial', 'nextTrainingMaterial'));
 }
 
 private function isNextMaterial(TrainingMaterial $currentMaterial, ?int $lastMaterialId): bool
