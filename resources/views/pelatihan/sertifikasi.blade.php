@@ -5,11 +5,6 @@
                     <img class="w-2/3" src="{{ asset('assets/logo/favicon/logo-trainingHub.svg') }}" alt="">
                 </div>
 
-                <div class="flex gap-2">
-                    <button id="sortButton" class="flex items-center bg-white rounded-md py-1 px-2">
-                        <h1><i class="fa-solid fa-filters"></i></h1>
-                    </button>
-
                 @auth
                     <div class="lg:hidden pr-6">
                 <x-dropdown align="right" width="48">
