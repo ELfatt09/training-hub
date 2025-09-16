@@ -6,10 +6,7 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
-// Import core Swiper JS
-import Swiper from 'swiper';
-
-// Import Swiper styles
+import { Swiper, Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -72,19 +69,19 @@ const swiper = new Swiper('.mySwiper', {
 });
 
    const magangSwiper = new Swiper(".magangSwiper", {
-    modules: [Navigation],
-    slidesPerView: 4,
-    loop: true,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    breakpoints: {
-      640: { slidesPerView: 1 },
-      768: { slidesPerView: 2 },
-      1024: { slidesPerView: 4 },
-    },
-  });
+  slidesPerView: 4,
+  spaceBetween: 24,
+  loop: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    640: { slidesPerView: 1 },
+    768: { slidesPerView: 2 },
+    1024: { slidesPerView: 4 },
+  },
+});
 
  const upperBar = document.getElementById("upper-bar");
   const lowerBar = document.getElementById("lower-bar");

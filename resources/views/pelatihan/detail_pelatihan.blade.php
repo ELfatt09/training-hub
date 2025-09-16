@@ -16,6 +16,7 @@
         </div>
 
         {{-- Mobile Tabs Nav --}}
+<<<<<<< Updated upstream
         <div class="md:hidden border-b border-gray-200 mb-4">
             <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
                 <li class="mr-2" role="presentation">
@@ -26,6 +27,132 @@
                 </li>
             </ul>
         </div>
+=======
+
+        <div class="flex items-center lg:hidden w-full py-4 px-6 justify-between">
+                <div class="flex items-center">
+                    <img class="w-2/3" src="{{ asset('assets/logo/favicon/logo-trainingHub.svg') }}" alt="">
+                </div>
+
+                @auth
+                    <div class="lg:hidden pr-6">
+                <x-dropdown align="right" width="48">
+                    <x-slot name="trigger">
+                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                            <div>{{ Auth::user()->name }}</div>
+                            <div class="ms-1">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </button>
+                    </x-slot>
+
+                    <x-slot name="content">
+                            <x-dropdown-link class="text-darkoff gap-4" :href="route('profile.edit')">
+                                <i class="fa-solid fa-user"></i>
+                            {{ __('Profile') }}
+                        </x-dropdown-link>
+
+                        <!-- Authentication -->
+                        @auth
+                            <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                                <x-dropdown-link class="text-red-700 gap-4" :href="route('logout')" 
+                                    onclick="event.preventDefault(); this.closest('form').submit();">
+                                    <i class="fa-solid fa-power-off text-sm"></i>
+                                {{ __('Log Out') }}
+                            </x-dropdown-link>
+                        </form>
+                        @endauth
+                        
+                    </x-slot>
+                </x-dropdown>
+            </div>
+                @else
+                <div class="flex items-center justify-end w-1/3">
+                                    <a href="" class="bg-secondary text-white py-2 px-6 rounded-md font-medium">
+                                        Masuk
+                                    </a>
+                            </div>
+                @endauth
+        </div>
+
+         {{-- Image --}}
+                <div class="block lg:hidden">
+                    <div class=" block lg:hidden w-full h-[40vh]">
+                        <img class="object-cover w-full h-full" src="{{ asset('storage/' . $training->banner) }}" alt="Gambar">
+                    </div>
+
+                    <div class="p-4">
+                        <div class="mb-4 text-3xl font-bold">
+                            <h1>{{ $training->title }}</h1>
+                        </div>
+
+                        {{-- Info --}}
+                    <div class="space-y-4 mb-8">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-2">
+                                <div class="w-9 h-9">
+                                    <img class="rounded-full" src="{{ asset('assets/dummyimage.png') }}" alt="Profile picture">
+                                </div>
+                                <h1 class="text-sm font-semibold text-secondary">{{ $training->author }}</h1>
+                            </div>
+                            
+                            @if(!auth()->user()->subscribedTrainings()->where('training_id', $training->id)->exists())
+                        <form action={{ route('pelatihan.daftar') }} method="POST">
+                            @csrf
+                            <input type="hidden" name="training_id" value="{{ $training->id }}">
+                            <button type="submit" class="text-sm bg-primary text-white px-3 py-1 rounded-md">
+                                Pelajari Kelas
+                            </button>
+                        </form>
+                        @endif
+                        </div>
+
+                        <div class="flex items-center text-secondary" role="img">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star-half-stroke"></i>
+                                    <p class="text-xs lg:text-base ml-2">({{ $training->trainingReviews->count() }} Ulasan)</p>
+                                </div>
+
+                        <div class="grid grid-cols-3 text-xs gap-y-2 lg:flex w-full lg:justify-between lg:text-base">
+                            <div class="flex items-center justify-center md:justify-start lg:ml-8">
+                                    <i class="fa-solid fa-globe"></i>
+                                    <p class="ml-2">Bahasa Indonesia</p>
+                                </div>
+
+                                <div class="flex items-center justify-center md:justify-start lg:mr-8">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                    <p class="ml-2"><span>{{ $training->subscribers->count() }}</span> Pelajar</p>
+                                </div>
+
+                                <div class="flex items-center justify-center md:justify-start">
+                                    <i class="fa-solid fa-pen"></i>
+                                    <p class="ml-2"><span>{{ $training->updated_at->format('d M Y') }}</span> Diperbaharui</p>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:hidden w-full border-b border-gray-200 mb-4">
+                                <ul class="flex w-full justify-between grow -mb-px text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
+                                    <li class="mr-2 w-1/3" role="presentation">
+                                        <button class="inline-block p-4 w-full border-b-2 rounded-t-lg" id="konten-tab" data-tabs-target="#deskripsi-content" type="button" role="tab" aria-controls="deskripsi-content" aria-selected="true">Deskripsi</button>
+                                    </li>
+                                    <li class="mr-2 w-1/3" role="presentation">
+                                        <button class="inline-block p-4 w-full border-b-2 rounded-t-lg" id="sidebar-tab" data-tabs-target="#materi-content" type="button" role="tab" aria-controls="materi-content" aria-selected="false">Materi</button>
+                                    </li>
+                                    <li class="mr-2 w-1/3" role="presentation">
+                                        <button class="inline-block p-4 w-full border-b-2 rounded-t-lg" id="sidebar-tab" data-tabs-target="#ulasan-content" type="button" role="tab" aria-controls="ulasan-content" aria-selected="false">Ulasan</button>
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+>>>>>>> Stashed changes
 
         {{-- Main Container --}}
         <div id="myTabContent" class="md:grid md:grid-cols-3 md:gap-8 md:px-16">

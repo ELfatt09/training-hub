@@ -1,4 +1,4 @@
-  <footer class="w-full flex flex-col">
+  <footer class="w-full flex flex-col mt-12">
        {{-- Upper --}}
        <div class="w-full hidden md:flex gap-12 py-4 px-6">
           {{-- Left --}}
