@@ -1,15 +1,15 @@
 <!-- Single Card -->
-<div class="w-full h-full max-h-[65vh] max-w-sm flex-shrink-0 bg-white shadow-md rounded-lg overflow-hidden border border-primary p-4">
+<div class="w-full md:w-fit h-full max-h-[70vh] max-w-sm flex-shrink-0 bg-white shadow-md rounded-lg overflow-hidden border border-primary p-4">
     <!-- Image -->
-    <div class="w-full h-60 flex justify-center items-center py-2">
+    <div class="w-full h-40 md:h-50 flex justify-center items-center py-2">
         <img class="w-full h-full object-cover rounded-md" src="{{ asset('storage/' . $training->banner) }}" alt="">
     </div>
 
-    <!-- Description -->
+    <!-- Status -->
     <div class="space-y-4 mb-8 text-xs md:text-sm lg:text-md">
         <h1 class="text-xl font-semibold text-primary">{{ $training->title }}</h1>
 
-        <ul class="flex gap-4 text-xs lg:text-sm">
+        <ul class="flex items-center justify-between gap-4 text-xs lg:text-sm">
             <li>
                 <i class="fa-solid fa-book"></i> 
                 <span class="font-bold">{{ $training->getMaterialCountAttribute() }} Pelajaran</span>

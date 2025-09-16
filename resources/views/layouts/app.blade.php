@@ -38,7 +38,7 @@
         <div class="bg-gray-100">
             @include('partials.navbar')
 
-             <!-- Lower Content -->
+            <!-- Lower Content -->
 
             <!-- Page Heading -->
             @isset($header)
