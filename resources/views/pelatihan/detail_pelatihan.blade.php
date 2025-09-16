@@ -244,11 +244,11 @@
                     <div id="accordion-open" data-accordion="open" class="w-full mx-auto">
                     @if (auth()->user()->subscribedTrainings()->where('training_id', $training->id)->exists())
                     @foreach ($training->trainingSections as $section)
-                        <x-card-materi :section="$section" :accordionid="$loop->index + 1" :index="$loop->index" :open="true" :completed="in_array($section->id, $completedTrainingSectionsIds) ? true : false" />
+                        <x-card-materi :section="$section" :accordionid="$loop->index + 1" :index="2" :open="true" :completed="in_array($section->id, $completedTrainingSectionsIds) ? true : false" />
                     @endforeach
                     @else
                         @foreach ($training->trainingSections as $section)
-                        <x-card-materi :section="$section" :accordionid="$loop->index + 1" :index="$loop->index" :open="false" :completed="false" />
+                        <x-card-materi :section="$section" :accordionid="$loop->index + 1" :index="2" :open="false" :completed="false" />
                     @endforeach
                     @endif
                     </div>
@@ -356,13 +356,14 @@
     <div class="text-xl font-semibold mb-6">
         <h1>Materi Kursus</h1>
     </div>
+                    <div id="accordion-open-1" data-accordion="open" class="w-full mx-auto">
 
     @if (auth()->user()->subscribedTrainings()->where('training_id', $training->id)->exists())
         @foreach ($training->trainingSections as $section)
             <x-card-materi 
                 :section="$section" 
                 :accordionid="$loop->index + 1" 
-                :index="$loop->index" 
+                :index="1" 
                 :open="true" 
                 :completed="in_array($section->id, $completedTrainingSectionsIds)" 
             />
@@ -372,12 +373,13 @@
             <x-card-materi 
                 :section="$section" 
                 :accordionid="$loop->index + 1" 
-                :index="$loop->index" 
+                :index="1" 
                 :open="false" 
                 :completed="false" 
             />
         @endforeach
     @endif
+                    </div>
                 </div>
             </div>
 
