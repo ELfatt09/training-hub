@@ -1,4 +1,4 @@
-<div id="accordion-open-{{ $accordionid }}" data-accordion="open" class="w-full mx-auto">
+
         <div id="accordion-open-heading-{{ $accordionid }}-{{ $index }}">
             <button type="button" 
                 class="flex items-center justify-between w-full p-4 font-medium text-left text-gray-700 bg-white border-y-darkoff border"
@@ -55,4 +55,4 @@
                 @endforeach
             </div>
         </div>
-</div>
+

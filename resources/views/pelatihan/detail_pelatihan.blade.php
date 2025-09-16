@@ -241,6 +241,7 @@
                     <div class="text-2xl lg:text-3xl font-semibold mb-4">
                         <h1>Materi Kursus</h1>
                     </div>
+                    <div id="accordion-open" data-accordion="open" class="w-full mx-auto">
                     @if (auth()->user()->subscribedTrainings()->where('training_id', $training->id)->exists())
                     @foreach ($training->trainingSections as $section)
                         <x-card-materi :section="$section" :accordionid="$loop->index + 1" :index="$loop->index" :open="true" :completed="in_array($section->id, $completedTrainingSectionsIds) ? true : false" />
@@ -250,7 +251,7 @@
                         <x-card-materi :section="$section" :accordionid="$loop->index + 1" :index="$loop->index" :open="false" :completed="false" />
                     @endforeach
                     @endif
-
+                    </div>
                 </div>
             </div>
 
