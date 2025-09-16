@@ -45,6 +45,7 @@ class trainingSubscriber extends Model
             ->where('order', '<=', $this->lastMaterial->order)
             ->orWhereIn('section_id', $this->completedTrainingSections()->pluck('id'))
             ->get();
+            //
     }
 
     public function completedTrainingMaterialsCount() {
