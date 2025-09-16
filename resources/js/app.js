@@ -1,17 +1,17 @@
 import './bootstrap';
-
 import Alpine from 'alpinejs';
+import 'flowbite';
+import { Tabs } from 'flowbite';
 
 window.Alpine = Alpine;
-
 Alpine.start();
 
-import { Swiper, Navigation } from 'swiper';
+// Swiper (modular import)
+import Swiper from 'swiper';
+import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-// Import modul navigasi
-import { Navigation } from 'swiper/modules';
 
 window.onload = () => {
     const sortButton = document.getElementById("sortButton");
