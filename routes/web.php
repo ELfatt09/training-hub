@@ -20,6 +20,7 @@ Route::prefix('pelatihan')->group(function () {
     Route::get('/', [TrainingController::class, 'index'])->name('pelatihan');
     Route::get('/materi/{slug}', [TrainingMaterialController::class, 'show'])->name('pelatihan.materi');
     Route::post('/daftar', [TrainingsSubscriberController::class, 'store'])->name('pelatihan.daftar');
+    Route::get('/penyelesaian/{trainingSubscriberId}', [TrainingsSubscriberController::class, 'trainingCompletion'])->name('pelatihan.penyelesaian');
 });
 
 

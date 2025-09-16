@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Training;
+use App\Http\Controllers\TrainingsSubscriberController;
 use App\Models\TrainingMaterial;
 use App\Models\TrainingSection;
+use App\Models\trainingSubscriber;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -68,8 +70,8 @@ class TrainingMaterialController extends Controller
         $trainingSubscriber->last_section_id = $material->trainingSection->id;
         $trainingSubscriber->save();
 
-        $trainingSubscriber->refresh();
     }
+
 
     $completedTrainingSectionsIds = $trainingSubscriber->completedTrainingSections()->pluck('id')->toArray();
     $completedTrainingMaterialsIds = $trainingSubscriber->completedTrainingMaterials()->pluck('id')->toArray();
@@ -83,8 +85,19 @@ class TrainingMaterialController extends Controller
         ->where('order', '>', $material->order)
         ->orderBy('order')
         ->first();
+    
+    $isLastMaterial = $this->isLastMaterialInTraining($material->id);
 
-    return view('pelatihan.materi', compact('material', 'trainingSubscriber', 'training', 'completedTrainingSectionsIds', 'completedTrainingMaterialsIds', 'previousTrainingMaterial', 'nextTrainingMaterial'));
+    if ($isLastMaterial) {
+        $trainingSubscriber->is_completed = true;
+        $trainingSubscriber->save();
+    }
+
+    $trainingSubscriber->refresh();
+
+
+
+    return view('pelatihan.materi', compact('material', 'trainingSubscriber', 'training', 'completedTrainingSectionsIds', 'completedTrainingMaterialsIds', 'previousTrainingMaterial', 'nextTrainingMaterial', 'isLastMaterial'));
 }
 
 private function isNextMaterial(TrainingMaterial $currentMaterial, ?int $lastMaterialId): bool
@@ -129,14 +142,38 @@ private function isNextMaterial(TrainingMaterial $currentMaterial, ?int $lastMat
     return false; // kalau ga ada lanjutannya
 }
 
+function isLastMaterialInTraining(int $materialId){
+    $material = TrainingMaterial::find($materialId);
+    $section = $material->trainingSection;
+    $training = $material->trainingSection->training;
+    
+    if (!$section->order === $training->trainingSections->max('order')){
+        return false;
+    }
 
+    if (!$material->order === $section->trainingMaterials->max('order')){
+        return false;
+    }
+
+    return true;
+}
+
+    public function isTrainingCompleted(int $trainingSubscriberId){
+        $trainingSubscriber = trainingSubscriber::find($trainingSubscriberId);
+        if ($trainingSubscriber->last_section_id === TrainingSection::where('training_id', $trainingSubscriber->training_id)->max('order')->id && $trainingSubscriber->last_material_id === TrainingMaterial::where('section_id', $trainingSubscriber->last_section_id)->max('order')->id){
+            $trainingSubscriber->is_completed = true;
+            return true;
+        }
+        return false;
+    }
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(TrainingMaterial $trainingMaterial)
-    {
-        //
-    }
+
+
+
+
+
 
     /**
      * Update the specified resource in storage.

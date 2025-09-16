@@ -34,8 +34,9 @@ class trainingSubscriber extends Model
     }
 
     public function completedTrainingSections() {
+
         return TrainingSection::where('training_id', $this->training_id)
-            ->where('order', '<', $this->lastSection->order)
+            ->where('order', '<=', $this->lastSection->order)
             ->get();
     }
 
@@ -61,4 +62,6 @@ class trainingSubscriber extends Model
 
         return ($completedMaterials / $totalMaterials) * 100;
     }
+
+
 }

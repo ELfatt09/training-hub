@@ -353,6 +353,11 @@
           Selanjutnya <i class="fa-solid fa-chevron-right"></i>
         </a>
         @endif
+        @if ($isLastMaterial)
+            <a  href="{{ route('pelatihan.penyelesaian', $trainingSubscriber->id) }}" class="flex items-center gap-2 bg-primary border border-primary hover:bg-transparent hover:text-primary transition-all text-white px-4 py-2 rounded-md">
+          Selesaikan <i class="fa-solid fa-chevron-right"></i>
+        </a>
+        @endif
 
       </div>
 

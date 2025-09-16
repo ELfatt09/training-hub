@@ -68,6 +68,13 @@ $lastMaterial = $lastSection
         return redirect()->route('detail-pelatihan', ['slug' => Training::find($trainingId)->slug]);
     }
 
+        public function trainingCompletion(int $trainingSubscriberId){
+        $trainingSubscriber = trainingSubscriber::find($trainingSubscriberId);
+        if ($trainingSubscriber->is_completed) {
+            return view('pelatihan.sertifikasi', compact('trainingSubscriber'));
+        }
+    }
+
     /**
      * Display the specified resource.
      */
