@@ -13,3 +13,8 @@ button[aria-selected="true"] {
   color: #14A4AD !important; /* teal-600 */
   border-color: #14A4AD !important;
 }
+
+.z-modal {
+  z-index: 9999; /* biar modal pasti di atas segalanya */
+}
+

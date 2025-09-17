@@ -185,22 +185,5 @@
 </header>
 
     <!-- Script toggle -->
-<script>
-  const hamburger = document.getElementById("hamburger");
-  const menu = document.getElementById("mobile-menu");
-  const closeMenu = document.getElementById("close-menu");
-
-  // buka
-  hamburger.addEventListener("click", () => {
-    menu.classList.remove("translate-x-full");
-    menu.classList.add("translate-x-0");
-  });
-
-  // tutup
-  closeMenu.addEventListener("click", () => {
-    menu.classList.remove("translate-x-0");
-    menu.classList.add("translate-x-full");
-  });
-</script>
 
 
