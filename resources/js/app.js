@@ -106,6 +106,17 @@ const swiper = new Swiper('.mySwiper', {
       lowerBar.classList.add("lg:py-0"); // ganti sesuai tinggi upper-bar// ganti sesuai tinggi upper-bar
     }
   });
+
+    document.getElementById("phoneInput").addEventListener("input", function(e) {
+      // Ambil angka aja (hapus semua selain 0-9)
+      let value = e.target.value.replace(/\D/g, "");
+      
+      // Bikin format dengan "-" tiap 4 digit
+      let formatted = value.match(/.{1,4}/g)?.join("-") || "";
+      
+      // Update input
+      e.target.value = formatted;
+  });
 };
 // Init swiper
 
