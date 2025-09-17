@@ -112,13 +112,13 @@ const swiper = new Swiper('.mySwiper', {
       if (currentScroll > 50) {
         upperBar.style.transform = "translateY(-100%)";
         lowerBar.style.transform = "translateY(-48px)";
-        lowerBar.classList.remove("lg:py-0");
-        lowerBar.classList.add("lg:py-4");
+        lowerBar.classList.remove("md:py-4");
+        lowerBar.classList.add("md:py-6");
       } else {
         upperBar.style.transform = "translateY(0)";
         lowerBar.style.transform = "translateY(0)";
-        lowerBar.classList.remove("lg:py-4");
-        lowerBar.classList.add("lg:py-4");
+        lowerBar.classList.remove("md:py-6");
+        lowerBar.classList.add("md:py-4");
       }
     });
   }
