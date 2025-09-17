@@ -51,22 +51,7 @@ window.onload = () => {
             // tabs.show('sidebar-content'); // To show the 'Proses' tab
         } else {
             console.error('Flowbite Tabs: Could not find the required tab elements.');
-        }
-
-const swiper = new Swiper('.mySwiper', {
-  modules: [Navigation],
-  slidesPerView: 5,
-  spaceBetween: 20,
-  navigation: {
-    nextEl: ".custom-next",
-    prevEl: ".custom-prev",
-  },
-  breakpoints: {
-    320: { slidesPerView: 2 },
-    640: { slidesPerView: 3 },
-    1024: { slidesPerView: 5 },
-  }
-});
+        };
 
    const magangSwiper = new Swiper(".magangSwiper", {
   slidesPerView: 4,
@@ -82,6 +67,22 @@ const swiper = new Swiper('.mySwiper', {
     1024: { slidesPerView: 4 },
   },
 });
+
+ const swiper = new Swiper('.mySwiper', {
+        modules: [Navigation],
+        slidesPerView: 5,
+        spaceBetween: 20,
+        navigation: {
+          nextEl: ".custom-next",
+          prevEl: ".custom-prev",
+        },
+        breakpoints: {
+          320: { slidesPerView: 2 },
+          640: { slidesPerView: 3 },
+          1024: { slidesPerView: 5 },
+        }
+      });
+
 
   // Hamburger menu
   const hamburger = document.getElementById("hamburger");
