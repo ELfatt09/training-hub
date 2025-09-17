@@ -1,11 +1,11 @@
-<section>
+<section class="w-full">
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Profile Information') }}
+        <h2 class="text-2xl font-semibold text-gray-900">
+            {{ __('Detail Profil') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __("Update your account's profile information and email address.") }}
+            {{ __("Perbarui informasi profil dan alamat email akun Anda.") }}
         </p>
     </header>
 
@@ -13,18 +13,25 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" class="w-full mt-6 space-y-6">
         @csrf
         @method('patch')
 
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
-            <x-input-error class="mt-2" :messages="$errors->get('name')" />
+        <div class="grid grid-cols-2 gap-6">
+            <div class="col-span-1">
+                <x-input-label for="name" :value="__('Nama Depan')" />
+                <x-text-input id="name" name="name" type="text" class="w-full mt-1 block" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+                <x-input-error class="mt-2" :messages="$errors->get('name')" />
+            </div>
+            <div class="col-span-1">
+                <x-input-label for="name" :value="__('Nama Belakang')" />
+                <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+                <x-input-error class="mt-2" :messages="$errors->get('name')" />
+            </div>
         </div>
 
         <div>
-            <x-input-label for="email" :value="__('Email')" />
+            <x-input-label for="email" :value="__('Alamat Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
@@ -47,8 +54,14 @@
             @endif
         </div>
 
+        <div>
+            <x-input-label for="number" :value="__('Nomor Telepon')" />
+            <x-text-input id="number"  name="number"  id="phoneInput" 
+                maxlength="15" type="number" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189 && event.keyCode !== 187"  class="mt-1 block w-full" />
+        </div>
+
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <x-primary-button>{{ __('Simpan') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
                 <p
@@ -57,7 +70,7 @@
                     x-transition
                     x-init="setTimeout(() => show = false, 2000)"
                     class="text-sm text-gray-600"
-                >{{ __('Saved.') }}</p>
+                >{{ __('Tersimpan.') }}</p>
             @endif
         </div>
     </form>

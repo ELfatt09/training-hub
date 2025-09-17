@@ -94,19 +94,31 @@ window.onload = () => {
     window.addEventListener("scroll", function () {
       let currentScroll = window.scrollY;
 
-      if (currentScroll > 50) {
-        upperBar.style.transform = "translateY(-100%)";
-        lowerBar.style.transform = "translateY(-48px)";
-        lowerBar.classList.remove("md:py-4");
-        lowerBar.classList.add("md:py-6");
-      } else {
-        upperBar.style.transform = "translateY(0)";
-        lowerBar.style.transform = "translateY(0)";
-        lowerBar.classList.remove("md:py-6");
-        lowerBar.classList.add("md:py-4");
-      }
-    });
-  }
+    if (currentScroll > 50) {
+      // Kalau sudah turun > 50px → sembunyikan upper-bar + naikkan lower-bar
+      upperBar.style.transform = "translateY(-100%)";
+      lowerBar.style.transform = "translateY(-48px)";
+      lowerBar.classList.remove("lg:py-0"); // ganti sesuai tinggi upper-bar// ganti sesuai tinggi upper-bar
+      lowerBar.classList.add("lg:py-4"); // ganti sesuai tinggi upper-bar// ganti sesuai tinggi upper-bar
+    } else {
+      // Kalau di posisi paling atas → tampilkan lagi
+      upperBar.style.transform = "translateY(0)";
+      lowerBar.style.transform = "translateY(0)";
+      lowerBar.classList.remove("lg:py-4"); 
+      lowerBar.classList.add("lg:py-0"); // ganti sesuai tinggi upper-bar// ganti sesuai tinggi upper-bar
+    }
+  });
+
+    document.getElementById("phoneInput").addEventListener("input", function(e) {
+      // Ambil angka aja (hapus semua selain 0-9)
+      let value = e.target.value.replace(/\D/g, "");
+      
+      // Bikin format dengan "-" tiap 4 digit
+      let formatted = value.match(/.{1,4}/g)?.join("-") || "";
+      
+      // Update input
+      e.target.value = formatted;
+  });
 };
 // Init swiper
 

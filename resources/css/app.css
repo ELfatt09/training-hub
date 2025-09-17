@@ -14,6 +14,14 @@ button[aria-selected="true"] {
   border-color: #14A4AD !important;
 }
 
-.z-modal {
-  z-index: 9999; /* biar modal pasti di atas segalanya */
+/* Untuk Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Untuk Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
