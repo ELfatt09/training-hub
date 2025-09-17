@@ -69,8 +69,8 @@ const swiper = new Swiper('.mySwiper', {
 });
 
    const magangSwiper = new Swiper(".magangSwiper", {
-  slidesPerView: 4,
-  spaceBetween: 24,
+  modules: [Navigation], // ← ini penting
+  spaceBetween: 20,
   loop: true,
   navigation: {
     nextEl: ".swiper-button-next",
@@ -82,6 +82,7 @@ const swiper = new Swiper('.mySwiper', {
     1024: { slidesPerView: 4 },
   },
 });
+
 
   // Hamburger menu
   const hamburger = document.getElementById("hamburger");
