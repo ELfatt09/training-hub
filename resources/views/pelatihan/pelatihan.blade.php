@@ -132,7 +132,7 @@
                     action=""
                     class="w-full bg-white max-w-lg overflow-hidden flex items-center rounded-full border-2 border-primary bg-transparent focus:outline-none focus:ring-0 focus:border-secondary"
                     >
-                        <input placeholder="Cari Pelatihan..." name="search" class=" border-none w-full" type="text">
+                        <input placeholder="Cari Pelatihan..." name="search" class=" border-none w-full text-xs md:text-md" type="text">
                         <button type="submit" class=" px-4 py-2 rounded-full bg-white">                        
                             <i class="fa-regular fa-magnifying-glass  text-primary"></i>
                         </button>
@@ -192,8 +192,8 @@
                         </div>
             </div>
 
-            <div class="flex flex-col px-12 md:px-0 md:col-span-6 lg:col-span-4 my-6 lg:mx-6">
-                <div class="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-6 lg::px-16">
+            <div class="flex flex-col px-10 md:px-0 md:col-span-6 lg:col-span-4 my-6 lg:mx-6">
+                <div class="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:px-6 lg::px-16">
                     @foreach ($trainings as $training)
                     <x-card
                         :training="$training"

@@ -1,10 +1,10 @@
-  <footer class="w-full flex flex-col mt-12">
+  <footer class="w-full flex flex-col space-y-6">
        {{-- Upper --}}
        <div class="w-full hidden md:flex gap-12 py-4 px-6">
           {{-- Left --}}
-        <div class="block w-1/3 space-y-4">
+        <div class="block w-1/4 space-y-4">
             <div>
-                <img class="w-1/3" src="assets/logo/favicon/logo-trainingHub.svg" alt="">
+                <img class="w-1/2 lg:w-1/2" src="assets/logo/favicon/logo-trainingHub.svg" alt="">
             </div>
             <div class="">
                 <h1 class="line-clamp-4 text-justify text-sm">Gorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat</h1>
@@ -13,7 +13,7 @@
         {{-- Left --}}
 
         {{-- Middle --}}
-            <div class="w-1/3 grid grid-cols-4 gap-4">
+            <div class="w-1/3 grid grid-cols-4 gap-4 text-sm lg:text-base">
                 {{-- Single Category --}}
                 <div>
                     <div>
@@ -126,8 +126,6 @@
         {{-- Right --}}
        </div>
        {{-- Upper End --}}
-
-       <hr>
 
        {{-- Down --}}
             <div class="flex bg-primary w-full px-4 md:px-12 text-white justify-between py-6 text-[0.60rem] lg:text-[1rem]">

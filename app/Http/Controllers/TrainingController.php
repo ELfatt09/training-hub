@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Major;
 use App\Models\Training;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TrainingController extends Controller
 {
@@ -69,10 +70,23 @@ class TrainingController extends Controller
      */
     public static function show(string $slug)
     {
+        $completedTrainingMaterialsIds = [];
+        $completedTrainingSectionsIds = [];
         $training = Training::where('slug', $slug)->with('trainingSections.trainingMaterials', 'trainingReviews')->firstOrFail();
-        return view('pelatihan.detail_pelatihan', compact('training'));
+        if (Auth::user()->subscribedTrainings->where('training_id', $training->id)->first() != null) {
+        $completedTrainingSectionsIds = Auth::user()->subscribedTrainings->where('training_id', $training->id)->first()->completedTrainingSections()->pluck('id')->toArray();
+        $completedTrainingMaterialsIds = Auth::user()->subscribedTrainings->where('training_id', $training->id)->first()->completedTrainingMaterials()->pluck('id')->toArray();
+        }
+       
+
+
+        
+        return view('pelatihan.detail_pelatihan', compact('training', 'completedTrainingSectionsIds', 'completedTrainingMaterialsIds'));
     }
 
+    public function nextMaterial(int $slug) {
+        
+    }
     /**
      * Show the form for editing the specified resource.
      */

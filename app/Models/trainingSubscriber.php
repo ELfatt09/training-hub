@@ -7,8 +7,10 @@ use App\Models\Training;
 use App\Models\TrainingSection;
 use App\Models\TrainingMaterial;
 
-class trainings_subscriber extends Model
+class trainingSubscriber extends Model
 {
+    protected $table = 'trainings_subscribers';
+
     protected $fillable = [
         'user_id',
         'training_id',
@@ -32,28 +34,35 @@ class trainings_subscriber extends Model
     }
 
     public function completedTrainingSections() {
+
         return TrainingSection::where('training_id', $this->training_id)
-            ->where('order', '<=', TrainingSection::where('training_id', $this->training_id)->max('order'))
+            ->where('order', '<=', $this->lastSection->order)
             ->get();
     }
 
     public function completedTrainingMaterials() {
-        return TrainingMaterial::where('training_id', $this->training_id)
-            ->where('order', '<=', TrainingMaterial::where('training_id', $this->training_id)->max('order'))
+        return TrainingMaterial::where('section_id', $this->lastSection->id)
+            ->where('order', '<=', $this->lastMaterial->order)
+            ->orWhereIn('section_id', $this->completedTrainingSections()->pluck('id'))
             ->get();
+            //
+    }
+
+    public function completedTrainingMaterialsCount() {
+        return $this->completedTrainingMaterials()->count();
     }
 
     public function progress() {
-        $totalMaterials = $this->training->material_count;
+        $totalMaterials = $this->training->getMaterialCountAttribute();
         if ($totalMaterials == 0) {
             return 0;
         }
 
         // Assuming last_material_id indicates the last completed material
-        $completedMaterials = TrainingMaterial::where('training_id', $this->training_id)
-            ->where('order', '<=', TrainingMaterial::where('training_id', $this->training_id)->max('order'))
-            ->count();
+        $completedMaterials = $this->completedTrainingMaterialsCount();
 
         return ($completedMaterials / $totalMaterials) * 100;
     }
+
+
 }

@@ -1,11 +1,11 @@
 <x-app-layout class="w-full scroll-smooth">
     <!-- Hero -->
-    <section id="beranda" class="flex items-center h-fit md:h-[85vh] w-full font-jakarta bg-milk">
+    <section id="beranda" class="flex items-center h-fit md:h-[100vh] w-full font-jakarta bg-milk">
         <!-- Left Side -->
         <div
-            class="h-full flex flex-col justify-center items-center md:items-start lg:items-start w-full px-4 py-12 md:w-1/2 md:pt-26 md:px-6 space-y-12">
+            class="h-full flex flex-col justify-center items-center md:items-start lg:items-start w-full px-6 py-12 md:w-1/2 md:pt-26 lg:px-12 space-y-12">
             <!-- Hero text -->
-            <div class="space-y-6 mt-0 md:mt-40">
+            <div class="space-y-6 mt-0 md:mt-32">
                 <div class="w-full flex flex-col place-items-center md:place-items-start md:space-y-2">
                     <h1 class="text-primary text-2xl font-bold text-center md:text-start md:text-5xl lg:text-7xl">
                         Lorem Ipsum
@@ -17,7 +17,7 @@
                 </div>
 
                 <div>
-                    <p class="text-sm md:text-md text-center md:text-start font-jakarta font-medium text-darkoff">The
+                    <p class="text-sm md:text-base text-center md:text-start font-jakarta font-medium text-darkoff">The
                         standard chunk of Lorem Ipsum
                         used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from
                         "de Finibus Bonorum et Malorum".</p>
@@ -32,7 +32,8 @@
                         href="">Lorem Ipsum</a>
 
                     <div class="hidden md:flex place-items-center">
-                        <h1 class="w-full col-span-1 text-sm md:text-xs lg:text-base font-medium">Lorem ipsum dolor </br> sit amet.</h1>
+                        <h1 class="w-full col-span-1 text-sm md:text-xs lg:text-base font-medium">Lorem ipsum dolor
+                            </br> sit amet.</h1>
                     </div>
                 </div>
 
@@ -46,36 +47,36 @@
         <!-- Left Side -->
 
         <!-- Right Side -->
-        <div class="hidden md:flex flex-col justify-end mt-60 px-20 w-1/2 h-[50vh]">
+        <div class="hidden md:flex flex-col justify-end mt-40 px-20 w-1/2 h-[50vh]">
             <!-- Image -->
             <div class="w-full h-full flex">
                 <img class="w-full h-5/6 shadow-solid-teal rounded-md" src="https://picsum.photos/id/0/200/300"
                     alt="">
             </div>
-            <div class="bg-white w-fit h-fit px-4 py-2 shadow-lg absolute top-36 right-10 rounded-md">
-                <h1 class="text-xl">Lorem Ipsum</h1>
-                <p>Lorem ipsum dolor sit amet.</p>
+            <div class="bg-white w-fit h-fit px-4 py-2 shadow-lg absolute top-36 lg:top-40 right-10 rounded-md">
+                <h1 class="text-lg lg:text-xl">Lorem Ipsum</h1>
+                <p class="text-sm lg:text-base">Lorem ipsum dolor sit amet.</p>
             </div>
             <!-- Image End -->
 
             <!-- Stats -->
-            <div class="grid grid-cols-4 font-jakarta">
+            <div class="grid grid-cols-4 gap-2 font-jakarta">
                 <!-- Single Stats -->
                 <div class="flex col-span-1 flex-col place-items-center">
                     <h1 class="text-primary font-extrabold text-xl">500+</h1>
-                    <h2 class="font-semibold">Lorem Ipsum</h2>
+                    <h2 class="font-semibold text-sm lg:text-base">Lorem Ipsum</h2>
                 </div>
                 <div class="flex col-span-1 flex-col place-items-center">
                     <h1 class="text-primary font-extrabold text-xl">500+</h1>
-                    <h2 class="font-semibold">Lorem Ipsum</h2>
+                    <h2 class="font-semibold text-sm lg:text-base">Lorem Ipsum</h2>
                 </div>
                 <div class="flex col-span-1 flex-col place-items-center">
                     <h1 class="text-primary font-extrabold text-xl">500+</h1>
-                    <h2 class="font-semibold">Lorem Ipsum</h2>
+                    <h2 class="font-semibold text-sm lg:text-base">Lorem Ipsum</h2>
                 </div>
                 <div class="flex col-span-1 flex-col place-items-center">
                     <h1 class="text-primary font-extrabold text-xl">500+</h1>
-                    <h2 class="font-semibold">Lorem Ipsum</h2>
+                    <h2 class="font-semibold text-sm lg:text-base">Lorem Ipsum</h2>
                 </div>
                 <!-- Single Stats End -->
             </div>
@@ -87,7 +88,7 @@
     <!-- Hero End -->
 
     <!-- infinity Carousel -->
-    <div class="overflow-hidden mt-20 relative w-full bg-white py-6">
+    <div class="overflow-hidden relative w-full bg-white py-4 ">
         <div class="flex animate-marquee space-x-6 justify-center items-center">
             @foreach (['logo-telkom.svg', 'logo-denso.svg', 'logo-klik.svg', 'logo-sinarmas.svg', 'logo-wika.svg', 'logo-adf.svg', 'logo-bnp.svg', 'logo-citraHusada.svg', 'logo-kirana.svg'] as $logo)
                 <img src="{{ asset('assets/logo/' . $logo) }}" class="h-16 object-contain" alt="sponsor">
@@ -104,17 +105,33 @@
 
     <!-- Program Kejuruan -->
     <section id="kejuruan"
-        class="h-[90vh] md-h[50vh] w-full flex flex-col space-y-12 justify-center items-center bg-milk">
+        class="h-fit w-full px-4 md:px-6 py-12 flex flex-col space-y-12 justify-center items-center bg-milk">
         <!-- Text -->
-        <div class="flex flex-col px-6 md:px-0 justify-center items-center space-y-1 md:space-y-3">
-            <h1 class="capitalize gap-4 font-bold text-2xl md:text-4xl"><i
-                    class="fa-solid fa-star-of-life text-secondary"></i> program kejuruan kami <i
-                    class="fa-solid fa-star-of-life text-secondary"></i></h1>
-            <p class="text-center text-xs md:text-base font-semibold text-gray-500 p-3">Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Nulla rhoncus eu ante nec luctus. <br class="hidden md:block"> Maecenas
-                lacus dui, porta eu ullamcorper eget, dignissim at elit. Ut lorem risus, volutpat a risus ut, lobortis
-                aliquet orci.</p>
+        <div class="flex flex-col place-items-center md:block gap-2 md:px-12">
+            <div class="capitalize flex place-items-center w-full items-center justify-center gap-4">
+                <!-- Desktop Heading -->
+                <h1 class="text-4xl font-bold hidden md:block">
+                    <i class="fa-solid fa-star-of-life text-secondary"></i>
+                    program kejuruan kami
+                    <i class="fa-solid fa-star-of-life text-secondary"></i>
+                </h1>
+
+                <!-- Mobile Heading -->
+                <h1 class="capitalize font-bold text-2xl flex items-center gap-2 md:hidden">
+                    <i class="fa-solid fa-star-of-life text-secondary"></i>
+                    program kejuruan
+                    <i class="fa-solid fa-star-of-life text-secondary"></i>
+                </h1>
+            </div>
+
+            <p class="text-sm md:text-base lg:text-lg font-medium text-gray-500 mt-4 px-3 md:px-0 text-center md:text-center">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus eu ante nec luctus.
+                <br class="hidden md:hidden lg:block">
+                Maecenas lacus dui, porta eu ullamcorper eget, dignissim at elit. Ut lorem risus, volutpat a risus ut,
+                lobortis aliquet orci.
+            </p>
         </div>
+
 
         <!-- Swiper -->
 
@@ -150,7 +167,7 @@
 
         <div class="flex justify-center mt-4">
             <a href="#"
-                class="capitalize flex items-center bg-primary border border-primary text-md px-2 py-1 md:px-4 md:py-2 rounded-md text-white hover:bg-transparent hover:text-primary hover:border transition">
+                class="capitalize flex items-center bg-primary border border-primary text-sm md:text-base px-3 py-2 md:px-4 md:py-2 rounded-md text-white hover:bg-transparent hover:text-primary hover:border transition">
                 Lihat seluruh kejuruan <i class="fa-solid fa-arrow-right ml-2"></i>
             </a>
         </div>
@@ -159,20 +176,37 @@
 
     <!-- Pelatihan Unggulan -->
     <section id="pelatihan"
-        class="h-fit px-6 md:px-0 w-full flex flex-col space-y-12 justify-center items-center bg-milk">
+        class="h-fit px-4 md:px-6 py-12 w-full flex flex-col space-y-12 justify-center items-center bg-white border">
         <!-- Title -->
-        <div class="flex flex-col justify-center items-center space-y-3">
-            <h1 class="capitalize font-bold text-md md:text-4xl"><i class="fa-solid fa-star-of-life text-secondary"></i>
-                pelatihan unggulan kami <i class="fa-solid fa-star-of-life text-secondary"></i></h1>
-            <p class="text-justify md:text-center text-sm md:text-base font-semibold text-gray-500 p-3">Lorem ipsum
-                dolor sit amet, consectetur adipiscing elit. Nulla rhoncus eu ante nec luctus. Maecenas lacus dui, porta
-                eu <br> ullamcorper eget, dignissim at elit. Ut lorem risus, volutpat a risus ut, lobortis aliquet orci.
+        <div class="flex flex-col place-items-center md:block gap-2 md:px-12">
+            <div class="capitalize flex place-items-center w-full items-center justify-center gap-4">
+                <!-- Desktop Heading -->
+                <h1 class="text-4xl font-bold hidden md:block">
+                    <i class="fa-solid fa-star-of-life text-secondary"></i>
+                    pelatihan unggulan kami
+                    <i class="fa-solid fa-star-of-life text-secondary"></i>
+                </h1>
+
+                <!-- Mobile Heading -->
+                <h1 class="capitalize font-bold text-2xl flex items-center gap-2 md:hidden">
+                    <i class="fa-solid fa-star-of-life text-secondary"></i>
+                    pelatihan unggulan
+                    <i class="fa-solid fa-star-of-life text-secondary"></i>
+                </h1>
+            </div>
+
+            <p class="text-sm md:text-base lg:text-lg font-medium text-gray-500 mt-4 px-3 md:px-0 text-center md:text-center">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus eu ante nec luctus.
+                <br class="hidden md:hidden lg:block">
+                Maecenas lacus dui, porta eu ullamcorper eget, dignissim at elit. Ut lorem risus, volutpat a risus ut,
+                lobortis aliquet orci.
             </p>
         </div>
 
-        <div class="flex flex-wrap justify-center items-center gap-5 w-full">
+
+        <div class="flex flex-wrap justify-center items-center gap-3 w-full px-12 md:px-2">
             {{-- Card --}}
-            @forelse ($topTrainings as $training)
+            @forelse ($topTrainings->take(3) as $training)
                 <x-card :training="$training" />
             @empty
                 <p class="text-center text-lg text-red-500">
@@ -183,7 +217,7 @@
         </div>
 
         <div class="flex justify-center mt-4">
-            <a href="#"
+            <a href="{{ route('pelatihan') }}"
                 class="capitalize flex items-center text-sm md:text-md bg-primary border border-primary px-4 py-2 rounded-md text-white hover:bg-transparent hover:text-primary hover:border transition">
                 Pelajari lebih lanjut <i class="fa-solid fa-arrow-right ml-2"></i>
             </a>
@@ -193,19 +227,31 @@
     <!-- Pelatihan Unggulan End -->
 
     {{-- Kata Pengguna --}}
-    <section id="katapengguna" class="md:flex flex-col w-full h-auto py-12 md:px-10 md:mb-12 bg-milk">
+    <section id="katapengguna" class="md:flex flex-col w-full h-auto space-y-12 py-12 px-4 md:px-6 md:mb-12 bg-milk">
         <!-- Title -->
-        <div class="flex flex-col place-items-center md:block gap-2 px-6 md:px-32">
-            <div class="flex place-items-center w-full items-center justify-center gap-4">
-                <h1 class="text-4xl font-bold hidden md:block"> Apa kata pengguna kami?</h1>
+        <div class="flex flex-col place-items-center md:block gap-2 md:px-12">
+            <div class="capitalize flex place-items-center w-full items-center justify-center gap-4">
+                <!-- Desktop Heading -->
+                <h1 class="text-4xl font-bold hidden md:block">
+                    <i class="fa-solid fa-star-of-life text-secondary"></i>
+                    apa kata pengguna kami?
+                    <i class="fa-solid fa-star-of-life text-secondary"></i>
+                </h1>
 
-                <h1 class="capitalize font-bold text-md md:text-4xl flex items-center gap-2 md:hidden"><i
-                        class="fa-solid fa-star-of-life text-secondary"></i> apa kata pengguna kami? <i
-                        class="fa-solid fa-star-of-life text-secondary"></i></h1>
+                <!-- Mobile Heading -->
+                <h1 class="capitalize font-bold text-2xl flex items-center gap-2 md:hidden">
+                    <i class="fa-solid fa-star-of-life text-secondary"></i>
+                    apa kata pengguna?
+                    <i class="fa-solid fa-star-of-life text-secondary"></i>
+                </h1>
             </div>
-            <p class="text-sm md:text-lg font-medium text-gray-500 mt-4 text-justify md:text-center">Lorem ipsum dolor
-                sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua.</p>
+
+            <p class="text-sm md:text-base lg:text-lg font-medium text-gray-500 mt-4 px-3 md:px-0 text-center md:text-center">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus eu ante nec luctus.
+                <br class="hidden md:hidden lg:block">
+                Maecenas lacus dui, porta eu ullamcorper eget, dignissim at elit. Ut lorem risus, volutpat a risus ut,
+                lobortis aliquet orci.
+            </p>
         </div>
 
         <!-- Mobile: Auto-Slide Carousel -->
@@ -227,7 +273,7 @@
 
 
         <!-- Desktop: Grid -->
-        <div class="hidden md:grid grid-cols-2 px-32 gap-4 mt-6 place-items-center place-content-center">
+        <div class="hidden md:grid grid-cols-2 px-12 lg:px-32 gap-4 mt-6 place-items-center place-content-center">
             @foreach ([1, 2, 3, 4] as $i)
                 <x-comment-card username="User {{ $i }}" status="Designer at Google"
                     comment="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec vestibulum risus. Ut bibendum congue lacus sed ultrices. Aenean ut risus nulla. In fermentum, eros non euismod dignissim, eros velit posuere ligula, non finibus nulla nisl eget orci. Vestibulum vitae auctor elit, in sagittis felis." />
@@ -237,16 +283,16 @@
     {{-- Kata Pengguna End --}}
 
     {{-- CTA --}}
-    <section class="w-full h-[50vh] my-12 px-12 hidden md:flex justify-center items-center">
-        <div class="w-full h-full rounded-2xl px-24 space-y-8 flex flex-col justify-center"
+    <section class="w-full md:h-[60vh] lg:h-[70vh] my-8 px-12 hidden md:flex justify-center items-center">
+        <div class="w-full h-full rounded-2xl px-12 lg:px-24 space-y-6 lg:space-y-8 flex flex-col justify-center"
             style="background-image: url('assets/backgroundCTA.png'); background-size: cover; object-fit: cover;">
             {{-- Title --}}
             <div>
-                <h1 class="text-6xl text-white font-bold">Lorem Ipsum Dolor <br> Sit Amet Conse.</h1>
+                <h1 class="lg:text-6xl text-4xl text-white font-bold">Lorem Ipsum Dolor <br> Sit Amet Conse.</h1>
             </div>
 
             {{-- Desc --}}
-            <div class="max-w-xl text-white">
+            <div class="max-w-xl text-white text-sm lg:text-base">
                 Corem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac
                 aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                 himenaeos.
@@ -281,18 +327,23 @@
 
     {{-- Article --}}
     <section
-        class="flex flex-col w-full h-fit md:h-[100vh] pb-12 md:pb-0 space-y-6 md:space-y-0 md:my-36 md:px-12 bg-milk">
+        class="flex flex-col w-full h-fit py-12 pb-12 md:pb-8 space-y-6 md:space-y-12 md:my-20 md:px-12  bg-milk ">
         <!-- Title -->
-        <div class="block gap-2 px-0 md:px-32">
-            <div class="flex md:grid grid-cols-4 gap-4 justify-center items-center">
-                <div class="flex w-full justify-center items-center gap-4 md:col-span-1">
-                    <h1 class="hidden md:flex text-md md:text-4xl font-bold"> Artikel Kami</h1>
+        <div class="flex flex-col place-items-center md:block gap-2 md:px-12">
+            <div class="capitalize flex place-items-center w-full items-center justify-center gap-4">
+                <!-- Desktop Heading -->
+                <h1 class="text-4xl font-bold hidden md:block">
+                    <i class="fa-solid fa-star-of-life text-secondary"></i>
+                    Artikel kami
+                    <i class="fa-solid fa-star-of-life text-secondary"></i>
+                </h1>
 
-                    <h1 class="capitalize font-bold text-md md:text-4xl flex items-center gap-2 md:hidden"><i
-                            class="fa-solid fa-star-of-life text-secondary"></i> artikel kami <i
-                            class="fa-solid fa-star-of-life text-secondary"></i></h1>
-                </div>
-                <span class="hidden md:inline-block w-full h-[.5px] bg-black md:col-span-3"></span>
+                <!-- Mobile Heading -->
+                <h1 class="capitalize font-bold text-2xl flex items-center gap-2 md:hidden">
+                    <i class="fa-solid fa-star-of-life text-secondary"></i>
+                    artikel kami
+                    <i class="fa-solid fa-star-of-life text-secondary"></i>
+                </h1>
             </div>
         </div>
 
@@ -314,14 +365,11 @@
         </div>
 
         {{-- Card --}}
-        <div class="hidden md:grid grid-cols-3 gap-4 mt-6 px-24 place-items-center place-content-center">
+        <div class="hidden md:grid grid-cols-3 gap-4 mt-6 px-3 place-items-center place-content-center">
             <x-article image="https://picsum.photos/id/1011/400/250" tag="Teknologi" time="2 Jam yang lalu"
                 title="Lorem Ipsum Dolor Sit Amet Consectetur desplicit Elit Oryza Sativa"
                 description="Lorem Ipsum is simply dummy text of the printing and typesetting industry..." />
             <x-article image="https://picsum.photos/id/1015/400/250" tag="Teknologi" time="2 Jam yang lalu"
-                title="Lorem Ipsum Dolor Sit Amet Consectetur desplicit Elit Oryza Sativa"
-                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry..." />
-            <x-article image="https://picsum.photos/id/1016/400/250" tag="Teknologi" time="2 Jam yang lalu"
                 title="Lorem Ipsum Dolor Sit Amet Consectetur desplicit Elit Oryza Sativa"
                 description="Lorem Ipsum is simply dummy text of the printing and typesetting industry..." />
             <x-article image="https://picsum.photos/id/1016/400/250" tag="Teknologi" time="2 Jam yang lalu"

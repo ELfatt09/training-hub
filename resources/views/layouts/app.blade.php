@@ -38,7 +38,7 @@
         <div class="bg-gray-100">
             @include('partials.navbar')
 
-             <!-- Lower Content -->
+            <!-- Lower Content -->
 
             <!-- Page Heading -->
             @isset($header)
@@ -58,5 +58,6 @@
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+        <script src="https://unpkg.com/flowbite@latest/dist/flowbite.min.js"></script>
     </body>
 </html>
