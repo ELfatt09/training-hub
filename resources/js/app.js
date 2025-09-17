@@ -118,7 +118,7 @@ const swiper = new Swiper('.mySwiper', {
         upperBar.style.transform = "translateY(0)";
         lowerBar.style.transform = "translateY(0)";
         lowerBar.classList.remove("lg:py-4");
-        lowerBar.classList.add("lg:py-0");
+        lowerBar.classList.add("lg:py-4");
       }
     });
   }
