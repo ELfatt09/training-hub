@@ -131,7 +131,7 @@
         <!-- Lower Content End -->
 
        <!-- Tombol hamburger di luar -->
-<div class="md:hidden fixed w-fit right-0 px-4 pt-4 flex items-end justify-end bg-white">
+<div class="md:hidden fixed w-fit right-0 px-4 pt-4 flex items-end justify-end bg-transparent">
   <button id="hamburger" class="text-2xl text-gray-700 focus:outline-none">
     <i class="fa-solid fa-bars"></i>
   </button>
@@ -177,22 +177,5 @@
 </header>
 
     <!-- Script toggle -->
-<script>
-  const hamburger = document.getElementById("hamburger");
-  const menu = document.getElementById("mobile-menu");
-  const closeMenu = document.getElementById("close-menu");
-
-  // buka
-  hamburger.addEventListener("click", () => {
-    menu.classList.remove("translate-x-full");
-    menu.classList.add("translate-x-0");
-  });
-
-  // tutup
-  closeMenu.addEventListener("click", () => {
-    menu.classList.remove("translate-x-0");
-    menu.classList.add("translate-x-full");
-  });
-</script>
 
 

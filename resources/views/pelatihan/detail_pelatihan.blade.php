@@ -16,18 +16,6 @@
         </div>
 
         {{-- Mobile Tabs Nav --}}
-<<<<<<< Updated upstream
-        <div class="md:hidden border-b border-gray-200 mb-4">
-            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
-                <li class="mr-2" role="presentation">
-                    <button class="inline-block p-4 border-b-2 rounded-t-lg" id="konten-tab" data-tabs-target="#main-content" type="button" role="tab" aria-controls="main-content" aria-selected="true">Detail</button>
-                </li>
-                <li class="mr-2" role="presentation">
-                    <button class="inline-block p-4 border-b-2 rounded-t-lg" id="sidebar-tab" data-tabs-target="#sidebar-content" type="button" role="tab" aria-controls="sidebar-content" aria-selected="false">Proses</button>
-                </li>
-            </ul>
-        </div>
-=======
 
         <div class="flex items-center lg:hidden w-full py-4 px-6 justify-between">
                 <div class="flex items-center">
@@ -152,7 +140,6 @@
                         </div>
                     </div>
                 </div>
->>>>>>> Stashed changes
 
         {{-- Main Container --}}
         <div id="myTabContent" class="md:grid md:grid-cols-3 md:gap-8 md:px-16">

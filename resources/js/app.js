@@ -14,21 +14,21 @@ import 'swiper/css/navigation';
 
 
 window.onload = () => {
-    const sortButton = document.getElementById("sortButton");
+ const sortButton = document.getElementById("sortButton");
   const sortMenu = document.getElementById("sort-menu");
   const closeSort = document.getElementById("close-sort");
 
-  // buka
-  sortButton.addEventListener("click", () => {
-    sortMenu.classList.remove("translate-x-full");
-    sortMenu.classList.add("translate-x-0");
-  });
+  if (sortButton && sortMenu && closeSort) {
+    sortButton.addEventListener("click", () => {
+      sortMenu.classList.remove("translate-x-full");
+      sortMenu.classList.add("translate-x-0");
+    });
 
-  // tutup
-  closeSort.addEventListener("click", () => {
-    sortMenu.classList.remove("translate-x-0");
-    sortMenu.classList.add("translate-x-full");
-  });
+    closeSort.addEventListener("click", () => {
+      sortMenu.classList.remove("translate-x-0");
+      sortMenu.classList.add("translate-x-full");
+    });
+  }
 
   const tabsElement = document.getElementById('myTab'); // The UL element with id="myTab"
         const tabContentElement = document.getElementById('myTabContent'); // The container div with id="myTabContent"
@@ -83,26 +83,44 @@ const swiper = new Swiper('.mySwiper', {
   },
 });
 
- const upperBar = document.getElementById("upper-bar");
+  // Hamburger menu
+  const hamburger = document.getElementById("hamburger");
+  const menu = document.getElementById("mobile-menu");
+  const closeMenu = document.getElementById("close-menu");
+
+  if (hamburger && menu && closeMenu) {
+    hamburger.addEventListener("click", () => {
+      menu.classList.remove("translate-x-full");
+      menu.classList.add("translate-x-0");
+    });
+
+    closeMenu.addEventListener("click", () => {
+      menu.classList.remove("translate-x-0");
+      menu.classList.add("translate-x-full");
+    });
+  }
+
+  // Upper/lower bar scroll effect
+  const upperBar = document.getElementById("upper-bar");
   const lowerBar = document.getElementById("lower-bar");
 
-  window.addEventListener("scroll", function () {
-    let currentScroll = window.scrollY;
+  if (upperBar && lowerBar) {
+    window.addEventListener("scroll", function () {
+      let currentScroll = window.scrollY;
 
-    if (currentScroll > 50) {
-      // Kalau sudah turun > 50px → sembunyikan upper-bar + naikkan lower-bar
-      upperBar.style.transform = "translateY(-100%)";
-      lowerBar.style.transform = "translateY(-48px)";
-      lowerBar.classList.remove("lg:py-0"); // ganti sesuai tinggi upper-bar// ganti sesuai tinggi upper-bar
-      lowerBar.classList.add("lg:py-4"); // ganti sesuai tinggi upper-bar// ganti sesuai tinggi upper-bar
-    } else {
-      // Kalau di posisi paling atas → tampilkan lagi
-      upperBar.style.transform = "translateY(0)";
-      lowerBar.style.transform = "translateY(0)";
-      lowerBar.classList.remove("lg:py-4"); 
-      lowerBar.classList.add("lg:py-0"); // ganti sesuai tinggi upper-bar// ganti sesuai tinggi upper-bar
-    }
-  });
+      if (currentScroll > 50) {
+        upperBar.style.transform = "translateY(-100%)";
+        lowerBar.style.transform = "translateY(-48px)";
+        lowerBar.classList.remove("lg:py-0");
+        lowerBar.classList.add("lg:py-4");
+      } else {
+        upperBar.style.transform = "translateY(0)";
+        lowerBar.style.transform = "translateY(0)";
+        lowerBar.classList.remove("lg:py-4");
+        lowerBar.classList.add("lg:py-0");
+      }
+    });
+  }
 };
 // Init swiper
 
