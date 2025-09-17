@@ -54,8 +54,8 @@ window.onload = () => {
         };
 
    const magangSwiper = new Swiper(".magangSwiper", {
-  slidesPerView: 4,
-  spaceBetween: 24,
+  modules: [Navigation], // ← ini penting
+  spaceBetween: 20,
   loop: true,
   navigation: {
     nextEl: ".swiper-button-next",
@@ -67,21 +67,6 @@ window.onload = () => {
     1024: { slidesPerView: 4 },
   },
 });
-
- const swiper = new Swiper('.mySwiper', {
-        modules: [Navigation],
-        slidesPerView: 5,
-        spaceBetween: 20,
-        navigation: {
-          nextEl: ".custom-next",
-          prevEl: ".custom-prev",
-        },
-        breakpoints: {
-          320: { slidesPerView: 2 },
-          640: { slidesPerView: 3 },
-          1024: { slidesPerView: 5 },
-        }
-      });
 
 
   // Hamburger menu
@@ -112,13 +97,13 @@ window.onload = () => {
       if (currentScroll > 50) {
         upperBar.style.transform = "translateY(-100%)";
         lowerBar.style.transform = "translateY(-48px)";
-        lowerBar.classList.remove("lg:py-0");
-        lowerBar.classList.add("lg:py-4");
+        lowerBar.classList.remove("md:py-4");
+        lowerBar.classList.add("md:py-6");
       } else {
         upperBar.style.transform = "translateY(0)";
         lowerBar.style.transform = "translateY(0)";
-        lowerBar.classList.remove("lg:py-4");
-        lowerBar.classList.add("lg:py-0");
+        lowerBar.classList.remove("md:py-6");
+        lowerBar.classList.add("md:py-4");
       }
     });
   }

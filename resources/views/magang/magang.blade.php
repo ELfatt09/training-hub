@@ -97,9 +97,9 @@
                </div>
             </div>
 
-            <div class="relative w-4/5 flex justify-center items-center mx-auto py-6">
-        <div class="swiper magangSwiper gap-6 px-6">
-            <div class="swiper-wrapper gap-6">
+            <div class="relative w-4/5 flex mx-auto py-6">
+        <div class="swiper magangSwiper">
+            <div class="swiper-wrapper flex items-center">
                 @foreach (range(1,10) as $item)
                     <div class="swiper-slide">
                         <x-card-magang 
