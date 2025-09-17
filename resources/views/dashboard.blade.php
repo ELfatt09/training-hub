@@ -1,9 +1,60 @@
-<x-app-layout class="w-full scroll-smooth">
+<x-app-layout class="w-full scroll-smooth">{{-- Top Mobile --}}
+            <div class="flex items-center lg:hidden w-full py-4 px-6 justify-between">
+                <div class="flex items-center">
+                    <img class="w-2/3" src="{{ asset('assets/logo/favicon/logo-trainingHub.svg') }}" alt="">
+                </div>
+
+                @auth
+                    <div class="lg:hidden pr-6">
+                <x-dropdown align="right" width="48">
+                    <x-slot name="trigger">
+                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                            <div>{{ Auth::user()->name }}</div>
+                            <div class="ms-1">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </button>
+                    </x-slot>
+
+                    <x-slot name="content">
+                            <x-dropdown-link class="text-darkoff gap-4" :href="route('profile.edit')">
+                                <i class="fa-solid fa-user"></i>
+                            {{ __('Profile') }}
+                        </x-dropdown-link>
+
+                        <!-- Authentication -->
+                        @auth
+                            <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                                <x-dropdown-link class="text-red-700 gap-4" :href="route('logout')" 
+                                    onclick="event.preventDefault(); this.closest('form').submit();">
+                                    <i class="fa-solid fa-power-off text-sm"></i>
+                                {{ __('Log Out') }}
+                            </x-dropdown-link>
+                        </form>
+                        @endauth
+                        
+                    </x-slot>
+                </x-dropdown>
+            </div>
+                @else
+                <div class="flex items-center justify-end w-1/3">
+                                    <a href="" class="bg-secondary text-white py-2 px-6 rounded-md font-medium">
+                                        Masuk
+                                    </a>
+                            </div>
+                @endauth
+                </div>
+            </div>
+
+
     <!-- Hero -->
     <section id="beranda" class="flex items-center h-fit md:h-[85vh] w-full font-jakarta bg-milk">
         <!-- Left Side -->
         <div
-            class="h-full flex flex-col justify-center items-center md:items-start lg:items-start w-full px-4 py-12 md:w-1/2 md:pt-26 md:px-6 space-y-12">
+            class="h-full flex flex-col justify-center items-center md:items-start lg:items-start w-full px-6 py-6 md:py-12 md:w-1/2 md:pt-26 lg:px-12 space-y-12">
             <!-- Hero text -->
             <div class="space-y-6 mt-0 md:mt-40">
                 <div class="w-full flex flex-col place-items-center md:place-items-start md:space-y-2">
@@ -193,7 +244,7 @@
     <!-- Pelatihan Unggulan End -->
 
     {{-- Kata Pengguna --}}
-    <section id="katapengguna" class="md:flex flex-col w-full h-auto py-12 md:px-10 md:mb-12 bg-milk">
+    <section id="katapengguna" class="md:flex flex-col w-full h-auto space-y-12 py-12 md:mb-12 bg-milk">
         <!-- Title -->
         <div class="flex flex-col place-items-center md:block gap-2 px-6 md:px-32">
             <div class="flex place-items-center w-full items-center justify-center gap-4">
@@ -203,9 +254,13 @@
                         class="fa-solid fa-star-of-life text-secondary"></i> apa kata pengguna kami? <i
                         class="fa-solid fa-star-of-life text-secondary"></i></h1>
             </div>
-            <p class="text-sm md:text-lg font-medium text-gray-500 mt-4 text-justify md:text-center">Lorem ipsum dolor
-                sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua.</p>
+
+            <p class="text-sm md:text-base lg:text-lg font-medium text-gray-500 mt-4 px-8 md:px-6 text-center md:text-center">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus eu ante nec luctus.
+                <br class="hidden md:hidden lg:block">
+                Maecenas lacus dui, porta eu ullamcorper eget, dignissim at elit. Ut lorem risus, volutpat a risus ut,
+                lobortis aliquet orci.
+            </p>
         </div>
 
         <!-- Mobile: Auto-Slide Carousel -->
