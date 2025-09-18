@@ -9,7 +9,6 @@ class LowonganMagang extends Model
     protected $fillable = [
         'id',
         'title',
-        'slug',
         'description',
         'banner',
         'company_name',
@@ -23,4 +22,12 @@ class LowonganMagang extends Model
         'whatsapp_number',
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->slug = \Illuminate\Support\Str::slug($model->title) . '-' . $model->id;
+        });
+    }
 }

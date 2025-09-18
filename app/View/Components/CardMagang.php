@@ -8,24 +8,12 @@ use Illuminate\View\Component;
 
 class CardMagang extends Component
 {
-   public $logo;
-   public $jobdesk;
-   public $perusahaan;
-   public $lokasi;
-   public $tanggalHabis;
+   public $lowonganmagang;
     public function __construct(
-        $logo,
-        $jobdesk,
-        $perusahaan,
-        $lokasi,
-        $tanggalHabis,
+        $lowonganmagang,
     )
     {
-        $this->logo=$logo;
-        $this->jobdesk=$jobdesk;
-        $this->perusahaan=$perusahaan;
-        $this->lokasi=$lokasi;
-        $this->tanggalHabis=$tanggalHabis;
+        $this->lowonganmagang=$lowonganmagang;
     }
 
     /**

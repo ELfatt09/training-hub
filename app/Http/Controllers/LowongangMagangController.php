@@ -12,7 +12,8 @@ class LowongangMagangController extends Controller
      */
     public function index()
     {
-        //
+        $lowonganMagangs = LowonganMagang::all();
+        return view('magang.magang', compact('lowonganMagangs'));
     }
 
     /**
@@ -34,9 +35,11 @@ class LowongangMagangController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(LowonganMagang $LowonganMagang)
+    public function show(String $slug)
     {
-        //
+        $AnotherLowonganMagangs = LowonganMagang::all();
+        $lowonganMagang = LowonganMagang::where('slug', $slug)->first();
+        return view('magang.detail-magang', compact('lowonganMagang', 'AnotherLowonganMagangs'));
     }
 
     /**

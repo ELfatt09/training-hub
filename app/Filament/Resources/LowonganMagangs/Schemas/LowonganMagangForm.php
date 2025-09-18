@@ -7,7 +7,7 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Tables\Columns\Layout\Grid;
+use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
@@ -27,21 +27,25 @@ class LowonganMagangForm
                 ->required()
                 ->maxLength(150),
 
-            TextInput::make('slug')
-                ->label('Slug')
-                ->placeholder('slug-otomatis')
-                ->required()
-                ->unique(ignoreRecord: true),
         ])
-        ->columns(2),
+        ->columns(1),
 
     Section::make('Detail Pekerjaan')
         ->schema([
+            FileUpload::make('banner')
+                ->label('banner')
+                ->image()
+                ->required()
+                ->visibility('public')
+                ->disk('public')
+                ->directory('lowongan-magang/banners/'),
             RichEditor::make('description')
                 ->label('Deskripsi')
                 ->toolbarButtons([
                     'bold',
                     'italic',
+                    'h2',
+                    'h3',
                     'bulletList',
                     'orderedList',
                     'link',
@@ -92,7 +96,9 @@ class LowonganMagangForm
             FileUpload::make('company_logo')
                 ->label('Logo Perusahaan')
                 ->image()
-                ->directory('logos')
+                ->disk('public')
+                ->visibility('public')
+                ->directory('lowongan-magangs/company-logos/')
                 ->imageResizeMode('cover')
                 ->imageCropAspectRatio('1:1')
                 ->maxSize(1024)
