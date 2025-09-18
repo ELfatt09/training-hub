@@ -1,12 +1,11 @@
-<x-app-layout class="w-full scroll-smooth">
-    {{-- Top Mobile --}}
-            <div class="flex items-center md:hidden w-full py-4 px-6 justify-between">
+<x-app-layout class="w-full scroll-smooth">{{-- Top Mobile --}}
+            <div class="flex items-center lg:hidden w-full py-4 px-6 justify-between">
                 <div class="flex items-center">
                     <img class="w-2/3" src="{{ asset('assets/logo/favicon/logo-trainingHub.svg') }}" alt="">
                 </div>
 
                 @auth
-                    <div class="md:hidden pr-6">
+                    <div class="lg:hidden pr-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
@@ -54,7 +53,7 @@
     <section id="beranda" class="flex items-center h-fit md:h-[100vh] w-full font-jakarta bg-milk">
         <!-- Left Side -->
         <div
-            class="h-full flex flex-col justify-center items-center md:items-start lg:items-start w-full px-6 py-12 md:w-1/2 md:pt-26 lg:px-12 space-y-12">
+            class="h-full flex flex-col justify-center items-center md:items-start lg:items-start w-full px-6 py-6 md:py-12 md:w-1/2 md:pt-26 lg:px-12 space-y-12">
             <!-- Hero text -->
             <div class="space-y-6 mt-0 md:mt-32">
                 <div class="w-full flex flex-col place-items-center md:place-items-start md:space-y-2">
@@ -278,7 +277,7 @@
     <!-- Pelatihan Unggulan End -->
 
     {{-- Kata Pengguna --}}
-    <section id="katapengguna" class="md:flex flex-col w-full h-auto space-y-12 py-12 px-0 md:px-6 md:mb-12 bg-milk">
+    <section id="katapengguna" class="md:flex flex-col w-full h-auto space-y-12 py-12 md:mb-12 bg-milk">
         <!-- Title -->
         <div class="flex flex-col place-items-center md:block gap-2 md:px-12">
             <div class="capitalize flex place-items-center w-full items-center justify-center gap-4">
@@ -297,7 +296,7 @@
                 </h1>
             </div>
 
-            <p class="text-sm md:text-base lg:text-lg font-medium text-gray-500 mt-4 px-6 md:px-0 text-center md:text-center">
+            <p class="text-sm md:text-base lg:text-lg font-medium text-gray-500 mt-4 px-8 md:px-6 text-center md:text-center">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus eu ante nec luctus.
                 <br class="hidden md:hidden lg:block">
                 Maecenas lacus dui, porta eu ullamcorper eget, dignissim at elit. Ut lorem risus, volutpat a risus ut,

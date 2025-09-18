@@ -26,16 +26,16 @@
                         </x-dropdown-link>
 
                         <!-- Authentication -->
-                        @auth
-                            <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                                <x-dropdown-link class="text-red-700 gap-4" :href="route('logout')" 
-                                    onclick="event.preventDefault(); this.closest('form').submit();">
-                                    <i class="fa-solid fa-power-off text-sm"></i>
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </form>
-                        @endauth
+                       <form method="POST" action="{{ route('logout') }}">
+    @csrf
+    <x-dropdown-link class="text-red-700 gap-4"
+        href="{{ route('logout') }}"
+        onclick="event.preventDefault(); if (confirm('Are you sure you want to log out?')) { this.closest('form').submit(); }">
+        <i class="fa-solid fa-power-off text-sm"></i>
+        {{ __('Log Out') }}
+    </x-dropdown-link>
+</form>
+
                         
                     </x-slot>
                 </x-dropdown>
