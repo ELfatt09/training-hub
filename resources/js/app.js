@@ -120,6 +120,7 @@ window.onload = () => {
       e.target.value = formatted;
   });
 };
+}
 // Init swiper
 
 
