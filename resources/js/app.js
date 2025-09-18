@@ -98,14 +98,14 @@ window.onload = () => {
       // Kalau sudah turun > 50px → sembunyikan upper-bar + naikkan lower-bar
       upperBar.style.transform = "translateY(-100%)";
       lowerBar.style.transform = "translateY(-48px)";
-      lowerBar.classList.remove("lg:py-0"); // ganti sesuai tinggi upper-bar// ganti sesuai tinggi upper-bar
+      lowerBar.classList.remove("lg:py-4"); // ganti sesuai tinggi upper-bar// ganti sesuai tinggi upper-bar
       lowerBar.classList.add("lg:py-4"); // ganti sesuai tinggi upper-bar// ganti sesuai tinggi upper-bar
     } else {
       // Kalau di posisi paling atas → tampilkan lagi
       upperBar.style.transform = "translateY(0)";
       lowerBar.style.transform = "translateY(0)";
       lowerBar.classList.remove("lg:py-4"); 
-      lowerBar.classList.add("lg:py-0"); // ganti sesuai tinggi upper-bar// ganti sesuai tinggi upper-bar
+      lowerBar.classList.add("lg:py-4"); // ganti sesuai tinggi upper-bar// ganti sesuai tinggi upper-bar
     }
   });
 
