@@ -48,11 +48,11 @@
             @method('delete')
 
             <h2 class="text-lg font-medium text-gray-900">
-                {{ __('Are you sure you want to delete your account?') }}
+                {{ __('Kamu yakin mau hapus akun kamu?') }}
             </h2>
 
             <p class="mt-1 text-sm text-gray-600">
-                {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
+                {{ __('Ketika kamu menghapus akun kamu akan kehilangan semua data dan perkembanagan pada akun ini, konfirmasi hapus akun dengan mengetikkan password di bawah') }}
             </p>
 
             <div class="mt-6">
@@ -63,7 +63,7 @@
                     name="password"
                     type="password"
                     class="mt-1 block w-3/4"
-                    placeholder="{{ __('Password') }}"
+                    placeholder="{{ __('Kata Sandi') }}"
                 />
 
                 <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
