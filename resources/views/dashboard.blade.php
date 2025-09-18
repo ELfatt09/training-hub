@@ -1,52 +1,97 @@
 <x-app-layout class="w-full scroll-smooth">
     {{-- Top Mobile --}}
-            <div class="flex items-center md:hidden w-full py-4 px-6 justify-between">
-=========
-<x-app-layout class="w-full scroll-smooth">{{-- Top Mobile --}}
             <div class="flex items-center lg:hidden w-full py-4 px-6 justify-between">
->>>>>>>>> Temporary merge branch 2
                 <div class="flex items-center">
                     <img class="w-2/3" src="{{ asset('assets/logo/favicon/logo-trainingHub.svg') }}" alt="">
                 </div>
 
+                 @auth
+                                        <x-modal name="logout-modal" maxWidth="sm" :show="$errors->logout->isNotEmpty()" focusable @class(['rounded-full'])>
+                                          <div class="w-full flex justify-center items-center pt-6 mb-10">
+                                              <div class="py-7 px-6 w-fit bg-black text-white text-6xl rounded-full">
+                                                <i class="fa-solid fa-door-open"></i>
+                                            </div>
+                                          </div>
+
+                                          <div class="w-full flex justify-center items-center text-xl text-center text-pretty font-medium px-4 mb-4">
+                                            <h1>
+                                              Anda akan keluar dari sesi pengguna aktif
+                                            </h1>
+                                          </div>
+
+                                          <form method="POST" class="mb-4" action="{{ route('logout') }}">
+                                        @csrf
+                                       <div class="flex justify-center items-center w-full px-12">
+                                            <h1
+                                              x-on:click.prevent="$dispatch('close-modal', 'logout-modal')"
+                                              class="flex items-center justify-center text-red-600 bg-transparent border border-red-600 px-6 py-1 hover:bg-red-600 hover:text-white rounded-md w-full">
+                                              Batal
+                                            </h1>
+                                       </div>
+                                            <x-dropdown-link class="flex justify-center items-center w-full" :href="route('logout')" 
+                                                onclick="event.preventDefault(); this.closest('form').submit();">
+                                            <h1 class="flex items-center justify-center text-white bg-red-600 border border-red-600 px-[5.7rem] py-2 hover:bg-transparent hover:text-red-600 rounded-md w-fit">Keluar Sekarang</h1>
+                                        </x-dropdown-link>
+                                    </form>
+                                        </x-modal>
+                                    @endauth
+
                 @auth
-<<<<<<<<< Temporary merge branch 1
-                    <div class="md:hidden pr-6">
-=========
                     <div class="lg:hidden pr-6">
->>>>>>>>> Temporary merge branch 2
-                <x-dropdown align="right" width="48">
-                    <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            <div>{{ Auth::user()->name }}</div>
-                            <div class="ms-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                        </button>
-                    </x-slot>
+                <x-dropdown align="right" width="60">
+                                <x-slot name="trigger">
+                                    <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                        <div>{{ Auth::user()->name }}</div>
+                                        <div class="ms-1">
+                                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </button>
+                                </x-slot>
 
-                    <x-slot name="content">
-                            <x-dropdown-link class="text-darkoff gap-4" :href="route('profile.edit')">
-                                <i class="fa-solid fa-user"></i>
-                            {{ __('Profile') }}
-                        </x-dropdown-link>
+                                <x-slot name="content">
+                                        <x-dropdown-link class="text-darkoff gap-4 border-b border-gray-300 mb-2 space-y-2" :href="route('profile.edit')">
+                                            <i class="fa-solid fa-user"></i>
+                                        {{ __('Profile') }}
 
-                        <!-- Authentication -->
-                        @auth
-                            <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                                <x-dropdown-link class="text-red-700 gap-4" :href="route('logout')" 
-                                    onclick="event.preventDefault(); this.closest('form').submit();">
-                                    <i class="fa-solid fa-power-off text-sm"></i>
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </form>
-                        @endauth
-                        
-                    </x-slot>
-                </x-dropdown>
+                                      <div class="gap-2 divide-x-2 flex text-xs text-darkoff">
+                                      <div>
+                                          <h1>
+                                            1 Pelajaran Diikuti
+                                          </h1>
+                                      </div>
+                                      <div class="pl-2">
+                                          <h1>
+                                            2 Kelas Diikuti
+                                          </h1>
+                                      </div>
+                                    </div>
+                                    </x-dropdown-link>
+
+                                    <div class="border-b border-gray-300 mb-2 px-4 py-2">
+                                      <div class=" text-darkoff hover:text-primary">
+                                        <a href="{{ route('dashboard') }}">Beranda</a>
+                                      </div>
+                                      <div class=" text-darkoff hover:text-primary">
+                                        <a href="{{ route('pelatihan') }}">Kelas</a>
+                                      </div>
+                                    </div>
+
+                                    <!-- Authentication -->
+
+                                    <button
+                                    class="w-full"
+                                    x-data=""
+                                    x-on:click.prevent="$dispatch('open-modal', 'logout-modal')">
+                                        @csrf
+                                            <x-dropdown-link class="text-red-700 gap-4">
+                                                <i class="fa-solid fa-power-off text-sm"></i>
+                                            {{ __('Log Out') }}
+                                        </x-dropdown-link>
+                                    </button> 
+                                </x-slot>
+                            </x-dropdown>
             </div>
                 @else
                 <div class="flex items-center justify-end w-1/3">
@@ -56,21 +101,12 @@
                             </div>
                 @endauth
                 </div>
-            </div>
 
-<<<<<<<<< Temporary merge branch 1
-=========
-
->>>>>>>>> Temporary merge branch 2
     <!-- Hero -->
     <section id="beranda" class="flex items-center h-fit md:h-[100vh] w-full font-jakarta bg-milk">
         <!-- Left Side -->
         <div
-<<<<<<<<< Temporary merge branch 1
-            class="h-full flex flex-col justify-center items-center md:items-start lg:items-start w-full px-6 py-12 md:w-1/2 md:pt-26 lg:px-12 space-y-12">
-=========
             class="h-full flex flex-col justify-center items-center md:items-start lg:items-start w-full px-6 py-6 md:py-12 md:w-1/2 md:pt-26 lg:px-12 space-y-12">
->>>>>>>>> Temporary merge branch 2
             <!-- Hero text -->
             <div class="space-y-6 mt-0 md:mt-32">
                 <div class="w-full flex flex-col place-items-center md:place-items-start md:space-y-2">
@@ -294,11 +330,7 @@
     <!-- Pelatihan Unggulan End -->
 
     {{-- Kata Pengguna --}}
-<<<<<<<<< Temporary merge branch 1
-    <section id="katapengguna" class="md:flex flex-col w-full h-auto space-y-12 py-12 px-0 md:px-6 md:mb-12 bg-milk">
-=========
     <section id="katapengguna" class="md:flex flex-col w-full h-auto space-y-12 py-12 md:mb-12 bg-milk">
->>>>>>>>> Temporary merge branch 2
         <!-- Title -->
         <div class="flex flex-col place-items-center md:block gap-2 md:px-12">
             <div class="capitalize flex place-items-center w-full items-center justify-center gap-4">
@@ -317,11 +349,7 @@
                 </h1>
             </div>
 
-<<<<<<<<< Temporary merge branch 1
-            <p class="text-sm md:text-base lg:text-lg font-medium text-gray-500 mt-4 px-6 md:px-0 text-center md:text-center">
-=========
             <p class="text-sm md:text-base lg:text-lg font-medium text-gray-500 mt-4 px-8 md:px-6 text-center md:text-center">
->>>>>>>>> Temporary merge branch 2
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus eu ante nec luctus.
                 <br class="hidden md:hidden lg:block">
                 Maecenas lacus dui, porta eu ullamcorper eget, dignissim at elit. Ut lorem risus, volutpat a risus ut,
