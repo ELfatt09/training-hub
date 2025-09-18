@@ -78,17 +78,17 @@
             <div class="flex lg:justify-between items-end w-4/5">
                <div class="space-y-2">
                     <div class="text-primary capitalize font-bold text-xl lg:text-3xl text-center lg:text-start">
-                        <h1>magang dalam negeri</h1>
+                        <h1>Lowongan magang di TrainingHub</h1>
                     </div>
 
                     <div class="text-black font-semibold text-sm lg:text-xl text-center lg:text-start">
                         <h2>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                            Temukan lowongan magang terbaru
                         </h2>
                     </div>
 
                     <div class="text-darkoff text-xs lg:text-medium font-medium max-w-2xl text-center lg:text-start">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque consectetur nihil nobis quibusdam tempora voluptates. Praesentium totam debitis quaerat optio.</p>
+                        <p>Magang-magang yang tersedia di TrainingHub akan membantu Anda dalam meningkatkan kemampuan dan keterampilan Anda dalam bekerja. Kami akan membantu Anda dalam mengembangkan kemampuan dan keterampilan Anda dalam bekerja.</p>
                     </div>
                </div>
 
@@ -99,13 +99,11 @@
 
             <div class="relative w-4/5 flex mx-auto py-6">
         <div class="w-full whitespace-nowrap overflow-x-scroll ">
-            <div class=" flex items-center">
+            <div class=" flex items-center space-x-4">
                 @foreach ($lowonganMagangs as $lowonganMagang)
-                    <div class="swiper-slide">
                         <x-card-magang 
                             :lowonganmagang="$lowonganMagang"
                         />
-                    </div>
                 @endforeach
             </div>
         </div>

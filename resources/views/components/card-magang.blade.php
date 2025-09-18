@@ -1,17 +1,17 @@
   {{-- Single Card --}}
-        <div class="max-w-[17.8rem] h-[40vh] w-full flex flex-col justify-center space-y-4 px-4 border border-primary bg-white rounded-xl">
+        <div class="max-w-[17.8rem] h-fit py-4 w-full flex flex-col justify-center space-y-4 px-4 border border-primary bg-white rounded-xl">
             {{-- Logo --}}
             <div class="flex items-center justify-center">
                 <img class="w-24" src="{{ asset("storage/".$lowonganmagang->company_logo) }}" alt="">
             </div>
 
             {{-- Desc --}}
-            <div class="capitalize">
+            <div class="capitalize text-darkoff">
                 <div>
-                    <h1>{{ $lowonganmagang->title }}</h1>
+                    <h1 class="text-black text-xl ">{{ $lowonganmagang->title }}</h1>
                 </div>
                 <div>
-                    <h1>{{ $lowonganmagang->company_name }}</h1>
+                    <h1 class="text-lg ">{{ $lowonganmagang->company_name }}</h1>
                 </div>
                 <div>
                     <h1>{{ $lowonganmagang->residence }}</h1>
