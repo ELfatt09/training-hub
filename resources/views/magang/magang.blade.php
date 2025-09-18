@@ -93,21 +93,17 @@
                </div>
 
                <div class="hidden lg:block underline text-primary capitalize mr-6">
-                    <a href="{{ 'detail-magang' }}">lihat lebih banyak</a>
+                    <a href="{{ route('detail-magang', ['slug'=> $lowonganMagangs->first()->slug]) }}">lihat lebih banyak</a>
                </div>
             </div>
 
             <div class="relative w-4/5 flex mx-auto py-6">
-        <div class="swiper magangSwiper">
-            <div class="swiper-wrapper flex items-center">
-                @foreach (range(1,10) as $item)
+        <div class="w-full whitespace-nowrap overflow-x-scroll ">
+            <div class=" flex items-center">
+                @foreach ($lowonganMagangs as $lowonganMagang)
                     <div class="swiper-slide">
                         <x-card-magang 
-                            logo="{{ asset('assets/logo/logo-wika.svg') }}"
-                            jobdesk="Petani"
-                            perusahaan="PT Sinar Jaya"
-                            lokasi="Tambun"
-                            tanggalHabis="10 Mei 2025"
+                            :lowonganmagang="$lowonganMagang"
                         />
                     </div>
                 @endforeach
@@ -115,21 +111,7 @@
         </div>
 
              <!-- Prev Button -->
-            <button 
-            class="swiper-button-prev -ml-[2.4rem] lg:-ml-12 absolute top-1/2 -translate-y-1/2 
-                    bg-white p-3 rounded-full shadow hover:bg-teal-100 
-                    [&::after]:hidden">
-                <i class="fa-solid fa-chevron-left text-teal-600"></i>
-            </button>
 
-            <!-- Next Button -->
-            <button 
-            class="swiper-button-next -mr-[2.4rem] lg:-mr-6 absolute top-1/2 -translate-y-1/2
-                    bg-white p-3 rounded-full shadow hover:bg-teal-100 
-                    [&::after]:hidden">
-                <i class="fa-solid fa-chevron-right text-teal-600"></i>
-            </button>
-            </div>
         </div>
     {{-- Section 2 --}}
 
@@ -273,7 +255,7 @@
                     </div>
 
                     <div>
-                        <a href="{{ route('detail-magang') }}"
+                        <a href="{{ route('detail-magang', ['slug'=> $lowonganMagangs->first()->slug]) }}"
                             class="bg-secondary px-4 py-2 text-white rounded-md font-medium text-sm lg:text-xl">
                             Jelajahi Lowongan Magang
                         </a>

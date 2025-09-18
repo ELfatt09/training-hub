@@ -2,26 +2,26 @@
         <div class="max-w-[17.8rem] h-[40vh] w-full flex flex-col justify-center space-y-4 px-4 border border-primary bg-white rounded-xl">
             {{-- Logo --}}
             <div class="flex items-center justify-center">
-                <img class="w-24" src="{{ $logo }}" alt="">
+                <img class="w-24" src="{{ asset("storage/".$lowonganmagang->company_logo) }}" alt="">
             </div>
 
             {{-- Desc --}}
             <div class="capitalize">
                 <div>
-                    <h1>{{ $jobdesk }}</h1>
+                    <h1>{{ $lowonganmagang->title }}</h1>
                 </div>
                 <div>
-                    <h1>{{ $perusahaan }}</h1>
+                    <h1>{{ $lowonganmagang->company_name }}</h1>
                 </div>
                 <div>
-                    <h1>{{ $lokasi }}</h1>
+                    <h1>{{ $lowonganmagang->residence }}</h1>
                 </div>
             </div>
 
             {{-- Status --}}
             <div class="flex text-xs text-primary justify-between">
                 <div class="font-bold">
-                    <h1>Berakhir <span>{{ $tanggalHabis }}</span></h1>
+                    <h1>mulai pada <span>{{ $lowonganmagang->start_date }}</span></h1>
                 </div>
                 <div class="underline font-semibold">
                     <a href="">Lihat Detail</a>

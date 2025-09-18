@@ -70,21 +70,21 @@
                                         <div class="p-4 md:p-5">
                                             <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, possimus?</p>
                                             <ul class="my-4 space-y-3">
-                                                <li>
+                                                {{-- <li>
                                                     <a href="#" class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
                                                         <i class="fa-solid fa-envelope mr-2 text-secondary"></i> Gmail
                                                     </a>
-                                                </li>
+                                                </li> --}}
                                                 <li>
-                                                    <a href="#" class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+                                                    <a href="https://wa.me/{{ $lowonganMagang->whatsapp_number}}" class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
                                                         <i class="fa-brands fa-whatsapp mr-2 text-secondary"></i> Whatsapp
                                                     </a>
                                                 </li>
-                                                <li>
+                                                {{-- <li>
                                                     <a href="#" class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
                                                         <i class="fa-brands fa-linkedin mr-2 text-secondary"></i> LinkedIn
                                                     </a>
-                                                </li>
+                                                </li> --}}
                                             </ul>
                                             <div>
                                                 <a href="#" class="inline-flex items-center text-xs font-normal text-gray-500 hover:underline dark:text-gray-400">
@@ -142,45 +142,38 @@
     <div class="flex flex-col place-items-center justify-center items-center lg:grid grid-cols-4 gap-6 p-6" id="magangTabs" data-tabs-toggle="#default-tab-content" role="tablist">
         <!-- Kiri: List Lowongan -->
         <div class="col-span-1 space-y-4 lg:pl-12">
-            <button id="low1-tab" data-tabs-target="#low1" type="button" role="tab"
-                aria-controls="low1" aria-selected="false"
+            @foreach ($AnotherLowonganMagangs as $AnotherLowonganMagang)
+                <button id="low{{ $AnotherLowonganMagang->id }}-tab" data-tabs-target="#low{{ $AnotherLowonganMagang->id }}" type="button" role="tab"
+                aria-controls="low{{ $AnotherLowonganMagang->id }}" aria-selected="false"
                 class="w-full text-left px-4 py-2 border rounded-lg space-y-4 bg-white hover:bg-gray-50">
                 <div class="w-full flex items-center justify-between">
                     <div>
-                        <h3 class="text-teal-600 font-semibold text-sm">Magang Petani Terong</h3>
-                        <p class="text-xs text-darkoff">Wika (PT. Lorem Ipsum Dolor)</p>
+                        <h3 class="text-teal-600 font-semibold text-sm">{{ $AnotherLowonganMagang->title }}</h3>
+                        <p class="text-xs text-darkoff">{{ $AnotherLowonganMagang->company_name }}</p>
                     </div>
                     <div class="flex justify-between items-center">
-                        <img src="{{ asset('assets/logo/logo-wika.svg') }}" class="w-20 h-20">
+                        <img src="{{ asset('storage/'. $AnotherLowonganMagang->company_logo) }}" class="w-20 h-20">
                     </div>
                 </div>
 
                 <div class="text-darkoff font-medium text-sm">
                     <div>
-                        <h1>Jawa Barat, Bekasi, Tambun</h1>
-                        <h1>Rp 500.000 - Rp 1.000.000,- / Bulan</h1>
+                        <h1>{{ $AnotherLowonganMagang->residence }}</h1>
+                        <h1>Rp {{ number_format($lowonganMagang->minimum_salary, 0, ',', '.') }} - Rp {{ number_format($lowonganMagang->maximum_salary, 0, ',', '.') }},-/Bulan</h1>
                     </div>
                 </div>
 
-                <ul class="list-disc ml-4 text-sm text-darkoff">
-                    <li>
-                        <h1>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora magni laudantium eius vitae, eos voluptatum.
-                        </h1>
-                    </li>
-                    <li>
-                        <h1>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora magni laudantium eius vitae, eos voluptatum.
-                        </h1>
-                    </li>
-                </ul>
-
-                <div class="text-darkoff text-xs">
-                    <p>2 hari yang lalu</p>
+                <div class="ml-4 text-sm text-darkoff ">
+                    {!! Str::limit(html_entity_decode($AnotherLowonganMagang->description), 200) !!}
+                </div>
+                <div class="text-darkoff text-xs mt-5">
+                    <p>{{ \Carbon\Carbon::parse($AnotherLowonganMagang->created_at)->locale('id_ID')->diffForHumans() }}</p>
                 </div>
             </button>
+            @endforeach
+            
 
-            <button id="low2-tab" data-tabs-target="#low2" type="button" role="tab"
+            {{-- <button id="low2-tab" data-tabs-target="#low2" type="button" role="tab"
                 aria-controls="low2" aria-selected="false"
                 class="w-full text-left px-4 py-2 border rounded-lg space-y-4 bg-white hover:bg-gray-50">
                 <div class="w-full flex items-center justify-between">
@@ -330,22 +323,22 @@
                 <div class="text-darkoff text-xs">
                     <p>2 hari yang lalu</p>
                 </div>
-            </button>
+            </button> --}}
         </div>
 
         <!-- Kanan: Detail -->
-        <div class="hidden lg:block col-span-3 pr-12 h-full relative">
-            <div id="default-tab-content" class="sticky top-28 h-[85vh] overflow-y-auto rounded-2xl bg-white shadow">
+        <div class="hidden w-full lg:block col-span-3  pr-12 h-full relative">
+            <div class="sticky top-28 w-full h-auto rounded-2xl mt-5 bg-white shadow">
                 <!-- Detail Low1 -->
-                <div class="w-full h-[85vh] rounded-t-2xl overflow-y-scroll bg-white shadow" id="low1" role="tabpanel" aria-labelledby="low1-tab">
-                    <img src="https://picsum.photos/800/300" class="rounded-none md:rounded-t-2xl mb-4 w-full" />
+                <div class="w-full h-[85vh] rounded-t-2xl overflow-y-scroll bg-white shadow">
+                    <img src="{{ asset('storage/'. $lowonganMagang->banner) }}" class="rounded-none md:rounded-t-2xl mb-4 max-h-[20rem] object-cover w-full" />
                     <div class="px-6 py-4 space-y-8">
                         <div class="flex items-center justify-between w-full">
                             <div class="block md:flex items-center gap-3">
-                                <img src="{{ asset('assets/logo/logo-wika.svg') }}" class="w-20 h-20" />
+                                <img src="{{ asset('storage/'. $lowonganMagang->company_logo) }}" class="w-20 h-20" />
                                 <div class="px-0 md:px-6">
-                                    <h3 class="text-xl font-semibold text-teal-600">Magang Petani Terong</h3>
-                                    <p class="text-gray-500">Wika (PT. Lorem Ipsum Dolor)</p>
+                                    <h3 class="text-xl font-semibold text-teal-600">{{ $lowonganMagang->title }}</h3>
+                                    <p class="text-gray-500">{{ $lowonganMagang->company_name }}</p>
                                 </div>
                             </div>
 
@@ -359,11 +352,11 @@
                             </div>
                         </div>
 
-                        <div class="pl-1 text-xl text-secondary font-medium">
+                        {{-- <div class="pl-1 text-xl text-secondary font-medium">
                             <h1>
                                 <i class="fa-solid fa-star"></i> <span class="text-sm text-darkoff">4.6</span> &middot; <span class="underline text-darkoff text-sm">100 Ulasan</span>
                             </h1>
-                        </div>
+                        </div> --}}
 
                         <div>
                             <ul class="text-darkoff space-y-2 mb-4">
@@ -371,31 +364,29 @@
                                     <span class="text-secondary text-xl w-8 flex justify-center">
                                         <i class="fa-solid fa-location-dot"></i>
                                     </span>
-                                    Jawa Barat, Bekasi, Tambun
+                                    {{ $lowonganMagang->residence }}
                                 </li>
                                 <li class="flex items-center">
                                     <span class="text-secondary text-xl w-8 flex justify-center">
                                         <i class="fa-solid fa-map-pin"></i>
                                     </span>
-                                    Ladang Terong dan Jagung
+                                    {{ $lowonganMagang->location }}
                                 </li>
                                 <li class="flex items-center">
                                     <span class="text-secondary text-xl w-8 flex justify-center">
                                         <i class="fa-solid fa-clock"></i>
                                     </span>
-                                    Full Time / Part Time
+                                    {{ $lowonganMagang->type }}
                                 </li>
                                 <li class="flex items-center">
                                     <span class="text-secondary text-xl w-8 flex justify-center">
                                         <i class="fa-solid fa-money-bill"></i>
                                     </span>
-                                    Rp 500.000 - Rp 1.000.000,- / Bulan
-                                </li>
+                                    Rp {{ number_format($lowonganMagang->minimum_salary, 0, ',', '.') }} - Rp {{ number_format($lowonganMagang->maximum_salary, 0, ',', '.') }},-/Bulan
                             </ul>
 
                             <p class="text-xs text-secondary">
-                                2 Hari Yang Lalu
-                            </p>
+                                {{ \Carbon\Carbon::parse($lowonganMagang->created_at)->locale('id_ID')->diffForHumans() }}
                         </div>
 
                         <div class="flex gap-6">      
@@ -405,210 +396,22 @@
                             </button>
                         </div>  
                         
-                        <div class="text-justify">
+                        {{-- <div class="text-justify">
                             <p>
                                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio eius nulla cum qui delectus exercitationem earum enim quisquam velit dolorem iste non suscipit nemo aliquam deleniti, fugiat perspiciatis facere laudantium, recusandae repellat! Laudantium atque quis inventore totam dolores iusto voluptatum!
                             </p>
-                        </div>
-
-                        <div class="text-darkoff space-y-2">
-                            <div class="uppercase text-secondary font-medium text-2xl"> 
-                                <h1>
-                                    Lorem ipsum dolor
-                                </h1>
-                            </div>
-
-                            <div class="text-justify">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum nostrum architecto debitis, ipsam neque nisi, quidem ullam suscipit ex, eligendi veritatis minus aperiam obcaecati? Fugiat qui, amet omnis quibusdam, nemo iste porro reprehenderit necessitatibus esse beatae consequuntur aperiam eaque nisi, consectetur doloribus. Doloribus numquam dolore soluta quis, omnis reiciendis. Esse officia temporibus eum quidem tempora reiciendis vitae obcaecati. Officiis iste ipsa optio molestiae voluptas accusantium? A quisquam cumque cum? Placeat quaerat fuga vero asperiores praesentium, repellat quisquam natus necessitatibus voluptatibus.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="text-darkoff space-y-2">
-                            <div class="uppercase text-secondary font-medium text-2xl">
-                                <h1>
-                                    Lorem ipsum dolor
-                                </h1>
-                            </div>
-
-                            <div class="text-justify">
-                                <ul class="list-disc px-6 gap-4">
-                                    <li>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, voluptates?
-                                    </li>
-                                    <li>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, voluptates?
-                                    </li>
-                                    <li>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, voluptates?
-                                    </li>
-                                    <li>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, voluptates?
-                                    </li>
-                                    <li>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, voluptates?
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="text-darkoff space-y-2">
-                            <div class="uppercase text-secondary font-medium text-2xl">
-                                <h1>
-                                    Lorem ipsum dolor
-                                </h1>
-                            </div>
-
-                            <div class="text-justify text-pretty">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro facere qui quas, suscipit officia recusandae nemo? Veniam animi numquam eligendi!
-                                </p>
-                            </div>
+                        </div> --}}
+                        <div class="flex flex-col space-y-4 text-justify
+                                text-darkoff text-md
+                                [&>h2]:text-secondary [&>h2]:text-3xl
+                                [&>h3]:text-black [&>h3]:text-2xl">
+                            {!! $lowonganMagang->description !!}
                         </div>
                     </div>
                 </div>
 
                 <!-- Detail Low2 -->
-                <div class="w-full h-fit rounded-2xl bg-white shadow" id="low2" role="tabpanel" aria-labelledby="low2-tab">
-                    <img src="https://picsum.photos/800/300" class="rounded-t-2xl mb-4 w-full" />
-                    <div class="px-6 py-4 space-y-8">
-                        <div class="flex items-center justify-between w-full">
-                            <div class="flex items-center gap-3">
-                                <img src="{{ asset('assets/logo/logo-sinarmas.svg') }}" class="w-20 h-20" />
-                                <div class="px-6">
-                                    <h3 class="text-xl font-semibold text-teal-600">Jual Sinar warna Mas</h3>
-                                    <p class="text-gray-500">Sinarmas (PT. Lorem Ipsum Dolor)</p>
-                                </div>
-                            </div>
-
-                            <div class="flex gap-8 text-2xl text-primary">
-                                <div>
-                                    <i class="fa-solid fa-share-nodes"></i>
-                                </div>
-                                <div>
-                                    <i class="fa-solid fa-ellipsis-vertical"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="pl-1 text-xl text-secondary font-medium">
-                            <h1>
-                                <i class="fa-solid fa-star"></i> <span class="text-sm text-darkoff">4.6</span> &middot; <span class="underline text-darkoff text-sm">100 Ulasan</span>
-                            </h1>
-                        </div>
-
-                        <div>
-                            <ul class="text-darkoff space-y-2 mb-4">
-                                <li class="flex items-center">
-                                    <span class="text-secondary text-xl w-8 flex justify-center">
-                                        <i class="fa-solid fa-location-dot"></i>
-                                    </span>
-                                    Jawa Barat, Bekasi, Tambun
-                                </li>
-                                <li class="flex items-center">
-                                    <span class="text-secondary text-xl w-8 flex justify-center">
-                                        <i class="fa-solid fa-map-pin"></i>
-                                    </span>
-                                    Ladang Terong dan Jagung
-                                </li>
-                                <li class="flex items-center">
-                                    <span class="text-secondary text-xl w-8 flex justify-center">
-                                        <i class="fa-solid fa-clock"></i>
-                                    </span>
-                                    Full Time / Part Time
-                                </li>
-                                <li class="flex items-center">
-                                    <span class="text-secondary text-xl w-8 flex justify-center">
-                                        <i class="fa-solid fa-money-bill"></i>
-                                    </span>
-                                    Rp 500.000 - Rp 1.000.000,- / Bulan
-                                </li>
-                            </ul>
-
-                            <p class="text-xs text-secondary">
-                                2 Hari Yang Lalu
-                            </p>
-                        </div>
-
-                        <div class="flex gap-6">
-                                <div>
-                                    <a href=""
-                                        class="bg-primary border border-primary rounded-md px-4 py-2 text-white hover:bg-transparent hover:text-primary transition-all">
-                                        Lamaran Cepat
-                                    </a>
-                                </div>
-                                <div>
-                                    <a href=""
-                                        class="bg-secondary border border-secondary rounded-md px-4 py-2 text-white hover:bg-transparent hover:text-secondary transition-all">
-                                        Kontak Perusahaan
-                                    </a>
-                                </div>
-                        </div>  
-                        
-                        <div class="text-justify">
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio eius nulla cum qui delectus exercitationem earum enim quisquam velit dolorem iste non suscipit nemo aliquam deleniti, fugiat perspiciatis facere laudantium, recusandae repellat! Laudantium atque quis inventore totam dolores iusto voluptatum!
-                            </p>
-                        </div>
-
-                        <div class="text-darkoff space-y-2">
-                            <div class="uppercase text-secondary font-medium text-2xl">
-                                <h1>
-                                    Lorem ipsum dolor
-                                </h1>
-                            </div>
-
-                            <div class="text-justify">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum nostrum architecto debitis, ipsam neque nisi, quidem ullam suscipit ex, eligendi veritatis minus aperiam obcaecati? Fugiat qui, amet omnis quibusdam, nemo iste porro reprehenderit necessitatibus esse beatae consequuntur aperiam eaque nisi, consectetur doloribus. Doloribus numquam dolore soluta quis, omnis reiciendis. Esse officia temporibus eum quidem tempora reiciendis vitae obcaecati. Officiis iste ipsa optio molestiae voluptas accusantium? A quisquam cumque cum? Placeat quaerat fuga vero asperiores praesentium, repellat quisquam natus necessitatibus voluptatibus.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="text-darkoff space-y-2">
-                            <div class="uppercase text-secondary font-medium text-2xl">
-                                <h1>
-                                    Lorem ipsum dolor
-                                </h1>
-                            </div>
-
-                            <div class="text-justify">
-                                <ul class="list-disc px-6 gap-4">
-                                    <li>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, voluptates?
-                                    </li>
-                                    <li>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, voluptates?
-                                    </li>
-                                    <li>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, voluptates?
-                                    </li>
-                                    <li>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, voluptates?
-                                    </li>
-                                    <li>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, voluptates?
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="text-darkoff space-y-2">
-                            <div class="uppercase text-secondary font-medium text-2xl">
-                                <h1>
-                                    Lorem ipsum dolor
-                                </h1>
-                            </div>
-
-                            <div class="text-justify text-pretty">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro facere qui quas, suscipit officia recusandae nemo? Veniam animi numquam eligendi!
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
 
             </div>
         </div>

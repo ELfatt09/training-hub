@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Homepage;
+use App\Http\Controllers\LowongangMagangController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\TrainingMaterialController;
@@ -24,17 +25,13 @@ Route::prefix('pelatihan')->group(function () {
 });
 
 
-Route::get('/magang', function(){
-    return view('magang/magang');
-})->name('magang');
+Route::get('/magang', [LowongangMagangController::class, 'index'])->name('magang');
 
 Route::get('/sertifikasi', function(){
     return view('pelatihan/sertifikasi');
 })->name('sertifikasi');
 
-Route::get('/detail-magang', function(){
-    return view('magang/detail-magang');
-})->name('detail-magang');
+Route::get('/detail-magang/{slug}', [LowongangMagangController::class, 'show'])->name('detail-magang');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
