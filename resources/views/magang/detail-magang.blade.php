@@ -330,7 +330,7 @@
         <div class="hidden w-full lg:block col-span-3  pr-12 h-full relative">
             <div class="sticky top-28 w-full h-auto rounded-2xl mt-5 bg-white shadow">
                 <!-- Detail Low1 -->
-                <div class="w-full h-[85vh] rounded-t-2xl overflow-y-scroll bg-white shadow">
+                <div class="w-full h-[85vh] rounded-t-2xl overflow-y-scroll bg-white shadow" id="low1" role="tabpanel" aria-labelledby="low1-tab">
                     <img src="{{ asset('storage/'. $lowonganMagang->banner) }}" class="rounded-none md:rounded-t-2xl mb-4 max-h-[20rem] object-cover w-full" />
                     <div class="px-6 py-4 space-y-8">
                         <div class="flex items-center justify-between w-full">
