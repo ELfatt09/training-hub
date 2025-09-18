@@ -119,5 +119,5 @@ const swiper = new Swiper('.mySwiper', {
   });
 };
 // Init swiper
-
+}
 
