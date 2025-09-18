@@ -17,18 +17,11 @@
         @csrf
         @method('patch')
 
-        <div class="grid grid-cols-2 gap-6">
-            <div class="col-span-1">
-                <x-input-label for="name" :value="__('Nama Depan')" />
+        <div class="w-full">
+                <x-input-label for="name" :value="__('Nama Lengkap')" />
                 <x-text-input id="name" name="name" type="text" class="w-full mt-1 block" :value="old('name', $user->name)" required autofocus autocomplete="name" />
                 <x-input-error class="mt-2" :messages="$errors->get('name')" />
             </div>
-            <div class="col-span-1">
-                <x-input-label for="name" :value="__('Nama Belakang')" />
-                <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
-                <x-input-error class="mt-2" :messages="$errors->get('name')" />
-            </div>
-        </div>
 
         <div>
             <x-input-label for="email" :value="__('Alamat Email')" />
