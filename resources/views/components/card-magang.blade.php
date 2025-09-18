@@ -6,7 +6,7 @@
             </div>
 
             {{-- Desc --}}
-            <div class="capitalize">
+            <div class="capitalize text-darkoff">
                 <div>
                     <h1><i class="fa-solid fa-briefcase mr-2 text-secondary"></i> {{ $lowonganmagang->title }}</h1>
                 </div>
