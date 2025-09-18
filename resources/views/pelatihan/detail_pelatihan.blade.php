@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" /> --}}
 
-    <section class="w-full lg:pt-32 pb-0 lg:pb-8 bg-milk font-jakarta">
+    <section class="w-full lg:pt-32 pb-0 lg:pb-0 bg-milk font-jakarta">
         
-        <nav class="px-16 mb-4 hidden lg:flex" aria-label="Breadcrumb">
+        <nav class="px-16 hidden lg:flex" aria-label="Breadcrumb">
         <ol class="inline-flex items-center space-x-1 lg:space-x-2 rtl:space-x-reverse">
             <li class="inline-flex items-center">
             <a href="{{ route('dashboard') }}" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-primary dark:text-gray-400 dark:hover:text-primary">
@@ -158,10 +158,10 @@
                 </div>
 
         {{-- Main Container --}}
-        <div id="myTabContent" class="lg:grid lg:grid-cols-3 lg:gap-8 lg:px-16">
+        <div id="myTabContent" class="lg:grid lg:grid-cols-3 lg:gap-8 lg:px-16 lg:py-6 bg-milk">
 
             {{-- Left Column --}}
-            <div class="col-span-2 pb-12 space-y-2 lg:space-y-8 px-4 lg:px-0" id="deskripsi-content" role="tabpanel" aria-labelledby="konten-tab">
+            <div class="col-span-2 pb-12 space-y-2 lg:space-y-8 px-4 lg:p-4 rounded-lg bg-white" id="deskripsi-content" role="tabpanel" aria-labelledby="konten-tab">
                 {{-- Image --}}
                 <div class="hidden lg:block w-full h-[40vh]">
                     <img class="object-cover w-full h-full rounded-lg" src="{{ asset('storage/' . $training->banner) }}" alt="Gambar">
