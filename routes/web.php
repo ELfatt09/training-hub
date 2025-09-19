@@ -4,6 +4,7 @@ use App\Http\Controllers\Homepage;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\TrainingMaterialController;
+use App\Http\Controllers\TrainingsSubscriberController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -14,15 +15,22 @@ Route::get('/dashboard', function () {
     return Homepage::index();
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/detail-pelatihan/{slug}', [TrainingController::class, 'show'])->name('detail-pelatihan');
+Route::prefix('pelatihan')->group(function () {
+    Route::get('/{slug}', [TrainingController::class, 'show'])->name('detail-pelatihan');
+    Route::get('/', [TrainingController::class, 'index'])->name('pelatihan');
+    Route::get('/materi/{slug}', [TrainingMaterialController::class, 'show'])->name('pelatihan.materi');
+    Route::post('/daftar', [TrainingsSubscriberController::class, 'store'])->name('pelatihan.daftar');
+    Route::get('/penyelesaian/{trainingSubscriberId}', [TrainingsSubscriberController::class, 'trainingCompletion'])->name('pelatihan.penyelesaian');
+});
 
-Route::get('/pelatihan', [TrainingController::class, 'index'])->name('pelatihan');
-
-Route::get('pelatihan/{slug}', [TrainingMaterialController::class, 'show'])->name('pelatihan.materi');
 
 Route::get('/magang', function(){
     return view('magang/magang');
 })->name('magang');
+
+Route::get('/sertifikasi', function(){
+    return view('pelatihan/sertifikasi');
+})->name('sertifikasi');
 
 Route::get('/detail-magang', function(){
     return view('magang/detail-magang');

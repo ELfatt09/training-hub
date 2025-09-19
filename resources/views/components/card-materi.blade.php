@@ -1,4 +1,4 @@
-<div id="accordion-open-{{ $accordionid }}" data-accordion="open" class="w-full mx-auto">
+
         <div id="accordion-open-heading-{{ $accordionid }}-{{ $index }}">
             <button type="button" 
                 class="flex items-center justify-between w-full p-4 font-medium text-left text-gray-700 bg-white border-y-darkoff border"
@@ -8,11 +8,24 @@
                 
                 {{-- Title & Description --}}
                 <div class="flex items-center gap-3">
+                    
+                                        @if($open == true)
+                    @if ($completed)
                     <div class="w-8 h-8 flex items-center justify-center rounded-full bg-teal-500 text-white font-bold">
                         ✓
                     </div>
+                    @else
+                    <div class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-500 text-white font-bold">
+                        {{ $accordionid }}
+                    </div>
+                    @endif
+                    @else
+                    <div class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-500 text-white font-bold">
+                        X
+                    </div>
+                    @endif
                     <div>
-                        <div class="text-md md:text-xl font-bold">
+                        <div class="text-md md:text-xl font-bold {{ $open == true ? 'text-black' : 'text-gray-600'}}">
                             <h1>{{ $section->title }}</h1>
                         </div>
                         <div class="text-xs flex gap-4">
@@ -42,4 +55,4 @@
                 @endforeach
             </div>
         </div>
-</div>
+

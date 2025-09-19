@@ -1,37 +1,34 @@
 import './bootstrap';
-
 import Alpine from 'alpinejs';
+import 'flowbite';
+import { Tabs } from 'flowbite';
 
 window.Alpine = Alpine;
-
 Alpine.start();
 
-// Import core Swiper JS
+// Swiper (modular import)
 import Swiper from 'swiper';
-
-// Import Swiper styles
+import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-// Import modul navigasi
-import { Navigation } from 'swiper/modules';
 
 window.onload = () => {
-    const sortButton = document.getElementById("sortButton");
+ const sortButton = document.getElementById("sortButton");
   const sortMenu = document.getElementById("sort-menu");
   const closeSort = document.getElementById("close-sort");
 
-  // buka
-  sortButton.addEventListener("click", () => {
-    sortMenu.classList.remove("translate-x-full");
-    sortMenu.classList.add("translate-x-0");
-  });
+  if (sortButton && sortMenu && closeSort) {
+    sortButton.addEventListener("click", () => {
+      sortMenu.classList.remove("translate-x-full");
+      sortMenu.classList.add("translate-x-0");
+    });
 
-  // tutup
-  closeSort.addEventListener("click", () => {
-    sortMenu.classList.remove("translate-x-0");
-    sortMenu.classList.add("translate-x-full");
-  });
+    closeSort.addEventListener("click", () => {
+      sortMenu.classList.remove("translate-x-0");
+      sortMenu.classList.add("translate-x-full");
+    });
+  }
 
   const tabsElement = document.getElementById('myTab'); // The UL element with id="myTab"
         const tabContentElement = document.getElementById('myTabContent'); // The container div with id="myTabContent"
@@ -54,43 +51,48 @@ window.onload = () => {
             // tabs.show('sidebar-content'); // To show the 'Proses' tab
         } else {
             console.error('Flowbite Tabs: Could not find the required tab elements.');
-        }
-
-const swiper = new Swiper('.mySwiper', {
-  modules: [Navigation],
-  slidesPerView: 5,
-  spaceBetween: 20,
-  navigation: {
-    nextEl: ".custom-next",
-    prevEl: ".custom-prev",
-  },
-  breakpoints: {
-    320: { slidesPerView: 2 },
-    640: { slidesPerView: 3 },
-    1024: { slidesPerView: 5 },
-  }
-});
+        };
 
    const magangSwiper = new Swiper(".magangSwiper", {
-    modules: [Navigation],
-    slidesPerView: 4,
-    loop: true,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    breakpoints: {
-      640: { slidesPerView: 1 },
-      768: { slidesPerView: 2 },
-      1024: { slidesPerView: 4 },
-    },
-  });
+  modules: [Navigation], // ← ini penting
+  spaceBetween: 20,
+  loop: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    640: { slidesPerView: 1 },
+    768: { slidesPerView: 2 },
+    1024: { slidesPerView: 4 },
+  },
+});
 
- const upperBar = document.getElementById("upper-bar");
+
+  // Hamburger menu
+  const hamburger = document.getElementById("hamburger");
+  const menu = document.getElementById("mobile-menu");
+  const closeMenu = document.getElementById("close-menu");
+
+  if (hamburger && menu && closeMenu) {
+    hamburger.addEventListener("click", () => {
+      menu.classList.remove("translate-x-full");
+      menu.classList.add("translate-x-0");
+    });
+
+    closeMenu.addEventListener("click", () => {
+      menu.classList.remove("translate-x-0");
+      menu.classList.add("translate-x-full");
+    });
+  }
+
+  // Upper/lower bar scroll effect
+  const upperBar = document.getElementById("upper-bar");
   const lowerBar = document.getElementById("lower-bar");
 
-  window.addEventListener("scroll", function () {
-    let currentScroll = window.scrollY;
+  if (upperBar && lowerBar) {
+    window.addEventListener("scroll", function () {
+      let currentScroll = window.scrollY;
 
     if (currentScroll > 50) {
       // Kalau sudah turun > 50px → sembunyikan upper-bar + naikkan lower-bar
@@ -106,7 +108,19 @@ const swiper = new Swiper('.mySwiper', {
       lowerBar.classList.add("lg:py-0"); // ganti sesuai tinggi upper-bar// ganti sesuai tinggi upper-bar
     }
   });
+
+    document.getElementById("phoneInput").addEventListener("input", function(e) {
+      // Ambil angka aja (hapus semua selain 0-9)
+      let value = e.target.value.replace(/\D/g, "");
+      
+      // Bikin format dengan "-" tiap 4 digit
+      let formatted = value.match(/.{1,4}/g)?.join("-") || "";
+      
+      // Update input
+      e.target.value = formatted;
+  });
 };
+}
 // Init swiper
 
 

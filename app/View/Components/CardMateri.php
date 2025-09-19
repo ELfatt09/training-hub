@@ -11,16 +11,22 @@ class CardMateri extends Component
     public $section;
     public $index;
     public $accordionid;
+    public $open;
+    public $completed;
 
     public function __construct(
         $section,
         $index,
-        $accordionid
+        $accordionid,
+        $open=false,
+        $completed=false
     )
     {
         $this->section=$section;
         $this->index=$index;
         $this->accordionid=$accordionid;
+        $this->open=$open;
+        $this->completed=$completed;
     }
 
     /**

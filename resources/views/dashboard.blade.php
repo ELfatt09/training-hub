@@ -1,9 +1,116 @@
 <x-app-layout class="w-full scroll-smooth">
+    {{-- Top Mobile --}}
+            <div class="flex items-center lg:hidden w-full py-4 px-6 justify-between">
+                <div class="flex items-center">
+                    <img class="w-2/3" src="{{ asset('assets/logo/favicon/logo-trainingHub.svg') }}" alt="">
+                </div>
+
+                 @auth
+                                        <x-modal name="logout-modal" maxWidth="sm" :show="$errors->logout->isNotEmpty()" focusable @class(['rounded-full'])>
+                                          <div class="w-full flex justify-center items-center pt-6 mb-10">
+                                              <div class="py-7 px-6 w-fit bg-black text-white text-6xl rounded-full">
+                                                <i class="fa-solid fa-door-open"></i>
+                                            </div>
+                                          </div>
+
+                                          <div class="w-full flex justify-center items-center text-xl text-center text-pretty font-medium px-4 mb-4">
+                                            <h1>
+                                              Anda akan keluar dari sesi pengguna aktif
+                                            </h1>
+                                          </div>
+
+                                          <form method="POST" class="mb-4" action="{{ route('logout') }}">
+                                        @csrf
+                                       <div class="flex justify-center items-center w-full px-12">
+                                            <h1
+                                              x-on:click.prevent="$dispatch('close-modal', 'logout-modal')"
+                                              class="flex items-center justify-center text-red-600 bg-transparent border border-red-600 px-6 py-1 hover:bg-red-600 hover:text-white rounded-md w-full">
+                                              Batal
+                                            </h1>
+                                       </div>
+                                            <x-dropdown-link class="flex justify-center items-center w-full" :href="route('logout')" 
+                                                onclick="event.preventDefault(); this.closest('form').submit();">
+                                            <h1 class="flex items-center justify-center text-white bg-red-600 border border-red-600 px-[5.7rem] py-2 hover:bg-transparent hover:text-red-600 rounded-md w-fit">Keluar Sekarang</h1>
+                                        </x-dropdown-link>
+                                    </form>
+                                        </x-modal>
+                                    @endauth
+
+                @auth
+                    <div class="lg:hidden pr-6">
+                <x-dropdown align="right" width="60">
+                                <x-slot name="trigger">
+                                    <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                        <div>{{ Auth::user()->name }}</div>
+                                        <div class="ms-1">
+                                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </button>
+                                </x-slot>
+
+                                <x-slot name="content">
+                                        <x-dropdown-link class="text-darkoff gap-4 border-b border-gray-300 mb-2 space-y-2" :href="route('profile.edit')">
+                                            <i class="fa-solid fa-user"></i>
+                                        {{ __('Profile') }}
+
+                                      <div class="gap-2 divide-x-2 flex text-xs text-darkoff">
+                                      <div>
+                                          <h1>
+                                            1 Pelajaran Diikuti
+                                          </h1>
+                                      </div>
+                                      <div class="pl-2">
+                                          <h1>
+                                            2 Kelas Diikuti
+                                          </h1>
+                                      </div>
+                                    </div>
+                                    </x-dropdown-link>
+
+                                    <div class="border-b border-gray-300 mb-2 px-4 py-2">
+                                      <div class=" text-darkoff hover:text-primary">
+                                        <a href="{{ route('dashboard') }}">Beranda</a>
+                                      </div>
+                                      <div class=" text-darkoff hover:text-primary">
+                                        <a href="{{ route('pelatihan') }}">Kelas</a>
+                                      </div>
+                                    </div>
+
+                                    <!-- Authentication -->
+
+                                    <button
+                                    class="w-full"
+                                    x-data=""
+                                    x-on:click.prevent="$dispatch('open-modal', 'logout-modal')">
+                                        @csrf
+                                            <x-dropdown-link class="text-red-700 gap-4">
+                                                <i class="fa-solid fa-power-off text-sm"></i>
+                                            {{ __('Log Out') }}
+                                        </x-dropdown-link>
+                                    </button> 
+                                </x-slot>
+                            </x-dropdown>
+            </div>
+                @else
+                <div class="flex items-center justify-end w-1/3">
+                                    <a href="" class="bg-secondary text-white py-2 px-6 rounded-md font-medium">
+                                        Masuk
+                                    </a>
+                            </div>
+                @endauth
+                </div>
+
     <!-- Hero -->
     <section id="beranda" class="flex items-center h-fit md:h-[100vh] w-full font-jakarta bg-milk">
         <!-- Left Side -->
         <div
+<<<<<<< HEAD
             class="h-full flex flex-col justify-center items-center md:items-start lg:items-start w-full py-12 md:w-1/2 md:pt-26 md:pl-6 lg:pl-12 space-y-12">
+=======
+            class="h-full flex flex-col justify-center items-center md:items-start lg:items-start w-full px-6 py-6 md:py-12 md:w-1/2 md:pt-26 lg:px-12 space-y-12">
+>>>>>>> 005f7ed5aebd872b2b509552444eebe91a8f45d9
             <!-- Hero text -->
             <div class="space-y-6 mt-0 md:mt-32">
                 <div class="w-full flex flex-col place-items-center md:place-items-start md:space-y-2">
@@ -176,7 +283,11 @@
 
     <!-- Pelatihan Unggulan -->
     <section id="pelatihan"
+<<<<<<< HEAD
         class="h-fit px-4 md:px-6 py-12 w-full flex flex-col space-y-12 justify-center items-center bg-white">
+=======
+        class="h-fit px-4 md:px-6 py-12 w-full flex flex-col space-y-12 justify-center items-center bg-milk border">
+>>>>>>> 005f7ed5aebd872b2b509552444eebe91a8f45d9
         <!-- Title -->
         <div class="flex flex-col place-items-center md:block gap-2 md:px-12">
             <div class="capitalize flex place-items-center w-full items-center justify-center gap-4">
@@ -217,8 +328,8 @@
         </div>
 
         <div class="flex justify-center mt-4">
-            <a href="#"
-                class="capitalize flex items-center text-sm md:text-base bg-primary border border-primary px-4 py-2 rounded-md text-white hover:bg-transparent hover:text-primary hover:border transition">
+            <a href="{{ route('pelatihan') }}"
+                class="capitalize flex items-center text-sm md:text-md bg-primary border border-primary px-4 py-2 rounded-md text-white hover:bg-transparent hover:text-primary hover:border transition">
                 Pelajari lebih lanjut <i class="fa-solid fa-arrow-right ml-2"></i>
             </a>
         </div>
@@ -227,7 +338,7 @@
     <!-- Pelatihan Unggulan End -->
 
     {{-- Kata Pengguna --}}
-    <section id="katapengguna" class="md:flex flex-col w-full h-auto space-y-12 py-12 px-4 md:px-6 md:mb-12 bg-milk">
+    <section id="katapengguna" class="md:flex flex-col w-full h-auto space-y-12 py-12 md:mb-12 bg-milk">
         <!-- Title -->
         <div class="flex flex-col place-items-center md:block gap-2 md:px-12">
             <div class="capitalize flex place-items-center w-full items-center justify-center gap-4">
@@ -246,7 +357,11 @@
                 </h1>
             </div>
 
+<<<<<<< HEAD
             <p class="text-sm md:text-base font-medium text-gray-500 mt-4 px-3 md:px-0 text-center md:text-center">
+=======
+            <p class="text-sm md:text-base lg:text-lg font-medium text-gray-500 mt-4 px-8 md:px-6 text-center md:text-center">
+>>>>>>> 005f7ed5aebd872b2b509552444eebe91a8f45d9
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus eu ante nec luctus.
                 <br class="hidden md:hidden lg:block">
                 Maecenas lacus dui, porta eu ullamcorper eget, dignissim at elit. Ut lorem risus, volutpat a risus ut,
