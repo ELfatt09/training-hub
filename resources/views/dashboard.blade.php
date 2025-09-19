@@ -3,7 +3,7 @@
     <section id="beranda" class="flex items-center h-fit md:h-[100vh] w-full font-jakarta bg-milk">
         <!-- Left Side -->
         <div
-            class="h-full flex flex-col justify-center items-center md:items-start lg:items-start w-full px-6 py-12 md:w-1/2 md:pt-26 lg:px-12 space-y-12">
+            class="h-full flex flex-col justify-center items-center md:items-start lg:items-start w-full py-12 md:w-1/2 md:pt-26 md:pl-6 lg:pl-12 space-y-12">
             <!-- Hero text -->
             <div class="space-y-6 mt-0 md:mt-32">
                 <div class="w-full flex flex-col place-items-center md:place-items-start md:space-y-2">
@@ -17,7 +17,7 @@
                 </div>
 
                 <div>
-                    <p class="text-sm md:text-base text-center md:text-start font-jakarta font-medium text-darkoff">The
+                    <p class="text-sm lg:text-base text-center md:text-start font-jakarta font-medium text-darkoff px-7 md:px-0 lg:pr-8">The
                         standard chunk of Lorem Ipsum
                         used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from
                         "de Finibus Bonorum et Malorum".</p>
@@ -27,7 +27,7 @@
 
             <!-- Button -->
             <div class=" md:flex justify-between items-center place-items-center gap-6">
-                <div class="md:flex flex-row gap-3">
+                <div class="md:flex flex-row gap-6">
                     <a class="w-fit col-span-1 bg-primary border-2 font-semibold border-primary hover:bg-transparent hover:text-primary hover:border-primary transition text-white rounded-md py-2 px-6 text-md md:text-md lg:text-xl"
                         href="">Lorem Ipsum</a>
 
@@ -47,36 +47,36 @@
         <!-- Left Side -->
 
         <!-- Right Side -->
-        <div class="hidden md:flex flex-col justify-end mt-40 px-20 w-1/2 h-[50vh]">
+        <div class="hidden md:flex flex-col justify-end mt-40 px-12 lg:px-20 w-1/2 h-[50vh]">
             <!-- Image -->
             <div class="w-full h-full flex">
                 <img class="w-full h-5/6 shadow-solid-teal rounded-md" src="https://picsum.photos/id/0/200/300"
                     alt="">
             </div>
-            <div class="bg-white w-fit h-fit px-4 py-2 shadow-lg absolute top-36 lg:top-40 right-10 rounded-md">
+            <div class="bg-white w-fit h-fit px-4 py-2 shadow-lg absolute top-36 lg:top-40 right-4 lg:right-10 rounded-md">
                 <h1 class="text-lg lg:text-xl">Lorem Ipsum</h1>
                 <p class="text-sm lg:text-base">Lorem ipsum dolor sit amet.</p>
             </div>
             <!-- Image End -->
 
             <!-- Stats -->
-            <div class="grid grid-cols-4 gap-2 font-jakarta">
+            <div class="grid grid-cols-4 gap-2 font-jakarta w-full">
                 <!-- Single Stats -->
                 <div class="flex col-span-1 flex-col place-items-center">
                     <h1 class="text-primary font-extrabold text-xl">500+</h1>
-                    <h2 class="font-semibold text-sm lg:text-base">Lorem Ipsum</h2>
+                    <h2 class="font-semibold text-xs text-center lg:text-base">Lorem Ipsum</h2>
                 </div>
                 <div class="flex col-span-1 flex-col place-items-center">
                     <h1 class="text-primary font-extrabold text-xl">500+</h1>
-                    <h2 class="font-semibold text-sm lg:text-base">Lorem Ipsum</h2>
+                    <h2 class="font-semibold text-xs text-center lg:text-base">Lorem Ipsum</h2>
                 </div>
                 <div class="flex col-span-1 flex-col place-items-center">
                     <h1 class="text-primary font-extrabold text-xl">500+</h1>
-                    <h2 class="font-semibold text-sm lg:text-base">Lorem Ipsum</h2>
+                    <h2 class="font-semibold text-xs text-center lg:text-base">Lorem Ipsum</h2>
                 </div>
                 <div class="flex col-span-1 flex-col place-items-center">
                     <h1 class="text-primary font-extrabold text-xl">500+</h1>
-                    <h2 class="font-semibold text-sm lg:text-base">Lorem Ipsum</h2>
+                    <h2 class="font-semibold text-xs text-center lg:text-base">Lorem Ipsum</h2>
                 </div>
                 <!-- Single Stats End -->
             </div>
@@ -124,7 +124,7 @@
                 </h1>
             </div>
 
-            <p class="text-sm md:text-base lg:text-lg font-medium text-gray-500 mt-4 px-3 md:px-0 text-center md:text-center">
+            <p class="text-sm md:text-base font-medium text-gray-500 mt-4 px-3 md:px-0 text-center md:text-center">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus eu ante nec luctus.
                 <br class="hidden md:hidden lg:block">
                 Maecenas lacus dui, porta eu ullamcorper eget, dignissim at elit. Ut lorem risus, volutpat a risus ut,
@@ -176,7 +176,7 @@
 
     <!-- Pelatihan Unggulan -->
     <section id="pelatihan"
-        class="h-fit px-4 md:px-6 py-12 w-full flex flex-col space-y-12 justify-center items-center bg-white border">
+        class="h-fit px-4 md:px-6 py-12 w-full flex flex-col space-y-12 justify-center items-center bg-white">
         <!-- Title -->
         <div class="flex flex-col place-items-center md:block gap-2 md:px-12">
             <div class="capitalize flex place-items-center w-full items-center justify-center gap-4">
@@ -195,7 +195,7 @@
                 </h1>
             </div>
 
-            <p class="text-sm md:text-base lg:text-lg font-medium text-gray-500 mt-4 px-3 md:px-0 text-center md:text-center">
+            <p class="text-sm md:text-base font-medium text-gray-500 mt-4 px-3 md:px-0 text-center md:text-center">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus eu ante nec luctus.
                 <br class="hidden md:hidden lg:block">
                 Maecenas lacus dui, porta eu ullamcorper eget, dignissim at elit. Ut lorem risus, volutpat a risus ut,
@@ -246,7 +246,7 @@
                 </h1>
             </div>
 
-            <p class="text-sm md:text-base lg:text-lg font-medium text-gray-500 mt-4 px-3 md:px-0 text-center md:text-center">
+            <p class="text-sm md:text-base font-medium text-gray-500 mt-4 px-3 md:px-0 text-center md:text-center">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus eu ante nec luctus.
                 <br class="hidden md:hidden lg:block">
                 Maecenas lacus dui, porta eu ullamcorper eget, dignissim at elit. Ut lorem risus, volutpat a risus ut,
@@ -327,15 +327,15 @@
 
     {{-- Article --}}
     <section
-        class="flex flex-col w-full h-fit py-12 pb-12 md:pb-8 space-y-6 md:space-y-12 md:my-20 md:px-12  bg-milk ">
+        class="flex flex-col w-full h-fit py-12 pb-12 md:pb-8 space-y-6 md:space-y-12 md:my-20 md:px-12 px-4 bg-milk ">
         <!-- Title -->
-        <div class="flex flex-col place-items-center md:block gap-2 md:px-12">
+        <div class="flex flex-col place-items-center justify-center md:block gap-2 px-4 md:px-12">
             <div class="capitalize flex place-items-center w-full items-center justify-center gap-4">
                 <!-- Desktop Heading -->
-                <h1 class="text-4xl font-bold hidden md:block">
+                <h1 class="text-4xl font-bold hidden w-fit md:block">
                     <i class="fa-solid fa-star-of-life text-secondary"></i>
                     Artikel kami
-                    <i class="fa-solid fa-star-of-life text-secondary"></i>
+                    
                 </h1>
 
                 <!-- Mobile Heading -->
@@ -344,6 +344,8 @@
                     artikel kami
                     <i class="fa-solid fa-star-of-life text-secondary"></i>
                 </h1>
+
+                <div class="hidden md:block w-1/2 h-[1px] bg-secondary"></div>
             </div>
         </div>
 
@@ -364,17 +366,30 @@
             {{-- Tambah card lainnya --}}
         </div>
 
-        {{-- Card --}}
-        <div class="hidden md:grid grid-cols-3 gap-4 mt-6 px-3 place-items-center place-content-center">
-            <x-article image="https://picsum.photos/id/1011/400/250" tag="Teknologi" time="2 Jam yang lalu"
-                title="Lorem Ipsum Dolor Sit Amet Consectetur desplicit Elit Oryza Sativa"
-                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry..." />
-            <x-article image="https://picsum.photos/id/1015/400/250" tag="Teknologi" time="2 Jam yang lalu"
-                title="Lorem Ipsum Dolor Sit Amet Consectetur desplicit Elit Oryza Sativa"
-                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry..." />
-            <x-article image="https://picsum.photos/id/1016/400/250" tag="Teknologi" time="2 Jam yang lalu"
-                title="Lorem Ipsum Dolor Sit Amet Consectetur desplicit Elit Oryza Sativa"
-                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry..." />
+        {{-- Card Large --}}
+        <div class="hidden md:block">
+            <div class="hidden md:grid grid-cols-3 gap-4 mt-6 px-3 place-items-center place-content-center">
+                <x-article image="https://picsum.photos/id/1011/400/250" tag="Teknologi" time="2 Jam yang lalu"
+                    title="Lorem Ipsum Dolor Sit Amet Consectetur desplicit Elit Oryza Sativa"
+                    description="Lorem Ipsum is simply dummy text of the printing and typesetting industry..." />
+                <x-article image="https://picsum.photos/id/1015/400/250" tag="Teknologi" time="2 Jam yang lalu"
+                    title="Lorem Ipsum Dolor Sit Amet Consectetur desplicit Elit Oryza Sativa"
+                    description="Lorem Ipsum is simply dummy text of the printing and typesetting industry..." />
+                <x-article image="https://picsum.photos/id/1016/400/250" tag="Teknologi" time="2 Jam yang lalu"
+                    title="Lorem Ipsum Dolor Sit Amet Consectetur desplicit Elit Oryza Sativa"
+                    description="Lorem Ipsum is simply dummy text of the printing and typesetting industry..."/>
+            </div>
+            <div class="hidden md:grid grid-cols-3 gap-4 mt-6 px-3 place-items-center place-content-center">
+                <x-article image="https://picsum.photos/id/1011/400/250" tag="Teknologi" time="2 Jam yang lalu"
+                    title="Lorem Ipsum Dolor Sit Amet Consectetur desplicit Elit Oryza Sativa"
+                    description="Lorem Ipsum is simply dummy text of the printing and typesetting industry..." />
+                <x-article image="https://picsum.photos/id/1015/400/250" tag="Teknologi" time="2 Jam yang lalu"
+                    title="Lorem Ipsum Dolor Sit Amet Consectetur desplicit Elit Oryza Sativa"
+                    description="Lorem Ipsum is simply dummy text of the printing and typesetting industry..." />
+                <x-article image="https://picsum.photos/id/1016/400/250" tag="Teknologi" time="2 Jam yang lalu"
+                    title="Lorem Ipsum Dolor Sit Amet Consectetur desplicit Elit Oryza Sativa"
+                    description="Lorem Ipsum is simply dummy text of the printing and typesetting industry..." />
+            </div>
         </div>
         {{-- Card --}}
 
